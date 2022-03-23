@@ -9,21 +9,21 @@ import UIKit
 
 class OTPViewController: UIViewController {
 
+    @IBOutlet weak var verifyButton: UIButton!
+    @IBOutlet weak var otpView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+       cornerRadius()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func cornerRadius() {
+        otpView.layer.cornerRadius = 40
+        otpView.layer.borderWidth = 5
+        otpView.layer.borderColor = UIColor(rgb: 0x60C8FF).cgColor
+        verifyButton.layer.cornerRadius = verifyButton.frame.size.height / 2
     }
-    */
 
 }

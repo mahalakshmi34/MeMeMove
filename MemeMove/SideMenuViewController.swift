@@ -6,12 +6,19 @@
 //
 
 import UIKit
+import SideMenu
 
 class SideMenuViewController: UIViewController {
+    
+    var animationOptions: UIView.AnimationOptions = .curveEaseIn
+    static let menuSlideIn: SideMenuPresentationStyle = .viewSlideOutMenuPartialIn
+  
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         // Do any additional setup after loading the view.
     }
     

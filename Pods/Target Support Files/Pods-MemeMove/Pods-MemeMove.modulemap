@@ -1,0 +1,6 @@
+framework module Pods_MemeMove {
+  umbrella header "Pods-MemeMove-umbrella.h"
+
+  export *
+  module * { export * }
+}

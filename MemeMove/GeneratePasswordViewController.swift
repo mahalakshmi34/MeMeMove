@@ -8,22 +8,23 @@
 import UIKit
 
 class GeneratePasswordViewController: UIViewController {
-
+    
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var passwordGenerationView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        cornerRadius()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func cornerRadius() {
+        passwordGenerationView.layer.cornerRadius = 40
+        passwordGenerationView.layer.borderWidth = 5
+        passwordGenerationView.layer.borderColor = UIColor(rgb: 0x60C8FF).cgColor
+        submitButton.layer.cornerRadius = submitButton.frame.size.height / 2
     }
-    */
+
+   
 
 }
