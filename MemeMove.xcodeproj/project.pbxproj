@@ -15,6 +15,7 @@
 		933D479C27E1C0F500954445 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933D479B27E1C0F500954445 /* ForgotPasswordViewController.swift */; };
 		933D479E27E1C88500954445 /* GeneratePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933D479D27E1C88500954445 /* GeneratePasswordViewController.swift */; };
 		933D47A027E1E53C00954445 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933D479F27E1E53C00954445 /* OTPViewController.swift */; };
+		93E1925027EC3F8600587666 /* DeliveryPackageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1924F27EC3F8600587666 /* DeliveryPackageViewController.swift */; };
 		93E8D40327E0736C00D6B8E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E8D40227E0736C00D6B8E8 /* AppDelegate.swift */; };
 		93E8D40527E0736C00D6B8E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E8D40427E0736C00D6B8E8 /* SceneDelegate.swift */; };
 		93E8D40727E0736C00D6B8E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E8D40627E0736C00D6B8E8 /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 		933D479B27E1C0F500954445 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		933D479D27E1C88500954445 /* GeneratePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratePasswordViewController.swift; sourceTree = "<group>"; };
 		933D479F27E1E53C00954445 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		93E1924F27EC3F8600587666 /* DeliveryPackageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryPackageViewController.swift; sourceTree = "<group>"; };
 		93E8D3FF27E0736C00D6B8E8 /* MemeMove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E8D40227E0736C00D6B8E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93E8D40427E0736C00D6B8E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				93E8D40427E0736C00D6B8E8 /* SceneDelegate.swift */,
 				93E8D40627E0736C00D6B8E8 /* ViewController.swift */,
 				93E8D40827E0736C00D6B8E8 /* Main.storyboard */,
+				93E1924F27EC3F8600587666 /* DeliveryPackageViewController.swift */,
 				93172D4C27E9FD0000A56476 /* HomeViewController.swift */,
 				93172D4A27E9ACCA00A56476 /* SideMenuViewController.swift */,
 				933D479F27E1E53C00954445 /* OTPViewController.swift */,
@@ -243,6 +246,7 @@
 				93E8D40327E0736C00D6B8E8 /* AppDelegate.swift in Sources */,
 				93172D4D27E9FD0000A56476 /* HomeViewController.swift in Sources */,
 				933D479827E1A56800954445 /* LoginViewController.swift in Sources */,
+				93E1925027EC3F8600587666 /* DeliveryPackageViewController.swift in Sources */,
 				93172D4B27E9ACCA00A56476 /* SideMenuViewController.swift in Sources */,
 				93E8D40527E0736C00D6B8E8 /* SceneDelegate.swift in Sources */,
 			);
