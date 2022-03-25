@@ -7,6 +7,8 @@ target 'MemeMove' do
 
   pod 'SideMenu'
 
+  pod 'GoogleMaps'
+
   # Pods for MemeMove
 
 end

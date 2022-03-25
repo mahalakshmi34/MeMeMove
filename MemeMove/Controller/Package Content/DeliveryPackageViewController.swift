@@ -34,9 +34,6 @@ class DeliveryPackageViewController: UIViewController {
         packageContent.addShadowToButton(cornerRadius: 10)
         packageContent.addShadowToButton(color: UIColor.gray, cornerRadius: 10)
     }
-    
-    
-
 }
 
 extension UIButton {

@@ -6,31 +6,50 @@
 	objectVersion = 55;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 46921981F609C5BA3CB72EC4EA41299D /* Build configuration list for PBXAggregateTarget "GoogleMaps" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = GoogleMaps;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		057B453F4AE14D10EA77D38FA1A0B8FB /* SideMenuPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DA75D7F8119ABA5A3EF4AB757FE0EF /* SideMenuPresentationController.swift */; };
-		1F0DDBBAF86A028D6D60A7E10B4D3634 /* SideMenu-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C723107D860DB31CABCD028704863BA8 /* SideMenu-dummy.m */; };
-		3817F4830A10E51D20B72530EF6A56D2 /* SideMenuTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BE21FF7AAD7D19E6ED839F0804FC1 /* SideMenuTransitionController.swift */; };
-		3F5787163871D5FD7DE0B9BCE7DCE1C1 /* Pods-MemeMove-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FF7A2403E3826DB797077393F5C7091 /* Pods-MemeMove-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5587C359D9C8789950E7F6585C2292E7 /* SideMenuPresentationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1907B78B39DE0F0C6221B3F154AAC862 /* SideMenuPresentationStyle.swift */; };
-		71E9C63856B2E6C2ACDD1D7688EB792D /* Pods-MemeMove-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E00E4ADEAD4CC326514CF9B1EC349A09 /* Pods-MemeMove-dummy.m */; };
-		74106BDED4B8B2281DFE4BE5E109D847 /* Initializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B435A692AE8CB71108BC3C8B3E424BE1 /* Initializable.swift */; };
+		057B453F4AE14D10EA77D38FA1A0B8FB /* SideMenuPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F62C455A5AD282BE120038162E00B /* SideMenuPresentationController.swift */; };
+		1F0DDBBAF86A028D6D60A7E10B4D3634 /* SideMenu-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D382C09CB1680323168A9FFA8BB2443 /* SideMenu-dummy.m */; };
+		3817F4830A10E51D20B72530EF6A56D2 /* SideMenuTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3CC1DC797C06639B5A206D5943AABC /* SideMenuTransitionController.swift */; };
+		5587C359D9C8789950E7F6585C2292E7 /* SideMenuPresentationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619810B0ACCB0158B9DB8408664297E0 /* SideMenuPresentationStyle.swift */; };
+		74106BDED4B8B2281DFE4BE5E109D847 /* Initializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F187BD4EF6FBC8A243BE66931542DFC /* Initializable.swift */; };
 		887D7E546D6837CC964318D1B0C842D9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		9E9F19E0120EA3C46967C28E637F52C8 /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4B80BD863C174D5427612E5FC99ED1 /* SideMenuNavigationController.swift */; };
-		B804587E525773FCA9698855B2C752DC /* SideMenuAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB9B2576E9F7BC25C5B4B3ED9D9275 /* SideMenuAnimationController.swift */; };
-		BC9C2E663681EDDBFE985034DCC7AAAF /* UITableViewVibrantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7C515B3D13887A728A453D7099F17D /* UITableViewVibrantCell.swift */; };
-		BE79F903F87E7D5918C6414E6203743E /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A8B5179015129C9DC09887F8A8E0F /* Print.swift */; };
-		D3BE0026C39E4B360BBDA0D5C57DD25D /* Deprecations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E0EF1FE9720FBF7E95FDF1468E9464 /* Deprecations.swift */; };
-		DAD5950A205347FCDBD3751604472431 /* Protected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F12E6E9DEC732642010364EE9795B /* Protected.swift */; };
-		E56EEF71CC5AF0DA40228F2CA67B4BA0 /* SideMenu-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FAEDAD33E39B2C6517EE2C665A844ABA /* SideMenu-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E709C98B763E8065628D8E88715E0BF8 /* SideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D16C168F52FDF8EC2C45F49A36F215C /* SideMenuManager.swift */; };
-		E72252B09CC270B50217CA6AEABD620A /* SideMenuPushCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B007E87349E50118E13B294C1DF5CA0D /* SideMenuPushCoordinator.swift */; };
-		E92206D916005CC46794155A9FAF0278 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		E97C7A323474D0205E872AE7BC773650 /* SideMenuInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF29DE67A5AA1D16125206E5A037E259 /* SideMenuInteractionController.swift */; };
-		F28D439429A375B6D4FCD037ED317CD6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD16025EBF0FAAFEC087DE312E58C8 /* Extensions.swift */; };
+		9E9F19E0120EA3C46967C28E637F52C8 /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D3576EEF967145644F279BA5607582 /* SideMenuNavigationController.swift */; };
+		9FF228687DA872687110D7EF3FEA46C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		B804587E525773FCA9698855B2C752DC /* SideMenuAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66652DC3C01C5730C837D3BDEF8400A1 /* SideMenuAnimationController.swift */; };
+		BA20B7E1C205CDDC0C0B0BFF1C2737C1 /* Pods-MemeMove-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C45C18C38DD80527EC061B2624B8DF01 /* Pods-MemeMove-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BC9C2E663681EDDBFE985034DCC7AAAF /* UITableViewVibrantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C41FC3194962EBB4E47E633B7920418 /* UITableViewVibrantCell.swift */; };
+		BE79F903F87E7D5918C6414E6203743E /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F882144C7091097B18D47E5195B1E5 /* Print.swift */; };
+		C50034CB54845AA44B1DBC6639013907 /* Pods-MemeMove-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5928EE5D6781B47654A6B712974C73 /* Pods-MemeMove-dummy.m */; };
+		D3BE0026C39E4B360BBDA0D5C57DD25D /* Deprecations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E15E9C77F025045924FCF8492356FAF /* Deprecations.swift */; };
+		DAD5950A205347FCDBD3751604472431 /* Protected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F94B4A93D5DDC8131E6321DFE245D /* Protected.swift */; };
+		E56EEF71CC5AF0DA40228F2CA67B4BA0 /* SideMenu-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F8AD97584A00CB6F1FE24ACE8667C6FF /* SideMenu-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E709C98B763E8065628D8E88715E0BF8 /* SideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE58E559DA68F4D5315DF9AFF6CC65D7 /* SideMenuManager.swift */; };
+		E72252B09CC270B50217CA6AEABD620A /* SideMenuPushCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223EA604696CE6CF58B242A68BAEDB55 /* SideMenuPushCoordinator.swift */; };
+		E97C7A323474D0205E872AE7BC773650 /* SideMenuInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB374F2F26C9934373BBAA58831589E3 /* SideMenuInteractionController.swift */; };
+		F28D439429A375B6D4FCD037ED317CD6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2A5755DFAB4BB4EFAB948766FD993E /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C30E8A173F0E42331C5C0B58D281CBE6 /* PBXContainerItemProxy */ = {
+		2A92C885B71C8E2D9FB83797CE8A5558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5B4BBC6DD552AC8943C7E22772FC1D3;
+			remoteInfo = GoogleMaps;
+		};
+		72ED70841CD5C71BF61BC38C6BC99DAE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -40,51 +59,50 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0FF7A2403E3826DB797077393F5C7091 /* Pods-MemeMove-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MemeMove-umbrella.h"; sourceTree = "<group>"; };
-		1907B78B39DE0F0C6221B3F154AAC862 /* SideMenuPresentationStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuPresentationStyle.swift; path = Pod/Classes/SideMenuPresentationStyle.swift; sourceTree = "<group>"; };
-		1E01BD271600C3F8AD232C8AD851EFAD /* Pods-MemeMove-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MemeMove-acknowledgements.markdown"; sourceTree = "<group>"; };
-		296BE21FF7AAD7D19E6ED839F0804FC1 /* SideMenuTransitionController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuTransitionController.swift; path = Pod/Classes/SideMenuTransitionController.swift; sourceTree = "<group>"; };
-		29DA75D7F8119ABA5A3EF4AB757FE0EF /* SideMenuPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuPresentationController.swift; path = Pod/Classes/SideMenuPresentationController.swift; sourceTree = "<group>"; };
+		0155299DB4F54ECFB92F0091066AAC85 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		054F94B4A93D5DDC8131E6321DFE245D /* Protected.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Protected.swift; path = Pod/Classes/Protected.swift; sourceTree = "<group>"; };
+		0647764C20BD23F46AA90FA73CB297FC /* SideMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SideMenu.release.xcconfig; sourceTree = "<group>"; };
+		1E15E9C77F025045924FCF8492356FAF /* Deprecations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Deprecations.swift; path = Pod/Classes/Deprecations.swift; sourceTree = "<group>"; };
+		220BA87C97F2D0BECEE02138F862DC63 /* Pods-MemeMove-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MemeMove-acknowledgements.plist"; sourceTree = "<group>"; };
+		223EA604696CE6CF58B242A68BAEDB55 /* SideMenuPushCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuPushCoordinator.swift; path = Pod/Classes/SideMenuPushCoordinator.swift; sourceTree = "<group>"; };
+		269D2A910FD7C07236634097AC713F1D /* SideMenu-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SideMenu-Info.plist"; sourceTree = "<group>"; };
 		319D06AA0D1D0BA345459C039040A1ED /* SideMenu */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SideMenu; path = SideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		37717A8491CDFC38C6410D116E93AF9E /* Pods-MemeMove.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MemeMove.release.xcconfig"; sourceTree = "<group>"; };
-		39731C041E2E77BC5245E8132FC071E0 /* SideMenu-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SideMenu-Info.plist"; sourceTree = "<group>"; };
-		639605EE872C890DF7392A3818475BB5 /* SideMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SideMenu.release.xcconfig; sourceTree = "<group>"; };
+		3B14C914C4AF6A5E571E42E366E97A6D /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		3C41FC3194962EBB4E47E633B7920418 /* UITableViewVibrantCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UITableViewVibrantCell.swift; path = Pod/Classes/UITableViewVibrantCell.swift; sourceTree = "<group>"; };
+		402995B6C2AE91EA985844190DF34B6B /* Pods-MemeMove-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MemeMove-acknowledgements.markdown"; sourceTree = "<group>"; };
+		458F62C455A5AD282BE120038162E00B /* SideMenuPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuPresentationController.swift; path = Pod/Classes/SideMenuPresentationController.swift; sourceTree = "<group>"; };
+		459FC7D82267384F941E8B6FC6C33479 /* Pods-MemeMove-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MemeMove-Info.plist"; sourceTree = "<group>"; };
+		477C4782D2603C093B7959B4353750EB /* Pods-MemeMove-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MemeMove-resources.sh"; sourceTree = "<group>"; };
+		49D1E2455245B9704EAA99E779117807 /* GoogleMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleMaps.release.xcconfig; sourceTree = "<group>"; };
+		4C5928EE5D6781B47654A6B712974C73 /* Pods-MemeMove-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MemeMove-dummy.m"; sourceTree = "<group>"; };
+		4F187BD4EF6FBC8A243BE66931542DFC /* Initializable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Initializable.swift; path = Pod/Classes/Initializable.swift; sourceTree = "<group>"; };
+		4F9A93C60EDDAB6CED0EC99385077BD9 /* SideMenu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SideMenu.debug.xcconfig; sourceTree = "<group>"; };
+		5D382C09CB1680323168A9FFA8BB2443 /* SideMenu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SideMenu-dummy.m"; sourceTree = "<group>"; };
+		619810B0ACCB0158B9DB8408664297E0 /* SideMenuPresentationStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuPresentationStyle.swift; path = Pod/Classes/SideMenuPresentationStyle.swift; sourceTree = "<group>"; };
+		66652DC3C01C5730C837D3BDEF8400A1 /* SideMenuAnimationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuAnimationController.swift; path = Pod/Classes/SideMenuAnimationController.swift; sourceTree = "<group>"; };
+		6F8640F83D76931F5DAA2F110F6569F9 /* SideMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SideMenu-prefix.pch"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		7D16C168F52FDF8EC2C45F49A36F215C /* SideMenuManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuManager.swift; path = Pod/Classes/SideMenuManager.swift; sourceTree = "<group>"; };
-		8E4B80BD863C174D5427612E5FC99ED1 /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuNavigationController.swift; path = Pod/Classes/SideMenuNavigationController.swift; sourceTree = "<group>"; };
+		745CB133EDCDA59413C4BE391971FBAD /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		787E1B6E2B82349D7A252AA13AE37170 /* SideMenu.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SideMenu.modulemap; sourceTree = "<group>"; };
+		79E7574FEDE35830CD0AD6A5276BA656 /* Pods-MemeMove.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MemeMove.modulemap"; sourceTree = "<group>"; };
+		7AE1CDDBFF106F5BD7D73A501F9CA008 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		8A2A5755DFAB4BB4EFAB948766FD993E /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Pod/Classes/Extensions.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9E1F12E6E9DEC732642010364EE9795B /* Protected.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Protected.swift; path = Pod/Classes/Protected.swift; sourceTree = "<group>"; };
-		AE8A8B5179015129C9DC09887F8A8E0F /* Print.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Print.swift; path = Pod/Classes/Print.swift; sourceTree = "<group>"; };
-		B007E87349E50118E13B294C1DF5CA0D /* SideMenuPushCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuPushCoordinator.swift; path = Pod/Classes/SideMenuPushCoordinator.swift; sourceTree = "<group>"; };
-		B0A4136108AC4C13ECFBF3DC9F6EC5AA /* Pods-MemeMove-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MemeMove-acknowledgements.plist"; sourceTree = "<group>"; };
-		B435A692AE8CB71108BC3C8B3E424BE1 /* Initializable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Initializable.swift; path = Pod/Classes/Initializable.swift; sourceTree = "<group>"; };
-		B72C4994EA5E6719DEB95FF5415FB140 /* SideMenu.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SideMenu.modulemap; sourceTree = "<group>"; };
-		B741F11F3B190DB6E66E566ECF54FC35 /* SideMenu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SideMenu.debug.xcconfig; sourceTree = "<group>"; };
-		B8F7855DC455A1C3D629C543F247E845 /* Pods-MemeMove-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MemeMove-frameworks.sh"; sourceTree = "<group>"; };
-		BA7C515B3D13887A728A453D7099F17D /* UITableViewVibrantCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UITableViewVibrantCell.swift; path = Pod/Classes/UITableViewVibrantCell.swift; sourceTree = "<group>"; };
-		BB7389E65A56B13A2B00F28FCEF9794F /* SideMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SideMenu-prefix.pch"; sourceTree = "<group>"; };
-		BF29DE67A5AA1D16125206E5A037E259 /* SideMenuInteractionController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuInteractionController.swift; path = Pod/Classes/SideMenuInteractionController.swift; sourceTree = "<group>"; };
-		BF8F22697198080FFB03EF1960DD4BAA /* Pods-MemeMove-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MemeMove-Info.plist"; sourceTree = "<group>"; };
-		C49460D48F9ABF443FF26427F2985774 /* Pods-MemeMove.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MemeMove.modulemap"; sourceTree = "<group>"; };
-		C5E0EF1FE9720FBF7E95FDF1468E9464 /* Deprecations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Deprecations.swift; path = Pod/Classes/Deprecations.swift; sourceTree = "<group>"; };
-		C723107D860DB31CABCD028704863BA8 /* SideMenu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SideMenu-dummy.m"; sourceTree = "<group>"; };
-		CACD16025EBF0FAAFEC087DE312E58C8 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Pod/Classes/Extensions.swift; sourceTree = "<group>"; };
-		D478161C61F78D6670016218F7BDCCE7 /* Pods-MemeMove.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MemeMove.debug.xcconfig"; sourceTree = "<group>"; };
-		DEDB9B2576E9F7BC25C5B4B3ED9D9275 /* SideMenuAnimationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuAnimationController.swift; path = Pod/Classes/SideMenuAnimationController.swift; sourceTree = "<group>"; };
-		E00E4ADEAD4CC326514CF9B1EC349A09 /* Pods-MemeMove-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MemeMove-dummy.m"; sourceTree = "<group>"; };
+		AAF9E5F423962A48C93D4AB3275F9516 /* Pods-MemeMove.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MemeMove.debug.xcconfig"; sourceTree = "<group>"; };
+		AB3CC1DC797C06639B5A206D5943AABC /* SideMenuTransitionController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuTransitionController.swift; path = Pod/Classes/SideMenuTransitionController.swift; sourceTree = "<group>"; };
+		AE58E559DA68F4D5315DF9AFF6CC65D7 /* SideMenuManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuManager.swift; path = Pod/Classes/SideMenuManager.swift; sourceTree = "<group>"; };
+		B9D3576EEF967145644F279BA5607582 /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuNavigationController.swift; path = Pod/Classes/SideMenuNavigationController.swift; sourceTree = "<group>"; };
+		C385D10D50F1C90C84D1849A59091A36 /* Pods-MemeMove.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MemeMove.release.xcconfig"; sourceTree = "<group>"; };
+		C45C18C38DD80527EC061B2624B8DF01 /* Pods-MemeMove-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MemeMove-umbrella.h"; sourceTree = "<group>"; };
+		CB374F2F26C9934373BBAA58831589E3 /* SideMenuInteractionController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuInteractionController.swift; path = Pod/Classes/SideMenuInteractionController.swift; sourceTree = "<group>"; };
+		F21BACDB87CF15BDA72F904ADC8F3F5F /* Pods-MemeMove-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MemeMove-frameworks.sh"; sourceTree = "<group>"; };
 		F40482FBC053E8831F7F99A5A539A6EE /* Pods-MemeMove */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-MemeMove"; path = Pods_MemeMove.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAEDAD33E39B2C6517EE2C665A844ABA /* SideMenu-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SideMenu-umbrella.h"; sourceTree = "<group>"; };
+		F5F882144C7091097B18D47E5195B1E5 /* Print.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Print.swift; path = Pod/Classes/Print.swift; sourceTree = "<group>"; };
+		F8AD97584A00CB6F1FE24ACE8667C6FF /* SideMenu-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SideMenu-umbrella.h"; sourceTree = "<group>"; };
+		F8F35DB6BB69448929D91BEED2B6B5F3 /* GoogleMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleMaps.debug.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		359AB45ADB37F83065E36D7930A16733 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E92206D916005CC46794155A9FAF0278 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5DC25AA7986F2BF0AC82E6132A31A66D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -93,39 +111,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		74277A7E4E3AF9D5782FEB7ECDA963EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FF228687DA872687110D7EF3FEA46C6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		065FF3C006D1A5171BF836C6AA535B96 /* Support Files */ = {
+		29E28F17536C3FC60648767A24E4A1FE /* GoogleMaps */ = {
 			isa = PBXGroup;
 			children = (
-				B72C4994EA5E6719DEB95FF5415FB140 /* SideMenu.modulemap */,
-				C723107D860DB31CABCD028704863BA8 /* SideMenu-dummy.m */,
-				39731C041E2E77BC5245E8132FC071E0 /* SideMenu-Info.plist */,
-				BB7389E65A56B13A2B00F28FCEF9794F /* SideMenu-prefix.pch */,
-				FAEDAD33E39B2C6517EE2C665A844ABA /* SideMenu-umbrella.h */,
-				B741F11F3B190DB6E66E566ECF54FC35 /* SideMenu.debug.xcconfig */,
-				639605EE872C890DF7392A3818475BB5 /* SideMenu.release.xcconfig */,
+				7B5F96FFB1B73AB6D4283624E0D66124 /* Base */,
+				A7EFEC9DA3BDD053BBD34D3E50BAC20D /* Maps */,
+				6257174B480ABBDDCF463639FEAD611A /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/SideMenu";
+			name = GoogleMaps;
+			path = GoogleMaps;
 			sourceTree = "<group>";
 		};
-		1B84689873C66A8219BA9AEE34A5A1F5 /* Pods-MemeMove */ = {
+		2B7A9678A06C3A83D9617BE794957894 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C49460D48F9ABF443FF26427F2985774 /* Pods-MemeMove.modulemap */,
-				1E01BD271600C3F8AD232C8AD851EFAD /* Pods-MemeMove-acknowledgements.markdown */,
-				B0A4136108AC4C13ECFBF3DC9F6EC5AA /* Pods-MemeMove-acknowledgements.plist */,
-				E00E4ADEAD4CC326514CF9B1EC349A09 /* Pods-MemeMove-dummy.m */,
-				B8F7855DC455A1C3D629C543F247E845 /* Pods-MemeMove-frameworks.sh */,
-				BF8F22697198080FFB03EF1960DD4BAA /* Pods-MemeMove-Info.plist */,
-				0FF7A2403E3826DB797077393F5C7091 /* Pods-MemeMove-umbrella.h */,
-				D478161C61F78D6670016218F7BDCCE7 /* Pods-MemeMove.debug.xcconfig */,
-				37717A8491CDFC38C6410D116E93AF9E /* Pods-MemeMove.release.xcconfig */,
+				745CB133EDCDA59413C4BE391971FBAD /* GoogleMaps.framework */,
+				3B14C914C4AF6A5E571E42E366E97A6D /* GoogleMapsCore.framework */,
 			);
-			name = "Pods-MemeMove";
-			path = "Target Support Files/Pods-MemeMove";
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4B955BB258BED808CA9F170072FAA53C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0155299DB4F54ECFB92F0091066AAC85 /* GoogleMapsBase.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
@@ -136,35 +158,96 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		7D34FA07FC7B9431D63786FEAE0BA6F5 /* Pods */ = {
+		6257174B480ABBDDCF463639FEAD611A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				860B550C527090E352A83A65C289DBC3 /* SideMenu */,
+				F8F35DB6BB69448929D91BEED2B6B5F3 /* GoogleMaps.debug.xcconfig */,
+				49D1E2455245B9704EAA99E779117807 /* GoogleMaps.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GoogleMaps";
+			sourceTree = "<group>";
+		};
+		78C3DF8DDE341CE7A7EEEDAE7954BC48 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29E28F17536C3FC60648767A24E4A1FE /* GoogleMaps */,
+				AB3A0512A4358DA7ADEE90A979B30939 /* SideMenu */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		860B550C527090E352A83A65C289DBC3 /* SideMenu */ = {
+		7B5F96FFB1B73AB6D4283624E0D66124 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				C5E0EF1FE9720FBF7E95FDF1468E9464 /* Deprecations.swift */,
-				CACD16025EBF0FAAFEC087DE312E58C8 /* Extensions.swift */,
-				B435A692AE8CB71108BC3C8B3E424BE1 /* Initializable.swift */,
-				AE8A8B5179015129C9DC09887F8A8E0F /* Print.swift */,
-				9E1F12E6E9DEC732642010364EE9795B /* Protected.swift */,
-				DEDB9B2576E9F7BC25C5B4B3ED9D9275 /* SideMenuAnimationController.swift */,
-				BF29DE67A5AA1D16125206E5A037E259 /* SideMenuInteractionController.swift */,
-				7D16C168F52FDF8EC2C45F49A36F215C /* SideMenuManager.swift */,
-				8E4B80BD863C174D5427612E5FC99ED1 /* SideMenuNavigationController.swift */,
-				29DA75D7F8119ABA5A3EF4AB757FE0EF /* SideMenuPresentationController.swift */,
-				1907B78B39DE0F0C6221B3F154AAC862 /* SideMenuPresentationStyle.swift */,
-				B007E87349E50118E13B294C1DF5CA0D /* SideMenuPushCoordinator.swift */,
-				296BE21FF7AAD7D19E6ED839F0804FC1 /* SideMenuTransitionController.swift */,
-				BA7C515B3D13887A728A453D7099F17D /* UITableViewVibrantCell.swift */,
-				065FF3C006D1A5171BF836C6AA535B96 /* Support Files */,
+				4B955BB258BED808CA9F170072FAA53C /* Frameworks */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		A7EFEC9DA3BDD053BBD34D3E50BAC20D /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				2B7A9678A06C3A83D9617BE794957894 /* Frameworks */,
+				E13F26AC1092EE06F32E0C0D2D90433E /* Resources */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		AB1873769AE0E14FEAEB098A3C677EC2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				787E1B6E2B82349D7A252AA13AE37170 /* SideMenu.modulemap */,
+				5D382C09CB1680323168A9FFA8BB2443 /* SideMenu-dummy.m */,
+				269D2A910FD7C07236634097AC713F1D /* SideMenu-Info.plist */,
+				6F8640F83D76931F5DAA2F110F6569F9 /* SideMenu-prefix.pch */,
+				F8AD97584A00CB6F1FE24ACE8667C6FF /* SideMenu-umbrella.h */,
+				4F9A93C60EDDAB6CED0EC99385077BD9 /* SideMenu.debug.xcconfig */,
+				0647764C20BD23F46AA90FA73CB297FC /* SideMenu.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SideMenu";
+			sourceTree = "<group>";
+		};
+		AB3A0512A4358DA7ADEE90A979B30939 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				1E15E9C77F025045924FCF8492356FAF /* Deprecations.swift */,
+				8A2A5755DFAB4BB4EFAB948766FD993E /* Extensions.swift */,
+				4F187BD4EF6FBC8A243BE66931542DFC /* Initializable.swift */,
+				F5F882144C7091097B18D47E5195B1E5 /* Print.swift */,
+				054F94B4A93D5DDC8131E6321DFE245D /* Protected.swift */,
+				66652DC3C01C5730C837D3BDEF8400A1 /* SideMenuAnimationController.swift */,
+				CB374F2F26C9934373BBAA58831589E3 /* SideMenuInteractionController.swift */,
+				AE58E559DA68F4D5315DF9AFF6CC65D7 /* SideMenuManager.swift */,
+				B9D3576EEF967145644F279BA5607582 /* SideMenuNavigationController.swift */,
+				458F62C455A5AD282BE120038162E00B /* SideMenuPresentationController.swift */,
+				619810B0ACCB0158B9DB8408664297E0 /* SideMenuPresentationStyle.swift */,
+				223EA604696CE6CF58B242A68BAEDB55 /* SideMenuPushCoordinator.swift */,
+				AB3CC1DC797C06639B5A206D5943AABC /* SideMenuTransitionController.swift */,
+				3C41FC3194962EBB4E47E633B7920418 /* UITableViewVibrantCell.swift */,
+				AB1873769AE0E14FEAEB098A3C677EC2 /* Support Files */,
 			);
 			name = SideMenu;
 			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		B5683886A3E3D1381496D88AF8ED50C6 /* Pods-MemeMove */ = {
+			isa = PBXGroup;
+			children = (
+				79E7574FEDE35830CD0AD6A5276BA656 /* Pods-MemeMove.modulemap */,
+				402995B6C2AE91EA985844190DF34B6B /* Pods-MemeMove-acknowledgements.markdown */,
+				220BA87C97F2D0BECEE02138F862DC63 /* Pods-MemeMove-acknowledgements.plist */,
+				4C5928EE5D6781B47654A6B712974C73 /* Pods-MemeMove-dummy.m */,
+				F21BACDB87CF15BDA72F904ADC8F3F5F /* Pods-MemeMove-frameworks.sh */,
+				459FC7D82267384F941E8B6FC6C33479 /* Pods-MemeMove-Info.plist */,
+				477C4782D2603C093B7959B4353750EB /* Pods-MemeMove-resources.sh */,
+				C45C18C38DD80527EC061B2624B8DF01 /* Pods-MemeMove-umbrella.h */,
+				AAF9E5F423962A48C93D4AB3275F9516 /* Pods-MemeMove.debug.xcconfig */,
+				C385D10D50F1C90C84D1849A59091A36 /* Pods-MemeMove.release.xcconfig */,
+			);
+			name = "Pods-MemeMove";
+			path = "Target Support Files/Pods-MemeMove";
 			sourceTree = "<group>";
 		};
 		B7FC984F8560F182F0FC61902E326B0E /* Products */ = {
@@ -181,9 +264,9 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				7D34FA07FC7B9431D63786FEAE0BA6F5 /* Pods */,
+				78C3DF8DDE341CE7A7EEEDAE7954BC48 /* Pods */,
 				B7FC984F8560F182F0FC61902E326B0E /* Products */,
-				FC0B92E8055525A39DC52AF642D880F7 /* Targets Support Files */,
+				F2C6330BF1B8F1D6DC0C3CFFF5113CDF /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,10 +278,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FC0B92E8055525A39DC52AF642D880F7 /* Targets Support Files */ = {
+		E13F26AC1092EE06F32E0C0D2D90433E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1B84689873C66A8219BA9AEE34A5A1F5 /* Pods-MemeMove */,
+				7AE1CDDBFF106F5BD7D73A501F9CA008 /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F2C6330BF1B8F1D6DC0C3CFFF5113CDF /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B5683886A3E3D1381496D88AF8ED50C6 /* Pods-MemeMove */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
@@ -214,11 +305,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CE3307DA4EE7815D64E13DCD0E48D267 /* Headers */ = {
+		938911A2F5745E458F5E15CCA435550F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F5787163871D5FD7DE0B9BCE7DCE1C1 /* Pods-MemeMove-umbrella.h in Headers */,
+				BA20B7E1C205CDDC0C0B0BFF1C2737C1 /* Pods-MemeMove-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,17 +318,18 @@
 /* Begin PBXNativeTarget section */
 		30164A95F102E28FE8AD361D5D5F9148 /* Pods-MemeMove */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 615C551EAD5BDC32F62D7F29D65A29C0 /* Build configuration list for PBXNativeTarget "Pods-MemeMove" */;
+			buildConfigurationList = D155DD48DECD3187773D6A8531C94DFC /* Build configuration list for PBXNativeTarget "Pods-MemeMove" */;
 			buildPhases = (
-				CE3307DA4EE7815D64E13DCD0E48D267 /* Headers */,
-				42B999ED8F82071A0A41B6FFF41FDFEB /* Sources */,
-				359AB45ADB37F83065E36D7930A16733 /* Frameworks */,
-				5F73F02A87E809D598E9AAC1CDD08BBD /* Resources */,
+				938911A2F5745E458F5E15CCA435550F /* Headers */,
+				4E165A1F232D60AFA439ADB91D7C4FBC /* Sources */,
+				74277A7E4E3AF9D5782FEB7ECDA963EC /* Frameworks */,
+				EE5D4B069B5B6465149A161E39E7F3ED /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BE4658BA07D0BF4E1460FA5834FDE4DF /* PBXTargetDependency */,
+				D3F7CA7009F524DD97C750A854D6E14B /* PBXTargetDependency */,
+				7F56A18F7954C0C273E4FC350324CD9B /* PBXTargetDependency */,
 			);
 			name = "Pods-MemeMove";
 			productName = Pods_MemeMove;
@@ -284,6 +376,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */,
 				30164A95F102E28FE8AD361D5D5F9148 /* Pods-MemeMove */,
 				C4A0A7D8591B67FB75E2E8D215E3735B /* SideMenu */,
 			);
@@ -291,14 +384,14 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5F73F02A87E809D598E9AAC1CDD08BBD /* Resources */ = {
+		C35CA0EF3E2BEED48FF33721BDC0D000 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C35CA0EF3E2BEED48FF33721BDC0D000 /* Resources */ = {
+		EE5D4B069B5B6465149A161E39E7F3ED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -308,11 +401,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		42B999ED8F82071A0A41B6FFF41FDFEB /* Sources */ = {
+		4E165A1F232D60AFA439ADB91D7C4FBC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71E9C63856B2E6C2ACDD1D7688EB792D /* Pods-MemeMove-dummy.m in Sources */,
+				C50034CB54845AA44B1DBC6639013907 /* Pods-MemeMove-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,18 +434,24 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BE4658BA07D0BF4E1460FA5834FDE4DF /* PBXTargetDependency */ = {
+		7F56A18F7954C0C273E4FC350324CD9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SideMenu;
 			target = C4A0A7D8591B67FB75E2E8D215E3735B /* SideMenu */;
-			targetProxy = C30E8A173F0E42331C5C0B58D281CBE6 /* PBXContainerItemProxy */;
+			targetProxy = 72ED70841CD5C71BF61BC38C6BC99DAE /* PBXContainerItemProxy */;
+		};
+		D3F7CA7009F524DD97C750A854D6E14B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleMaps;
+			target = E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */;
+			targetProxy = 2A92C885B71C8E2D9FB83797CE8A5558 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		3292A6FD1D7704DA2D094FAF6F6D0C92 /* Debug */ = {
+		11C57DF535E30C1927A4E74C1F5463F6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D478161C61F78D6670016218F7BDCCE7 /* Pods-MemeMove.debug.xcconfig */;
+			baseConfigurationReference = C385D10D50F1C90C84D1849A59091A36 /* Pods-MemeMove.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -382,10 +481,11 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		4214E6946993DF02ED98D89047C64016 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -455,7 +555,7 @@
 		};
 		46BFE2312ECDC35BEC02D94DC5B60F4C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 639605EE872C890DF7392A3818475BB5 /* SideMenu.release.xcconfig */;
+			baseConfigurationReference = 0647764C20BD23F46AA90FA73CB297FC /* SideMenu.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -491,7 +591,7 @@
 		};
 		9E0C37648D76E361234D07CA876D0358 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B741F11F3B190DB6E66E566ECF54FC35 /* SideMenu.debug.xcconfig */;
+			baseConfigurationReference = 4F9A93C60EDDAB6CED0EC99385077BD9 /* SideMenu.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -524,9 +624,26 @@
 			};
 			name = Debug;
 		};
-		B7F20421670790C2F13884C8151D8548 /* Release */ = {
+		BB9F138D6BE5B0B420804AA4F837BD74 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37717A8491CDFC38C6410D116E93AF9E /* Pods-MemeMove.release.xcconfig */;
+			baseConfigurationReference = F8F35DB6BB69448929D91BEED2B6B5F3 /* GoogleMaps.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF730B7B1301603F71DF4A7A2049E8E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAF9E5F423962A48C93D4AB3275F9516 /* Pods-MemeMove.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -556,11 +673,10 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		CD85FD90473CFBE797E4264E7BBC70AF /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -624,9 +740,36 @@
 			};
 			name = Release;
 		};
+		FAD95AA7CDFAD96FA4035B88B54EA6F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49D1E2455245B9704EAA99E779117807 /* GoogleMaps.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		46921981F609C5BA3CB72EC4EA41299D /* Build configuration list for PBXAggregateTarget "GoogleMaps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB9F138D6BE5B0B420804AA4F837BD74 /* Debug */,
+				FAD95AA7CDFAD96FA4035B88B54EA6F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -636,20 +779,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		615C551EAD5BDC32F62D7F29D65A29C0 /* Build configuration list for PBXNativeTarget "Pods-MemeMove" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3292A6FD1D7704DA2D094FAF6F6D0C92 /* Debug */,
-				B7F20421670790C2F13884C8151D8548 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		C4E63BB43B7167D15C142EB405422643 /* Build configuration list for PBXNativeTarget "SideMenu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9E0C37648D76E361234D07CA876D0358 /* Debug */,
 				46BFE2312ECDC35BEC02D94DC5B60F4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D155DD48DECD3187773D6A8531C94DFC /* Build configuration list for PBXNativeTarget "Pods-MemeMove" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF730B7B1301603F71DF4A7A2049E8E2 /* Debug */,
+				11C57DF535E30C1927A4E74C1F5463F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
