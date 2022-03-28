@@ -9,4 +9,9 @@ import UIKit
 
 class VehicleTypeCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var vehicleImage: UIButton!
+    
+    @IBOutlet weak var vehicleName: UILabel!
+    
+    @IBOutlet weak var vehicleType: UIImageView!
 }
