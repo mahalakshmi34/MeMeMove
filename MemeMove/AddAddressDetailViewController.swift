@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import GoogleMaps
 
-class AddAddressDetailViewController: UIViewController {
+class AddAddressDetailViewController: UIViewController,GMSMapViewDelegate {
+    
+    
+    @IBOutlet weak var mapView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var addAdressButton: UIButton!
     @IBOutlet weak var reachTextField: UITextField!
@@ -19,14 +24,22 @@ class AddAddressDetailViewController: UIViewController {
     @IBOutlet weak var officeButton: UIButton!
     @IBOutlet weak var othersButton: UIButton!
     @IBOutlet weak var addAddressView: UIView!
-    
+    @IBOutlet weak var navigationView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showCurrentLocationOnMap()
+        bringSubViews()
         cornerRadius()
         dropShadow()
         viewDropShadow()
         
+    }
+    
+    func bringSubViews() {
+        self.view.bringSubviewToFront(scrollView)
+        self.scrollView.bringSubviewToFront(navigationView)
+        self.scrollView.bringSubviewToFront(addAddressView)
     }
     
     func viewDropShadow() {
@@ -47,6 +60,18 @@ class AddAddressDetailViewController: UIViewController {
 
     }
     
+    func showCurrentLocationOnMap() {
+        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 18.0)
+        let mapView = GMSMapView.map(withFrame: self.view.frame , camera: camera)
+        mapView.settings.compassButton = true
+        mapView.settings.myLocationButton = true
+        mapView.isMyLocationEnabled = true
+        self.mapView.addSubview(mapView)
+        let marker = GMSMarker()
+        marker.position = camera.target
+        marker.map = mapView
+    }
+    
     func cornerRadius() {
         addAdressButton.layer.cornerRadius = 20
         changeButton.layer.borderWidth = 2.0
@@ -61,6 +86,11 @@ class AddAddressDetailViewController: UIViewController {
         othersButton.layer.borderWidth = 2.0
         othersButton.layer.borderColor =  UIColor.lightGray.cgColor
         othersButton.layer.cornerRadius = 10
+        navigationView.layer.cornerRadius = 40
+        navigationView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+    
+        addAddressView.layer.cornerRadius = 20
+        addAddressView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
 }
 

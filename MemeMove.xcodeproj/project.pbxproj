@@ -16,6 +16,7 @@
 		933D479E27E1C88500954445 /* GeneratePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933D479D27E1C88500954445 /* GeneratePasswordViewController.swift */; };
 		933D47A027E1E53C00954445 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933D479F27E1E53C00954445 /* OTPViewController.swift */; };
 		9373A54427EDC00100BC1651 /* AddAddressDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373A54327EDC00100BC1651 /* AddAddressDetailViewController.swift */; };
+		9384204D27F19D2500E02609 /* SelectVehicleTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9384204C27F19D2500E02609 /* SelectVehicleTypeViewController.swift */; };
 		93E1925027EC3F8600587666 /* DeliveryPackageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1924F27EC3F8600587666 /* DeliveryPackageViewController.swift */; };
 		93E1925227EC618B00587666 /* ConfirmLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1925127EC618B00587666 /* ConfirmLocationViewController.swift */; };
 		93E1925427EC7A6B00587666 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93E1925327EC7A6B00587666 /* GoogleService-Info.plist */; };
@@ -40,6 +41,7 @@
 		933D479D27E1C88500954445 /* GeneratePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratePasswordViewController.swift; sourceTree = "<group>"; };
 		933D479F27E1E53C00954445 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		9373A54327EDC00100BC1651 /* AddAddressDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressDetailViewController.swift; sourceTree = "<group>"; };
+		9384204C27F19D2500E02609 /* SelectVehicleTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVehicleTypeViewController.swift; sourceTree = "<group>"; };
 		93E1924F27EC3F8600587666 /* DeliveryPackageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryPackageViewController.swift; sourceTree = "<group>"; };
 		93E1925127EC618B00587666 /* ConfirmLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLocationViewController.swift; sourceTree = "<group>"; };
 		93E1925327EC7A6B00587666 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				93E8D40227E0736C00D6B8E8 /* AppDelegate.swift */,
 				93E8D40427E0736C00D6B8E8 /* SceneDelegate.swift */,
 				93E8D40827E0736C00D6B8E8 /* Main.storyboard */,
+				9384204C27F19D2500E02609 /* SelectVehicleTypeViewController.swift */,
 				9373A54327EDC00100BC1651 /* AddAddressDetailViewController.swift */,
 				93E1925527EC84BF00587666 /* Controller */,
 				93E8D40B27E0736D00D6B8E8 /* Assets.xcassets */,
@@ -372,6 +375,7 @@
 				9373A54427EDC00100BC1651 /* AddAddressDetailViewController.swift in Sources */,
 				93172D4D27E9FD0000A56476 /* HomeViewController.swift in Sources */,
 				933D479827E1A56800954445 /* LoginViewController.swift in Sources */,
+				9384204D27F19D2500E02609 /* SelectVehicleTypeViewController.swift in Sources */,
 				93E1925027EC3F8600587666 /* DeliveryPackageViewController.swift in Sources */,
 				93172D4B27E9ACCA00A56476 /* SideMenuViewController.swift in Sources */,
 				93E8D40527E0736C00D6B8E8 /* SceneDelegate.swift in Sources */,

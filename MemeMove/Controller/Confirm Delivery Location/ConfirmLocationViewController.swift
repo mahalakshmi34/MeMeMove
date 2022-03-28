@@ -34,9 +34,7 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
         changeButton.layer.cornerRadius = 10
         navigationView.layer.cornerRadius = 40
         navigationView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        
     }
-    
     
     func showCurrentLocationOnMap() {
         let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 18.0)
