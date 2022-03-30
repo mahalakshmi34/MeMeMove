@@ -11,19 +11,30 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
    
     @IBOutlet weak var editText: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var proceedButton: UIButton!
+    @IBOutlet weak var measureProduct: UIButton!
+    @IBOutlet weak var selectVehicle: UIButton!
+    @IBOutlet weak var lengthTextField: UITextField!
+    @IBOutlet weak var widthTextField: UITextField!
+    @IBOutlet weak var heightTextField: UITextField!
+    @IBOutlet weak var weightTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
          
         delegateMethod()
-        
+        cornerRadius()
     }
     
     func cornerRadius() {
         editText.useUnderline()
         proceedButton.layer.cornerRadius = 20
+        selectVehicle.addShadowToButton(color: UIColor.lightGray, cornerRadius: 10)
+        measureProduct.addShadowToButton(color: UIColor.lightGray, cornerRadius: 10)
+        lengthTextField.addShadowToTextField(cornerRadius: 20)
+        widthTextField.addShadowToTextField(cornerRadius: 20)
+        heightTextField.addShadowToTextField(cornerRadius: 20)
+        weightTextField.addShadowToTextField(cornerRadius: 20)
     }
     
     func delegateMethod() {
