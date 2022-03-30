@@ -8,7 +8,9 @@
 import UIKit
 
 class PaymentViewController: UIViewController {
-
+    
+    @IBOutlet weak var checkBoxButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
