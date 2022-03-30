@@ -9,6 +9,9 @@ import UIKit
 import GoogleMaps
 
 @main
+
+
+@available(iOS 13.0, *)
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 

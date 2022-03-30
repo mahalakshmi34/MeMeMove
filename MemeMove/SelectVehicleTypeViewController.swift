@@ -9,16 +9,21 @@ import UIKit
 
 class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
    
-    
-
+    @IBOutlet weak var editText: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var proceedButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
          
         delegateMethod()
         
+    }
+    
+    func cornerRadius() {
+        editText.useUnderline()
+        proceedButton.layer.cornerRadius = 20
     }
     
     func delegateMethod() {
@@ -41,8 +46,7 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
         let image = UIImage(named: "Group 191")
         
         cell.vehicleType.image = UIImage(named: "Group 191")
-        
-        cell.vehicleImage.addShadowToButton(color: UIColor.gray, cornerRadius: 20)
+        cell.vehicleImage.addShadowToButton(color: UIColor.lightGray, cornerRadius: 20)
         
         cell.vehicleName.text = "Car"
         return cell
@@ -55,7 +59,7 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 12
     }
     
     func collectionView(_ collectionView: UICollectionView,

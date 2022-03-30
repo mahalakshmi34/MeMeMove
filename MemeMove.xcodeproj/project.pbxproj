@@ -54,7 +54,6 @@
 		93E8D40927E0736C00D6B8E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93E8D40B27E0736D00D6B8E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93E8D40E27E0736D00D6B8E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		93E8D41027E0736D00D6B8E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93E8D41627E0839100D6B8E8 /* MessengerTRANS.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = MessengerTRANS.gif; sourceTree = "<group>"; };
 		93E8D41827E0856600D6B8E8 /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
 		BC6467566B310DF6589E7219 /* Pods-MemeMove.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeMove.release.xcconfig"; path = "Target Support Files/Pods-MemeMove/Pods-MemeMove.release.xcconfig"; sourceTree = "<group>"; };
@@ -225,7 +224,6 @@
 				93E8D40B27E0736D00D6B8E8 /* Assets.xcassets */,
 				93E8D40D27E0736D00D6B8E8 /* LaunchScreen.storyboard */,
 				93E1925327EC7A6B00587666 /* GoogleService-Info.plist */,
-				93E8D41027E0736D00D6B8E8 /* Info.plist */,
 				93E1925F27EC865400587666 /* GIF */,
 				93E8D41627E0839100D6B8E8 /* MessengerTRANS.gif */,
 			);
@@ -535,11 +533,15 @@
 				DEVELOPMENT_TEAM = RZ8T7M949X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MemeMove/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = googlemap;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Always need your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -564,11 +566,15 @@
 				DEVELOPMENT_TEAM = RZ8T7M949X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MemeMove/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = googlemap;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Always need your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

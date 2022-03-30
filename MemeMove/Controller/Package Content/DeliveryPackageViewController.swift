@@ -37,7 +37,7 @@ class DeliveryPackageViewController: UIViewController {
 }
 
 extension UIButton {
-    func addShadowToButton(color: UIColor = UIColor.gray, cornerRadius: CGFloat) {
+    func addShadowToButton(color: UIColor = UIColor.lightGray, cornerRadius: CGFloat) {
         self.backgroundColor = UIColor.white
         self.layer.masksToBounds = false
         self.layer.shadowColor = color.cgColor
