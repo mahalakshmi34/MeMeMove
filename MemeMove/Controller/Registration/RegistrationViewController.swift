@@ -85,7 +85,10 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
-           textFieldValidation()
+           //textFieldValidation()
+        
+        let login = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        self.navigationController?.pushViewController(login, animated: true)
     }
     
 }

@@ -16,6 +16,7 @@
 		933D479C27E1C0F500954445 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933D479B27E1C0F500954445 /* ForgotPasswordViewController.swift */; };
 		933D479E27E1C88500954445 /* GeneratePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933D479D27E1C88500954445 /* GeneratePasswordViewController.swift */; };
 		933D47A027E1E53C00954445 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933D479F27E1E53C00954445 /* OTPViewController.swift */; };
+		93506A0727F584CE007D2032 /* SelectPackageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93506A0627F584CE007D2032 /* SelectPackageContentViewController.swift */; };
 		9373A54427EDC00100BC1651 /* AddAddressDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373A54327EDC00100BC1651 /* AddAddressDetailViewController.swift */; };
 		9382AD0227F45E26009E0287 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9382AD0127F45E26009E0287 /* PaymentViewController.swift */; };
 		9384204D27F19D2500E02609 /* SelectVehicleTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9384204C27F19D2500E02609 /* SelectVehicleTypeViewController.swift */; };
@@ -43,6 +44,7 @@
 		933D479B27E1C0F500954445 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		933D479D27E1C88500954445 /* GeneratePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratePasswordViewController.swift; sourceTree = "<group>"; };
 		933D479F27E1E53C00954445 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		93506A0627F584CE007D2032 /* SelectPackageContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPackageContentViewController.swift; sourceTree = "<group>"; };
 		9373A54327EDC00100BC1651 /* AddAddressDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressDetailViewController.swift; sourceTree = "<group>"; };
 		9382AD0127F45E26009E0287 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		9384204C27F19D2500E02609 /* SelectVehicleTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVehicleTypeViewController.swift; sourceTree = "<group>"; };
@@ -90,19 +92,56 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		93506A0827F59DC2007D2032 /* Select Vehicle Type */ = {
+			isa = PBXGroup;
+			children = (
+				9329BC3827F1A3B400D3461C /* VehicleTypeCollectionViewCell.swift */,
+				9384204C27F19D2500E02609 /* SelectVehicleTypeViewController.swift */,
+			);
+			path = "Select Vehicle Type";
+			sourceTree = "<group>";
+		};
+		93506A0927F59E2A007D2032 /* AddAddressDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9373A54327EDC00100BC1651 /* AddAddressDetailViewController.swift */,
+			);
+			path = AddAddressDetail;
+			sourceTree = "<group>";
+		};
+		93506A0A27F59E4B007D2032 /* SelectPackageContent */ = {
+			isa = PBXGroup;
+			children = (
+				93506A0627F584CE007D2032 /* SelectPackageContentViewController.swift */,
+			);
+			path = SelectPackageContent;
+			sourceTree = "<group>";
+		};
+		93506A0B27F59EC3007D2032 /* EstimateFair */ = {
+			isa = PBXGroup;
+			children = (
+				9382AD0127F45E26009E0287 /* PaymentViewController.swift */,
+			);
+			path = EstimateFair;
+			sourceTree = "<group>";
+		};
 		93E1925527EC84BF00587666 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				93E1926027EC869D00587666 /* Meme Move */,
 				93E1925627EC84D300587666 /* Login */,
 				93E1925727EC84E800587666 /* Registration */,
-				93E1925827EC850700587666 /* Home */,
 				93E1925927EC852200587666 /* OTP  */,
 				93E1925A27EC854300587666 /* Forgot Password */,
 				93E1925B27EC855D00587666 /* Generate Password */,
+				93E1925827EC850700587666 /* Home */,
 				93E1925C27EC857D00587666 /* Sidemenu Navigation */,
-				93E1925E27EC85F500587666 /* Package Content */,
+				93506A0927F59E2A007D2032 /* AddAddressDetail */,
 				93E1925D27EC85AB00587666 /* Confirm Delivery Location */,
+				93E1925E27EC85F500587666 /* Package Content */,
+				93506A0A27F59E4B007D2032 /* SelectPackageContent */,
+				93506A0827F59DC2007D2032 /* Select Vehicle Type */,
+				93506A0B27F59EC3007D2032 /* EstimateFair */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -219,10 +258,6 @@
 				93E8D40227E0736C00D6B8E8 /* AppDelegate.swift */,
 				93E8D40427E0736C00D6B8E8 /* SceneDelegate.swift */,
 				93E8D40827E0736C00D6B8E8 /* Main.storyboard */,
-				9382AD0127F45E26009E0287 /* PaymentViewController.swift */,
-				9384204C27F19D2500E02609 /* SelectVehicleTypeViewController.swift */,
-				9329BC3827F1A3B400D3461C /* VehicleTypeCollectionViewCell.swift */,
-				9373A54327EDC00100BC1651 /* AddAddressDetailViewController.swift */,
 				93E1925527EC84BF00587666 /* Controller */,
 				93E8D40B27E0736D00D6B8E8 /* Assets.xcassets */,
 				93E8D40D27E0736D00D6B8E8 /* LaunchScreen.storyboard */,
@@ -375,6 +410,7 @@
 				93E8D41927E0856600D6B8E8 /* iOSDevCenters+GIF.swift in Sources */,
 				93E1925227EC618B00587666 /* ConfirmLocationViewController.swift in Sources */,
 				933D479E27E1C88500954445 /* GeneratePasswordViewController.swift in Sources */,
+				93506A0727F584CE007D2032 /* SelectPackageContentViewController.swift in Sources */,
 				9382AD0227F45E26009E0287 /* PaymentViewController.swift in Sources */,
 				93E8D40327E0736C00D6B8E8 /* AppDelegate.swift in Sources */,
 				9373A54427EDC00100BC1651 /* AddAddressDetailViewController.swift in Sources */,

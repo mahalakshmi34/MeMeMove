@@ -26,4 +26,9 @@ class OTPViewController: UIViewController {
         verifyButton.layer.cornerRadius = verifyButton.frame.size.height / 2
     }
 
+    @IBAction func verifyButton(_ sender: UIButton) {
+        
+        let generatePassword =  self.storyboard?.instantiateViewController(withIdentifier: "GeneratePasswordViewController") as! GeneratePasswordViewController
+        self.navigationController?.pushViewController(generatePassword, animated: true)
+    }
 }

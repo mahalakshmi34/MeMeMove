@@ -63,9 +63,26 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     }
     
     
+    @IBAction func forgotPassword(_ sender: UIButton) {
+        
+        let forgotPassword = self.storyboard?.instantiateViewController(withIdentifier: "ForgotPasswordViewController") as! ForgotPasswordViewController
+        self.navigationController?.pushViewController(forgotPassword, animated: true)
+    }
+    
+    
+    @IBAction func registerButton(_ sender: UIButton) {
+        
+        let register = self.storyboard?.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
+        self.navigationController?.pushViewController(register, animated: true)
+    }
+    
+    
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         
-        textFieldValidation()
+        //textFieldValidation()
+        
+        let home = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        self.navigationController?.pushViewController(home, animated: true)
     }
 }
 

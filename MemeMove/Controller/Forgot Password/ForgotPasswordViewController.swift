@@ -49,6 +49,9 @@ class ForgotPasswordViewController: UIViewController {
     
     @IBAction func submitBtnPressed(_ sender: UIButton) {
         
+        let OTP = self.storyboard?.instantiateViewController(withIdentifier: "OTPViewController") as! OTPViewController
+        self.navigationController?.pushViewController(OTP, animated: true)
+        
     }
     
 }
