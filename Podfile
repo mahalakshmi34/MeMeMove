@@ -9,6 +9,10 @@ target 'MemeMove' do
 
   pod 'GoogleMaps'
 
+  pod 'Alamofire'
+
+ 
+
   # Pods for MemeMove
 
 end
