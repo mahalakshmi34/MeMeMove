@@ -15,8 +15,6 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var userNameText: UITextField!
     @IBOutlet weak var emailIDText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
-    @IBOutlet weak var confirmPasswordText: UITextField!
-    @IBOutlet weak var mobileNumberText: UITextField!
     @IBOutlet weak var referralCodeText: UITextField!
     
     override func viewDidLoad() {
