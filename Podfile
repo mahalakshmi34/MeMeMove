@@ -11,6 +11,7 @@ target 'MemeMove' do
 
   pod 'Alamofire'
 
+  pod 'SwiftyJSON'
  
 
   # Pods for MemeMove

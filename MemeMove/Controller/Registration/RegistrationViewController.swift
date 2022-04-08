@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class RegistrationViewController: UIViewController,UITextFieldDelegate {
 
@@ -21,10 +22,11 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         delegateMethod()
         cornerRadius()
-    
+        userRegistration()
     }
+    
     func delegateMethod() {
-        mobileNumberText.delegate = self
+        
     }
     
     func cornerRadius() {
@@ -44,21 +46,13 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
         else if passwordText.text?.count == 0 {
             showAlert(alertText: "Alert", alertMessage: "Please enter your password")
         }
-        else if confirmPasswordText.text?.count == 0 {
-            showAlert(alertText: "Alert", alertMessage: "Please confirm your password")
-        }
-        else if mobileNumberText.text?.count == 0 {
-            showAlert(alertText: "Alert", alertMessage: "Please enter your mobileNumber")
-        }
         else if referralCodeText.text?.count == 0 {
             showAlert(alertText: "Alert", alertMessage: "Please enter your referral code")
         }
         else if emailIDText.text?.count != 0 {
             getEmailValidationMessage(email: emailIDText.text!)
         }
-        else if passwordText.text != confirmPasswordText.text {
-            showAlert(alertText: "Alert", alertMessage: "Confirm password must be equal")
-        }
+
     }
     
     func getEmailValidationMessage(email: String) {
@@ -72,16 +66,18 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
             showAlert(alertText: "Alert", alertMessage: "Invalid Email Address")
         }
     }
+
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let textFieldText = mobileNumberText.text,
-            let rangeOfTextToReplace = Range(range, in: textFieldText) else {
-                return false
-        }
-        let substringToReplace = textFieldText[rangeOfTextToReplace]
-        let count = textFieldText.count - substringToReplace.count + string.count
-        return count <= 10
-    }
+    
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        guard let textFieldText = mobileNumberText.text,
+//            let rangeOfTextToReplace = Range(range, in: textFieldText) else {
+//                return false
+//        }
+//        let substringToReplace = textFieldText[rangeOfTextToReplace]
+//        let count = textFieldText.count - substringToReplace.count + string.count
+//        return count <= 10
+//    }
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
            //textFieldValidation()
@@ -90,4 +86,20 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
         self.navigationController?.pushViewController(login, animated: true)
     }
     
+    
+    //API CALLS
+    
+    func userRegistration() {
+        let url = APPURL.registerUser + "username=maha&emailId=mahalakshmi.appdeveloper@gmail.com&password=maha"
+        print(url)
+        
+        let header : HTTPHeaders = ["Content-Type": "application/json"]
+        
+        AF.request(url, method: .post,encoding: JSONEncoding.default,headers: header)
+            .responseJSON { [self] response in
+                print("isiLagi: \(response)")
+            }
+    }
+
 }
+    

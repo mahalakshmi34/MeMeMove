@@ -44,17 +44,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func signInButton(_ sender: UIButton) {
-        
         let signIn = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         self.navigationController?.pushViewController(signIn, animated: true)
     }
     
-    
-    
     @IBAction func registerButton(_ sender: UIButton) {
         let register = self.storyboard?.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
         self.navigationController?.pushViewController(register, animated: true)
-        
     }
 }
 

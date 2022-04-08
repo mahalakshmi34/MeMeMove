@@ -6,3 +6,9 @@
 //
 
 import Foundation
+import UIKit
+
+struct registerUser : Codable {
+    var message: String?
+}
+

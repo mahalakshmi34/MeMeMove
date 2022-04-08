@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zuW-dJ-Zdj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bml-j7-CEo">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -2474,13 +2474,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-1" translatesAutoresizingMaskIntoConstraints="NO" id="ayK-KY-MAq">
-                                <rect key="frame" x="0.0" y="0.0" width="423" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Address-amico" translatesAutoresizingMaskIntoConstraints="NO" id="D8X-5n-mfV">
-                                <rect key="frame" x="87.333333333333329" y="10" width="248.66666666666669" height="156"/>
+                                <rect key="frame" x="85.333333333333329" y="10" width="243.33333333333337" height="156"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgW-uh-qr7">
-                                <rect key="frame" x="42.333333333333343" y="176" width="338.33333333333326" height="25"/>
+                                <rect key="frame" x="41.333333333333343" y="176" width="331.33333333333326" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="RAD-ho-0Nr"/>
                                 </constraints>
@@ -2489,7 +2489,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Lr-Xd-BmW">
-                                <rect key="frame" x="21" y="204" width="381" height="45"/>
+                                <rect key="frame" x="20.666666666666657" y="204" width="372.66666666666674" height="45"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="B87-Sy-QUn"/>
@@ -2498,14 +2498,14 @@
                                 <buttonConfiguration key="configuration" style="plain"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon metro-my-location-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZXf-Wm-NVD">
-                                <rect key="frame" x="26" y="209" width="23.666666666666671" height="30"/>
+                                <rect key="frame" x="25.666666666666664" y="209" width="23.666666666666664" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="hUQ-V6-1yp"/>
                                     <constraint firstAttribute="width" constant="30" id="mSq-ib-apw"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Pickup location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kG7-YG-ma1">
-                                <rect key="frame" x="61.333333333333343" y="214" width="304.66666666666663" height="30"/>
+                                <rect key="frame" x="59" y="214" width="298" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="duw-gj-40X"/>
                                 </constraints>
@@ -2513,7 +2513,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDF-TM-5Af">
-                                <rect key="frame" x="21" y="296" width="381" height="25"/>
+                                <rect key="frame" x="20.666666666666657" y="296" width="372.66666666666674" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="R0P-ad-yGR"/>
                                 </constraints>
@@ -2522,13 +2522,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 382" translatesAutoresizingMaskIntoConstraints="NO" id="les-EB-5xV">
-                                <rect key="frame" x="30" y="254" width="12" height="40"/>
+                                <rect key="frame" x="29.666666666666671" y="254" width="12" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="yLQ-nP-kGp"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Da-vH-H8l">
-                                <rect key="frame" x="18.333333333333343" y="324" width="386.33333333333326" height="45"/>
+                                <rect key="frame" x="18" y="324" width="378" height="45"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="elc-2i-unG"/>
@@ -2537,14 +2537,14 @@
                                 <buttonConfiguration key="configuration" style="plain"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon metro-my-location-1" translatesAutoresizingMaskIntoConstraints="NO" id="PUc-xI-eyQ">
-                                <rect key="frame" x="23.333333333333329" y="329" width="30" height="30"/>
+                                <rect key="frame" x="23" y="329" width="23.666666666666671" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="1dc-6D-IND"/>
                                     <constraint firstAttribute="width" constant="30" id="Lut-6d-l40"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Delivery location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ccz-BA-tp9">
-                                <rect key="frame" x="61.333333333333343" y="331" width="309" height="30"/>
+                                <rect key="frame" x="59" y="331" width="302.33333333333331" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="oVf-J6-Fe8"/>
                                 </constraints>
@@ -2552,13 +2552,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 382" translatesAutoresizingMaskIntoConstraints="NO" id="M84-Ac-7uY">
-                                <rect key="frame" x="30.333333333333329" y="377" width="11" height="35"/>
+                                <rect key="frame" x="30" y="377" width="11" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="xSI-8Z-j5m"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Package Content" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKV-Nn-L4c">
-                                <rect key="frame" x="21" y="414" width="381" height="25"/>
+                                <rect key="frame" x="20.666666666666657" y="414" width="372.66666666666674" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="8uV-Zm-bWo"/>
                                 </constraints>
@@ -2567,7 +2567,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hua-Yr-RpC">
-                                <rect key="frame" x="21" y="442" width="381" height="45"/>
+                                <rect key="frame" x="20.666666666666657" y="442" width="372.66666666666674" height="45"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="KiA-vu-huo"/>
@@ -2576,14 +2576,14 @@
                                 <buttonConfiguration key="configuration" style="plain"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon feather-package" translatesAutoresizingMaskIntoConstraints="NO" id="8pW-6n-jPs">
-                                <rect key="frame" x="26" y="447" width="30" height="30"/>
+                                <rect key="frame" x="25.666666666666671" y="447" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="YXI-Kd-6ag"/>
                                     <constraint firstAttribute="height" constant="30" id="k5Q-Ii-Pyy"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Eg : food,Documents" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A3W-Lc-1tO">
-                                <rect key="frame" x="65.333333333333343" y="445" width="321.66666666666663" height="34"/>
+                                <rect key="frame" x="63" y="445" width="315" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="Gpb-T8-CYZ"/>
                                 </constraints>
@@ -2591,14 +2591,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon feather-edit" translatesAutoresizingMaskIntoConstraints="NO" id="mdJ-q4-Dl3">
-                                <rect key="frame" x="26" y="498" width="25" height="25"/>
+                                <rect key="frame" x="25.666666666666671" y="498" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Ndv-I4-hLj"/>
                                     <constraint firstAttribute="width" constant="25" id="wjZ-X2-FQB"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any instructions? Eg:Please care the delivery item" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23q-w7-KdZ">
-                                <rect key="frame" x="21" y="495" width="381.33333333333331" height="30"/>
+                                <rect key="frame" x="20.666666666666657" y="495" width="373" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8Pd-HM-WAg"/>
                                 </constraints>
@@ -2607,7 +2607,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="efZ-2G-uUI">
-                                <rect key="frame" x="21" y="539" width="381.33333333333331" height="56"/>
+                                <rect key="frame" x="20.666666666666657" y="539" width="373" height="56"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">By confirming I accept this order doesn’t contain illegal/ restricted items. MeMeMove may ask to verify the contents of the package and could choose to refuse the task if the items aren’t verified.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -2615,7 +2615,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvb-9C-Kev">
-                                <rect key="frame" x="21" y="603.33333333333337" width="381" height="45"/>
+                                <rect key="frame" x="20.666666666666657" y="603.33333333333337" width="372.66666666666674" height="45"/>
                                 <color key="backgroundColor" red="0.48235297199999999" green="0.77254903320000001" blue="0.98039215800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Sc6-tA-f5Z"/>
