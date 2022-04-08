@@ -19,21 +19,5 @@ func URLRequests(parameter: Parameters? = nil, method: HTTPMethod, url: String, 
     }
 }
 
-func registerUserApi(userName:String,emailID:String,password:String,userRefferalCode:String,completionHandler:@escaping (registerUser? , Error?) -> Void) {
-    let url = APPURL.registerUser
-    let param: Parameters = ["username":userName,"emailID" : emailID,"password":password,"userRefferalCode":userRefferalCode]
-    URLRequests(parameter: param, method: .post, url: url) { (data) in
-        if let data = data {
-            do {
-                let resp = try JSONDecoder().decode(registerUser.self, from: data)
-                completionHandler(resp, nil)
-            } catch {
-                print(error)
-                completionHandler(nil, error)
-            }
-        }
-    }
-}
-
 
 

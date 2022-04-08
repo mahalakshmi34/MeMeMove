@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class LoginViewController: UIViewController,UITextFieldDelegate {
     
@@ -19,6 +20,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         delegateMethod()
         cornerRadius()
+        userLogin()
     }
     
     func delegateMethod() {
@@ -83,6 +85,16 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         
         let home = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         self.navigationController?.pushViewController(home, animated: true)
+    }
+    
+    func userLogin() {
+        let url = APPURL.userLogin + "email=mahalakshmi.appdeveloper@gmail.com&pwd=maha"
+        let header : HTTPHeaders = ["Content-Type": "application/json"]
+        
+        AF.request(url, method: .post,encoding: JSONEncoding.default,headers: header)
+            .responseJSON { [self] response in
+                print("isiLagi: \(response)")
+            }
     }
 }
 

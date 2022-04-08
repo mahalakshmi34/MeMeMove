@@ -18,4 +18,8 @@ struct APPURL {
     static var registerUser : String {
         return BaseURL + "Registration/user?"
     }
+    
+    static var userLogin :String {
+        return BaseURL + "login/user?"
+    }
 }

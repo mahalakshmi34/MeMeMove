@@ -26,7 +26,6 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
     }
     
     func delegateMethod() {
-        
     }
     
     func cornerRadius() {
@@ -91,8 +90,6 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
     
     func userRegistration() {
         let url = APPURL.registerUser + "username=maha&emailId=mahalakshmi.appdeveloper@gmail.com&password=maha"
-        print(url)
-        
         let header : HTTPHeaders = ["Content-Type": "application/json"]
         
         AF.request(url, method: .post,encoding: JSONEncoding.default,headers: header)
