@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class OTPViewController: UIViewController {
 
@@ -16,6 +18,7 @@ class OTPViewController: UIViewController {
         super.viewDidLoad()
 
        cornerRadius()
+        confirmOtp()
     }
     
 
@@ -27,7 +30,7 @@ class OTPViewController: UIViewController {
     }
     
     func confirmOtp() {
-        let url = APPURL.userLogin + "email=mahalakshmi.appdeveloper@gmail.com&pwd=maha"
+        let url = APPURL.confirmOtp + "otp=123"
         let header : HTTPHeaders = ["Content-Type": "application/json"]
         
         AF.request(url, method: .post,encoding: JSONEncoding.default,headers: header)

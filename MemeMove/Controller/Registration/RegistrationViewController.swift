@@ -105,6 +105,5 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
                 }
             }
     }
-
 }
     

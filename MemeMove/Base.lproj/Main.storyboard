@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v6r-Or-phb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IpB-4u-Ltz">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -1774,7 +1774,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CIk-LE-7CF">
-                                <rect key="frame" x="46" y="213.00000000000003" width="322" height="404.66666666666674"/>
+                                <rect key="frame" x="46" y="189.00000000000003" width="322" height="404.66666666666674"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon awesome-lock" translatesAutoresizingMaskIntoConstraints="NO" id="Irc-fE-k5R">
                                         <rect key="frame" x="136" y="30" width="50" height="50"/>
@@ -1917,7 +1917,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Ow6-W9-uUj" firstAttribute="top" secondItem="nqv-wB-Zx8" secondAttribute="topMargin" constant="54" id="455-Hs-dvS"/>
-                            <constraint firstItem="CIk-LE-7CF" firstAttribute="top" secondItem="Ow6-W9-uUj" secondAttribute="bottom" constant="59" id="Eou-Be-QWj"/>
+                            <constraint firstItem="CIk-LE-7CF" firstAttribute="top" secondItem="Ow6-W9-uUj" secondAttribute="bottom" constant="35" id="Eou-Be-QWj"/>
                             <constraint firstItem="CIk-LE-7CF" firstAttribute="centerX" secondItem="GGX-cA-hha" secondAttribute="centerX" id="JRv-kd-qLV"/>
                             <constraint firstItem="CIk-LE-7CF" firstAttribute="height" secondItem="nqv-wB-Zx8" secondAttribute="height" multiplier="0.55" id="Tet-ku-eyG"/>
                             <constraint firstItem="CIk-LE-7CF" firstAttribute="width" secondItem="nqv-wB-Zx8" secondAttribute="width" multiplier="0.777778" id="WdV-21-gDb"/>

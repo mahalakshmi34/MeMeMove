@@ -7,7 +7,7 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
+
 
 class LoginViewController: UIViewController,UITextFieldDelegate {
     
@@ -15,8 +15,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var emailIdTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         delegateMethod()
@@ -44,7 +43,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         if emailIdTextField.text?.count == 0 {
             showAlert(alertText: "Alert", alertMessage: "Please enter your email id or mobilenumber")
         }
-        
         else if passwordTextField.text?.count == 0 {
             showAlert(alertText: "Alert", alertMessage: "Please enter your password")
         }
@@ -67,23 +65,18 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     
     @IBAction func forgotPassword(_ sender: UIButton) {
-        
         let forgotPassword = self.storyboard?.instantiateViewController(withIdentifier: "ForgotPasswordViewController") as! ForgotPasswordViewController
         self.navigationController?.pushViewController(forgotPassword, animated: true)
     }
     
     
     @IBAction func registerButton(_ sender: UIButton) {
-        
         let register = self.storyboard?.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
         self.navigationController?.pushViewController(register, animated: true)
-    }
-    
+    }    
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
-        
         //textFieldValidation()
-        
         let home = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         self.navigationController?.pushViewController(home, animated: true)
     }
@@ -92,17 +85,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         let url = APPURL.userLogin + "email=mahalakshmi.appdeveloper@gmail.com&pwd=maha"
         let header : HTTPHeaders = ["Content-Type": "application/json"]
         
-        AF.request(url, method: .post,encoding: JSONEncoding.default,headers: header)
-            .responseJSON { [self] response in
-                print("isiLagi: \(response)")
-                switch response.result {
-                case .success(let data):
-                    print("isi: \(data)")
-                    let json = JSON(data)
-                    print(json)
-                case .failure(let error):
-                    print("Request failed with error: \(error)")
-                }
+        AF.request(url,method: .post,encoding: JSONEncoding.default,headers: header)
+            .responseDecodable(of:Login.self) { (response) in
+                guard let message = response.value else { return }
+                print(message)
             }
     }
 }
