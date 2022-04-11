@@ -25,6 +25,24 @@ class OTPViewController: UIViewController {
         otpView.layer.borderColor = UIColor(rgb: 0x60C8FF).cgColor
         verifyButton.layer.cornerRadius = verifyButton.frame.size.height / 2
     }
+    
+    func confirmOtp() {
+        let url = APPURL.userLogin + "email=mahalakshmi.appdeveloper@gmail.com&pwd=maha"
+        let header : HTTPHeaders = ["Content-Type": "application/json"]
+        
+        AF.request(url, method: .post,encoding: JSONEncoding.default,headers: header)
+            .responseJSON { [self] response in
+                print("isiLagi: \(response)")
+                switch response.result {
+                case .success(let data):
+                    print("isi: \(data)")
+                    let json = JSON(data)
+                    print(json)
+                case .failure(let error):
+                    print("Request failed with error: \(error)")
+                }
+            }
+    }
 
     @IBAction func verifyButton(_ sender: UIButton) {
         

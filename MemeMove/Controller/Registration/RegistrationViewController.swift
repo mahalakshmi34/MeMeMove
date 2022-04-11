@@ -95,6 +95,14 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
         AF.request(url, method: .post,encoding: JSONEncoding.default,headers: header)
             .responseJSON { [self] response in
                 print("isiLagi: \(response)")
+                switch response.result {
+                case .success(let data):
+                    print("isi: \(data)")
+                    let json = JSON(data)
+                    print(json)
+                case .failure(let error):
+                    print("Request failed with error: \(error)")
+                }
             }
     }
 

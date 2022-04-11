@@ -22,4 +22,7 @@ struct APPURL {
     static var userLogin :String {
         return BaseURL + "login/user?"
     }
+    static var forgotPassword :String {
+        return BaseURL + "forgot/password?"
+    }
 }
