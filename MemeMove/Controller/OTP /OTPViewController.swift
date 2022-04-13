@@ -48,7 +48,6 @@ class OTPViewController: UIViewController {
     }
 
     @IBAction func verifyButton(_ sender: UIButton) {
-        
         let generatePassword =  self.storyboard?.instantiateViewController(withIdentifier: "GeneratePasswordViewController") as! GeneratePasswordViewController
         self.navigationController?.pushViewController(generatePassword, animated: true)
     }

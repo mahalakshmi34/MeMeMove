@@ -18,6 +18,22 @@ struct Login {
     }
 }
 
+struct userRegistration {
+    var message :String
+    
+    enum CodingKeys : String,CodingKey {
+        case message
+    }
+}
+
+struct forgotPassword {
+    var message :String
+    
+    enum CodingKeys :String,CodingKey {
+        case message
+    }
+}
+
 extension Login :Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)

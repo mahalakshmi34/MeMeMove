@@ -7,7 +7,6 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
 
 class RegistrationViewController: UIViewController,UITextFieldDelegate {
 
@@ -18,11 +17,13 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var referralCodeText: UITextField!
     
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         delegateMethod()
         cornerRadius()
-        userRegistration()
+        registerUser()
     }
     
     func delegateMethod() {
@@ -88,22 +89,20 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
     
     //API CALLS
     
-    func userRegistration() {
+    func registerUser() {
         let url = APPURL.registerUser + "username=maha&emailId=mahalakshmi.appdeveloper@gmail.com&password=maha"
         let header : HTTPHeaders = ["Content-Type": "application/json"]
-        
         AF.request(url, method: .post,encoding: JSONEncoding.default,headers: header)
-            .responseJSON { [self] response in
-                print("isiLagi: \(response)")
-                switch response.result {
-                case .success(let data):
-                    print("isi: \(data)")
-                    let json = JSON(data)
-                    print(json)
-                case .failure(let error):
-                    print("Request failed with error: \(error)")
-                }
+            .responseDecodable(of: userRegistration.self) { (response) in
+                guard let message =  response.value else { return }
+                print(message)
             }
     }
 }
-    
+   
+extension userRegistration :Decodable {
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        message = try values.decode(String.self, forKey: .message)
+    }
+}

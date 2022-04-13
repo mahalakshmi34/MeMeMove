@@ -7,19 +7,17 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
+
 
 class ForgotPasswordViewController: UIViewController {
-    
     @IBOutlet weak var forgotPasswordView: UIView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var mobileNumberText: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         cornerRadius()
-        forgotPassword()
+        receiveOTP()
     }
     
     func getEmailValidationMessage(email: String) {
@@ -40,25 +38,17 @@ class ForgotPasswordViewController: UIViewController {
         }
     }
     
-    func forgotPassword() {
+    func receiveOTP() {
         let url = APPURL.forgotPassword + "emailId=mahalakshmi.appdeveloper@gmail.com"
         let header : HTTPHeaders = ["Content-Type": "application/json"]
         
         AF.request(url, method: .post,encoding: JSONEncoding.default,headers: header)
-            .responseJSON { [self] response in
-                print("isiLagi: \(response)")
-                switch response.result {
-                case .success(let data):
-                    print("isi: \(data)")
-                    let json = JSON(data)
-                    print(json)
-                case .failure(let error):
-                    print("Request failed with error: \(error)")
-                }
+            .responseDecodable(of: forgotPassword.self) { (response) in
+                guard let message =  response.value else { return }
+                print(message)
             }
-    }
-    
-    
+       }
+        
     func cornerRadius() {
         forgotPasswordView.layer.cornerRadius = 40
         forgotPasswordView.layer.borderWidth = 5
@@ -67,10 +57,14 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     @IBAction func submitBtnPressed(_ sender: UIButton) {
-        
         let OTP = self.storyboard?.instantiateViewController(withIdentifier: "OTPViewController") as! OTPViewController
         self.navigationController?.pushViewController(OTP, animated: true)
-        
     }
-    
+}
+
+extension forgotPassword :Decodable {
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        message = try values.decode(String.self, forKey: .message)
+    }
 }

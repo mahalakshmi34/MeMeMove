@@ -14,7 +14,6 @@ class GeneratePasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         cornerRadius()
     }
     
@@ -24,7 +23,4 @@ class GeneratePasswordViewController: UIViewController {
         passwordGenerationView.layer.borderColor = UIColor(rgb: 0x60C8FF).cgColor
         submitButton.layer.cornerRadius = submitButton.frame.size.height / 2
     }
-
-   
-
 }
