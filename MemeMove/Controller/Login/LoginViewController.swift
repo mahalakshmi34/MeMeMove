@@ -18,13 +18,24 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegateMethod()
         cornerRadius()
-        userLogin()
+        delegateMethod()
+        placeHolderColor()
+    }
+    
+    func placeHolderColor() {
+        var color = UIColor.white
+        var placeholder = emailIdTextField.placeholder ?? ""
+        emailIdTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : color])
+        
+        color = UIColor.white
+        placeholder = passwordTextField.placeholder ?? ""
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : color])
     }
     
     func delegateMethod() {
         emailIdTextField.delegate = self
+
     }
     
     func cornerRadius() {
@@ -32,8 +43,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         loginView.layer.borderWidth = 5
         loginView.layer.borderColor = UIColor(rgb: 0x60C8FF).cgColor
         submitButton.layer.cornerRadius = submitButton.frame.size.height / 2
-        emailIdTextField.layer.cornerRadius = 30
-        passwordTextField.layer.cornerRadius = passwordTextField.frame.size.height / 2
+        emailIdTextField.layer.cornerRadius = 20
+        passwordTextField.layer.cornerRadius = 40
         emailIdTextField.layer.backgroundColor = UIColor(rgb: 0x707070).cgColor
         passwordTextField.layer.backgroundColor = UIColor(rgb: 0x707070).cgColor
         
@@ -65,30 +76,46 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     
     @IBAction func forgotPassword(_ sender: UIButton) {
+       navigateToForgotPassword()
+    }
+    
+    
+    @IBAction func registerButton(_ sender: UIButton) {
+       navigateToRegister()
+    }    
+    
+    @IBAction func submitButtonPressed(_ sender: UIButton) {
+        //textFieldValidation()
+         userLogin()
+    }
+    
+    func navigateToForgotPassword() {
         let forgotPassword = self.storyboard?.instantiateViewController(withIdentifier: "ForgotPasswordViewController") as! ForgotPasswordViewController
         self.navigationController?.pushViewController(forgotPassword, animated: true)
     }
     
     
-    @IBAction func registerButton(_ sender: UIButton) {
+    func navigateToRegister() {
         let register = self.storyboard?.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
         self.navigationController?.pushViewController(register, animated: true)
-    }    
+    }
     
-    @IBAction func submitButtonPressed(_ sender: UIButton) {
-        //textFieldValidation()
+    func navigateToHome() {
         let home = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         self.navigationController?.pushViewController(home, animated: true)
     }
     
     func userLogin() {
-        let url = APPURL.userLogin + "email=mahalakshmi.appdeveloper@gmail.com&pwd=maha"
+        let url = APPURL.userLogin + "email=\(emailIdTextField.text!)&pwd=\(passwordTextField.text!)"
+        print(url)
         let header : HTTPHeaders = ["Content-Type": "application/json"]
         
         AF.request(url,method: .post,encoding: JSONEncoding.default,headers: header)
-            .responseDecodable(of:Login.self) { (response) in
-                guard let message = response.value else { return }
+            .responseDecodable(of:Login.self) { [self] (response) in
+                guard var message = response.value else { return }
                 print(message)
+                navigateToHome()
+                
             }
     }
 }

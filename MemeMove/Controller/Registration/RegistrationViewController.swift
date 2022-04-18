@@ -14,10 +14,9 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var userNameText: UITextField!
     @IBOutlet weak var emailIDText: UITextField!
-    @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var mobileNumberTextField: UITextField!
     @IBOutlet weak var referralCodeText: UITextField!
-    
-   
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +26,21 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
     }
     
     func delegateMethod() {
+        var color = UIColor.white
+        var placeholder = userNameText.placeholder ?? ""
+        userNameText.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : color])
+        
+         color = UIColor.white
+         placeholder = emailIDText.placeholder ?? ""
+        emailIDText.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : color])
+        
+        color = UIColor.white
+        placeholder = mobileNumberTextField.placeholder ?? ""
+       mobileNumberTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : color])
+        
+        color = UIColor.white
+        placeholder = referralCodeText.placeholder ?? ""
+       referralCodeText.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : color])
     }
     
     func cornerRadius() {
@@ -43,7 +57,7 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
         else if emailIDText.text?.count == 0 {
             showAlert(alertText: "Alert", alertMessage: "Please enter your emailId")
         }
-        else if passwordText.text?.count == 0 {
+        else if mobileNumberTextField.text?.count == 0 {
             showAlert(alertText: "Alert", alertMessage: "Please enter your password")
         }
         else if referralCodeText.text?.count == 0 {
@@ -67,21 +81,23 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
         }
     }
 
-    
-    
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        guard let textFieldText = mobileNumberText.text,
-//            let rangeOfTextToReplace = Range(range, in: textFieldText) else {
-//                return false
-//        }
-//        let substringToReplace = textFieldText[rangeOfTextToReplace]
-//        let count = textFieldText.count - substringToReplace.count + string.count
-//        return count <= 10
-//    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let textFieldText = mobileNumberTextField.text,
+            let rangeOfTextToReplace = Range(range, in: textFieldText) else {
+                return false
+        }
+        let substringToReplace = textFieldText[rangeOfTextToReplace]
+        let count = textFieldText.count - substringToReplace.count + string.count
+        return count <= 10
+    }
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
-           //textFieldValidation()
-        
+           textFieldValidation()
+         //  navigateToLogin()
+       
+    }
+    
+    func navigateToLogin() {
         let login = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         self.navigationController?.pushViewController(login, animated: true)
     }
@@ -90,12 +106,14 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
     //API CALLS
     
     func registerUser() {
-        let url = APPURL.registerUser + "username=maha&emailId=mahalakshmi.appdeveloper@gmail.com&password=maha"
+        let url = APPURL.registerUser + "username=\(userNameText.text)&emailId=\(emailIDText.text)&mobilenumber=\(mobileNumberTextField.text)"
         let header : HTTPHeaders = ["Content-Type": "application/json"]
         AF.request(url, method: .post,encoding: JSONEncoding.default,headers: header)
-            .responseDecodable(of: userRegistration.self) { (response) in
+            .responseDecodable(of: userRegistration.self) { [self] (response) in
                 guard let message =  response.value else { return }
                 print(message)
+                
+                UserDefaults.standard.set(emailIDText.text, forKey: "userEmail")
             }
     }
 }

@@ -29,4 +29,8 @@ struct APPURL {
     static var confirmOtp :String {
         return BaseURL + "confirm/otp/verfication?"
     }
+    
+    static var generatePassword :String {
+        return BaseURL + "reset/password/user?"
+    }
 }

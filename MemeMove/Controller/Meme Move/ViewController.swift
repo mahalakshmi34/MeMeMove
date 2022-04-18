@@ -43,14 +43,23 @@ class ViewController: UIViewController {
         signInButton.addSubview(signInIcon)
     }
     
-    @IBAction func signInButton(_ sender: UIButton) {
+    func navigateToSignIn() {
         let signIn = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         self.navigationController?.pushViewController(signIn, animated: true)
     }
     
-    @IBAction func registerButton(_ sender: UIButton) {
+    func navigateToRegister() {
         let register = self.storyboard?.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
         self.navigationController?.pushViewController(register, animated: true)
+    }
+    
+    @IBAction func signInButton(_ sender: UIButton) {
+       navigateToSignIn()
+    }
+
+    
+    @IBAction func registerButton(_ sender: UIButton) {
+        navigateToRegister()
     }
 }
 
