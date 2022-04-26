@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class DeliveryPackageViewController: UIViewController {
     
@@ -14,11 +15,20 @@ class DeliveryPackageViewController: UIViewController {
     @IBOutlet weak var packageContent: UIButton!
     @IBOutlet weak var proceedButton: UIButton!
     
+    var currentLocatiobLat :Double = 0.0
+    var currentLocationLong : Double = 0.0
+    var destinationLatitude : Double = 0.0
+    var destinationLongitude :Double = 0.0
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         cornerRadius()
         dropShadow()
     }
+    
+    
     
     func cornerRadius() {
         deliveryLocation.layer.cornerRadius = 20

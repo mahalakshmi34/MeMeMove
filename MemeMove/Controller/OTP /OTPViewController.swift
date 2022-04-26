@@ -128,3 +128,16 @@ extension confirmOtp :Decodable {
         message = try values.decode(String.self, forKey: .message)
     }
 }
+
+
+extension UIButton {
+    func addShadowToTextField(color: UIColor = UIColor.gray, cornerRadius: CGFloat) {
+        self.backgroundColor = UIColor.white
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = color.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowOpacity = 1.0
+        self.backgroundColor = .white
+        self.layer.cornerRadius = cornerRadius
+    }
+}

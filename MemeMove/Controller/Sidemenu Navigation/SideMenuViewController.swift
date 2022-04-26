@@ -13,24 +13,27 @@ class SideMenuViewController: UIViewController {
     var animationOptions: UIView.AnimationOptions = .curveEaseIn
     static let menuSlideIn: SideMenuPresentationStyle = .viewSlideOutMenuPartialIn
   
-
-
+    @IBOutlet weak var nameTextField: UIButton!
+    @IBOutlet weak var mobileNumberText: UIButton!
+    @IBOutlet weak var emailIdText: UIButton!
+    @IBOutlet weak var changePasswordText: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addShadow()
         
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func addShadow() {
+        nameTextField.addShadowToButton(color: UIColor.gray, cornerRadius: 10)
+        mobileNumberText.addShadowToButton(color: UIColor.gray, cornerRadius: 10)
+        emailIdText.addShadowToButton(color: UIColor.gray, cornerRadius: 10)
+        changePasswordText.addShadowToButton(color: UIColor.gray, cornerRadius: 10)
     }
-    */
+
+   
 
 }

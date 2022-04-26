@@ -30,17 +30,17 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
         var placeholder = userNameText.placeholder ?? ""
         userNameText.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : color])
         
-         color = UIColor.white
-         placeholder = emailIDText.placeholder ?? ""
+        color = UIColor.white
+        placeholder = emailIDText.placeholder ?? ""
         emailIDText.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : color])
         
         color = UIColor.white
         placeholder = mobileNumberTextField.placeholder ?? ""
-       mobileNumberTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : color])
+        mobileNumberTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : color])
         
         color = UIColor.white
         placeholder = referralCodeText.placeholder ?? ""
-       referralCodeText.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : color])
+        referralCodeText.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : color])
     }
     
     func cornerRadius() {
