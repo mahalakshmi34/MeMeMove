@@ -5,12 +5,14 @@ PODS:
   - GoogleMaps/Base (6.0.1)
   - GoogleMaps/Maps (6.0.1):
     - GoogleMaps/Base
+  - GooglePlaces (5.0.0)
   - SideMenu (6.5.0)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
   - Alamofire
   - GoogleMaps
+  - GooglePlaces (= 5.0.0)
   - SideMenu
   - SwiftyJSON
 
@@ -18,15 +20,17 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - GoogleMaps
+    - GooglePlaces
     - SideMenu
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   GoogleMaps: c213fc2334b7374144cede914da779b99be0ab74
+  GooglePlaces: 5d87ca13ed98b7a937e0d8bc7026f718c7263271
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 05e319941b39104a5c94499121eba37f296067da
+PODFILE CHECKSUM: da082483fe8c2f2713a08b5fbdaee558d2b3b814
 
 COCOAPODS: 1.11.2

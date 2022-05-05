@@ -12,6 +12,9 @@ target 'MemeMove' do
   pod 'Alamofire'
 
   pod 'SwiftyJSON'
+
+  pod 'GooglePlaces', '5.0.0'
+
  
 
   # Pods for MemeMove

@@ -28,6 +28,10 @@ THE SOFTWARE.
 
 Copyright 2021 Google
 
+## GooglePlaces
+
+Copyright 2021 Google
+
 ## SideMenu
 
 Copyright (c) 2015 Jonathan Kent <contact@jonkent.me>
