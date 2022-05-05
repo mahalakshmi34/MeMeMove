@@ -9,7 +9,7 @@ import Foundation
 
 struct APPURL {
     private struct Domains {
-        static let Dev = "http://api.mememove.com:8080/MeMeMove/User/"
+        static let Dev = "https://api.mememove.com:8443/MeMeMove/"
     }
     
     private static let Domain = Domains.Dev

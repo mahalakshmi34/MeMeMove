@@ -12,13 +12,14 @@ import GoogleMaps
 
 
 class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate {
-
+    
     @IBOutlet weak var deliveryLocation: UIButton!
     @IBOutlet weak var pickUpLocation: UIButton!
     @IBOutlet weak var packageContent: UIButton!
     @IBOutlet weak var proceedButton: UIButton!
     @IBOutlet weak var pickUpAddress: UITextField!
     @IBOutlet weak var deliveryAddress: UITextField!
+    @IBOutlet weak var closeButton: UIButton!
     
     var currentLocationLat :Double = 0.0
     var currentLocationLong : Double = 0.0
@@ -33,7 +34,6 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         userCurrentLocation()
         cornerRadius()
         dropShadow()
-       // tapGesture()
     }
     
     func userCurrentLocation() {
@@ -41,9 +41,13 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-    
     }
     
+    @IBAction func pickUpAddressPressed(_ sender: UITextField) {
+        pickUpAddress .tag = 0
+        autoComplete()
+        
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -53,14 +57,13 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         currentLocationLong = (userLocation?.coordinate.longitude)!
         getCurrentLocation()
         locationManager.stopUpdatingLocation()
-
-}
+    }
     
     
     @IBAction func deliveryAddressTapped(_ sender: UITextField) {
         deliveryAddress.tag = 1
         autoComplete()
-
+        
     }
     
     func autoComplete() {
@@ -76,17 +79,6 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     }
     
     
-    func tapGesture() {
-        let tapGestureRecoginer = UITapGestureRecognizer(target: self, action: #selector(self.handleTapped(_:)))
-        pickUpAddress.addGestureRecognizer(tapGestureRecoginer)
-    }
-    
-    @objc func handleTapped(_ sender : UITapGestureRecognizer? = nil) {
-        pickUpAddress .tag = 0
-        autoComplete()
-    }
-    
-    
     func getCurrentLocation() ->String {
         var address: String = ""
         let geoCoder = CLGeocoder()
@@ -94,52 +86,23 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         geoCoder.reverseGeocodeLocation(location, completionHandler: { [self] (placemarks, error) -> Void in
             var placeMark: CLPlacemark!
             placeMark = placemarks?[0]
-            print(placeMark.addressDictionary as Any)
-            print(placeMark.locality as Any)
-            print(placeMark.subLocality as Any)
-            print(placeMark.administrativeArea as Any)
-    
             if let place = placemarks?[0] {
                 if place.subThoroughfare != nil {
-                    print(place.subThoroughfare as Any)
-                    print(place.thoroughfare as Any)
-                    //locationTxt.text = place.thoroughfare! + place.subThoroughfare!
                 }
-            }
-            if let locationName = placeMark.addressDictionary!["Name"] as? NSString {
-                print(locationName)
-            }
-            
-            if let thoroughfare = placeMark.addressDictionary!["Thoroughfare"] as? NSString {
-                print(thoroughfare)
-                address = thoroughfare as String
-                let address = thoroughfare
-                
             }
             if let city = placeMark.addressDictionary!["City"] as? NSString {
                 print(city)
                 address = city as String
-                 pickUpAddress.text = city as String
-            }
-            if let zip = placeMark.addressDictionary!["ZIP"] as? NSString {
-                print(zip)
-            }
-            if let country = placeMark.addressDictionary!["Country"] as? NSString {
-                print(country)
-            }
-            if let street = placeMark.addressDictionary!["Street"] as? String{
-                print("Street :- \(street)")
-                let str = street
-                address = street
-                //  locationTxt.text = street
-                let streetNumber = str.components(separatedBy: NSCharacterSet.decimalDigits.inverted).joined(separator: "")
-                print("streetNumber :- \(streetNumber)" as Any)
+                pickUpAddress.text = city as String
             }
         })
         return address;
     }
     
- 
+    
+    @IBAction func closeButtonPressed(_ sender: UIButton) {
+        pickUpAddress.text = ""
+    }
     
     func cornerRadius() {
         deliveryLocation.layer.cornerRadius = 20
@@ -156,6 +119,8 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         packageContent.addShadowToButton(cornerRadius: 10)
         packageContent.addShadowToButton(color: UIColor.gray, cornerRadius: 10)
     }
+    
+    
 }
 
 extension UIButton {
