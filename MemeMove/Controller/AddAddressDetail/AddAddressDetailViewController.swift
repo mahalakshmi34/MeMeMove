@@ -33,7 +33,6 @@ class AddAddressDetailViewController: UIViewController,GMSMapViewDelegate {
         cornerRadius()
         dropShadow()
         viewDropShadow()
-        
     }
     
     func bringSubViews() {
@@ -57,7 +56,6 @@ class AddAddressDetailViewController: UIViewController,GMSMapViewDelegate {
         houseFlatNumber.useUnderline()
         buildingName.useUnderline()
         reachTextField.useUnderline()
-
     }
     
     func showCurrentLocationOnMap() {
@@ -88,7 +86,6 @@ class AddAddressDetailViewController: UIViewController,GMSMapViewDelegate {
         othersButton.layer.cornerRadius = 10
         navigationView.layer.cornerRadius = 40
         navigationView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-    
         addAddressView.layer.cornerRadius = 20
         addAddressView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }

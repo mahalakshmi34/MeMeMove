@@ -21,7 +21,6 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
         delegateMethod()
         cornerRadius()
     }

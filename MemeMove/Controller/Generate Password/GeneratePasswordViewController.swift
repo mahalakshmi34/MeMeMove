@@ -33,7 +33,6 @@ class GeneratePasswordViewController: UIViewController {
         if passwordText.text ==  confirmPasswordText.text  {
             generatePassword()
         }
-        
         else {
             showAlert(alertText: "Alert", alertMessage: "PasswordMismatch")
         }
@@ -43,15 +42,13 @@ class GeneratePasswordViewController: UIViewController {
         if UserDefaults.standard.string(forKey: "userEmail") != nil {
             emailID = UserDefaults.standard.string(forKey: "userEmail")!
         }
-        
-        let url = APPURL.generatePassword + "emailId=mahalakshmi.appdeveloper@gmail.com&password=maha123"
+        let url = APPURL.generatePassword + "emailId=\(emailID)"
         let header : HTTPHeaders = ["Content-Type": "application/json"]
         
         AF.request(url, method: .post,encoding: JSONEncoding.default,headers: header)
             .responseJSON { [self] response in
                 print("isiLagi: \(response)")
                 navigateToSignIn()
-              
             }
     }
     

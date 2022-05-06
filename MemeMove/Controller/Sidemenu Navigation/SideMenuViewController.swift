@@ -21,9 +21,7 @@ class SideMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         addShadow()
-        
     }
     
     
@@ -33,7 +31,4 @@ class SideMenuViewController: UIViewController {
         emailIdText.addShadowToButton(color: UIColor.gray, cornerRadius: 10)
         changePasswordText.addShadowToButton(color: UIColor.gray, cornerRadius: 10)
     }
-
-   
-
 }

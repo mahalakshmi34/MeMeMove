@@ -17,7 +17,7 @@ class ForgotPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cornerRadius()
-        receiveOTP()
+        
     }
     
     func getEmailValidationMessage(email: String) {
@@ -39,13 +39,13 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     func receiveOTP() {
-        let url = APPURL.forgotPassword + "emailId=mahalakshmi.appdeveloper@gmail.com"
+        let url = APPURL.forgotPassword + "emailId=\(mobileNumberText.text)"
         let header : HTTPHeaders = ["Content-Type": "application/json"]
-        
         AF.request(url, method: .post,encoding: JSONEncoding.default,headers: header)
-            .responseDecodable(of: forgotPassword.self) { (response) in
+            .responseDecodable(of: forgotPassword.self) { [self] (response) in
                 guard let message =  response.value else { return }
                 print(message)
+                navigateToOTP()
             }
        }
         
@@ -56,15 +56,20 @@ class ForgotPasswordViewController: UIViewController {
         submitButton.layer.cornerRadius = submitButton.frame.size.height / 2
     }
     
-    @IBAction func submitBtnPressed(_ sender: UIButton) {
+    func navigateToOTP() {
         let OTP = self.storyboard?.instantiateViewController(withIdentifier: "OTPViewController") as! OTPViewController
         self.navigationController?.pushViewController(OTP, animated: true)
+    }
+    
+    @IBAction func submitBtnPressed(_ sender: UIButton) {
+        receiveOTP()
     }
 }
 
 extension forgotPassword :Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        message = try values.decode(String.self, forKey: .message)
+        message = try values.decodeIfPresent(String.self, forKey: .message)!
+        //message = try values.decode(String.self, forKey: .message)
     }
 }

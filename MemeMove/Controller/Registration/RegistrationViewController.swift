@@ -121,6 +121,7 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
 extension userRegistration :Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        message = try values.decode(String.self, forKey: .message)
+        message = try values.decodeIfPresent(String.self, forKey: .message)!
+        //message = try values.decode(String.self, forKey: .message)
     }
 }

@@ -46,11 +46,9 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     @IBAction func pickUpAddressPressed(_ sender: UITextField) {
         pickUpAddress .tag = 0
         autoComplete()
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
         let userLocation = locations.last
         let center = CLLocationCoordinate2D(latitude: userLocation!.coordinate.latitude, longitude: userLocation!.coordinate.longitude)
         currentLocationLat = (userLocation?.coordinate.latitude)!
@@ -63,7 +61,6 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     @IBAction func deliveryAddressTapped(_ sender: UITextField) {
         deliveryAddress.tag = 1
         autoComplete()
-        
     }
     
     func autoComplete() {
@@ -119,8 +116,6 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         packageContent.addShadowToButton(cornerRadius: 10)
         packageContent.addShadowToButton(color: UIColor.gray, cornerRadius: 10)
     }
-    
-    
 }
 
 extension UIButton {
