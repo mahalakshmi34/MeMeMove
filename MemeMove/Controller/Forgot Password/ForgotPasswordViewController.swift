@@ -17,7 +17,6 @@ class ForgotPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cornerRadius()
-        
     }
     
     func getEmailValidationMessage(email: String) {

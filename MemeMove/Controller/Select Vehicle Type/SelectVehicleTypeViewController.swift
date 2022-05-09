@@ -50,14 +50,10 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "selectvehicle", for: indexPath)as! VehicleTypeCollectionViewCell
-        
         let image = UIImage(named: "Group 191")
-        
         cell.vehicleType.image = UIImage(named: "Group 191")
         cell.vehicleImage.addShadowToButton(color: UIColor.lightGray, cornerRadius: 20)
-        
         cell.vehicleName.text = "Car"
         return cell
     }
@@ -83,9 +79,4 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
     }
-    
-    
-
-    
-
 }
