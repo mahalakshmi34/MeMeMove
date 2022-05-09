@@ -90,7 +90,7 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
             if let city = placeMark.addressDictionary!["City"] as? NSString {
                 print(city)
                 address = city as String
-                pickUpAddress.text = city as String
+               // pickUpAddress.text = city as String
             }
         })
         return address;
@@ -142,14 +142,15 @@ extension DeliveryPackageViewController: GMSAutocompleteViewControllerDelegate,U
         print("Place name: \(place.name)")
         print("Place ID: \(place.placeID)")
         print("Place attributions: \(place.attributions)")
-        if pickUpAddress.tag == 0 {
-            pickUpAddress.text = place.name
-        }
-        if deliveryAddress.tag == 1 {
-            deliveryAddress.text = place.name
-        }
+//        if pickUpAddress.tag == 0 {
+//            pickUpAddress.text = place.name
+//        }
+//        if deliveryAddress.tag == 1 {
+//            deliveryAddress.text = place.name
+//        }
         var address = place.placeID
         GetPlacdDataByPlaceID(pPlaceID:address!)
+        navigateToMap()
         dismiss(animated: true, completion: nil)
     }
 
@@ -172,6 +173,11 @@ extension DeliveryPackageViewController: GMSAutocompleteViewControllerDelegate,U
     UIApplication.shared.isNetworkActivityIndicatorVisible = false
   }
     
+    func navigateToMap() {
+        let deliveryLocation = self.storyboard?.instantiateViewController(withIdentifier: "ConfirmLocationViewController") as! ConfirmLocationViewController
+        self.navigationController?.pushViewController(deliveryLocation, animated: true)
+    }
+    
 
     func GetPlacdDataByPlaceID(pPlaceID :String) {
         let placesClient = GMSPlacesClient.shared()
@@ -183,6 +189,8 @@ extension DeliveryPackageViewController: GMSAutocompleteViewControllerDelegate,U
             if let place = place {
                 print("\(place.coordinate.latitude)")
                 print("\(place.coordinate.longitude)")
+            
+             
             } else {
                 print("No place details for \(pPlaceID)")
             }
