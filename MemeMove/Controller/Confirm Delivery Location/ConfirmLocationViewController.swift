@@ -20,6 +20,11 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
         showCurrentLocationOnMap()
         bringSubViews()
         cornerRadius()
+        navigationBar()
+    }
+    
+    func navigationBar() {
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     func bringSubViews() {

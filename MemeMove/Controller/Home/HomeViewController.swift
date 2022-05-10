@@ -13,6 +13,19 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sidemenuCustomView()
+        navigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationBar()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        navigationBar()
+    }
+    
+    func navigationBar() {
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     private func makeSettings() -> SideMenuSettings {
@@ -25,6 +38,7 @@ class HomeViewController: UIViewController {
     }
     
     func sidemenuCustomView() {
+        self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.navigationBar.isTranslucent = false
         let Menu = storyboard?.instantiateViewController(withIdentifier: "SideMenuViewController") as? SideMenuNavigationController
         Menu?.leftSide = true
@@ -38,6 +52,22 @@ class HomeViewController: UIViewController {
         guard let sideMenuNavigationController = segue.destination as? SideMenuNavigationController else { return }
         sideMenuNavigationController.leftSide = true
         sideMenuNavigationController.settings = makeSettings()
+    }
+    
+    func navigateToPickUpLocation() {
+        let deliveryAddress = self.storyboard?.instantiateViewController(withIdentifier: "DeliveryPackageViewController") as! DeliveryPackageViewController
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.pushViewController(deliveryAddress, animated: true)
+    }
+    
+    
+    @IBAction func personCargoPressed(_ sender: UIButton) {
+        navigateToPickUpLocation()
+    }
+    
+    @IBAction func personButtonPressed(_ sender: UIButton) {
+        
+        navigateToPickUpLocation()
     }
     
     @IBAction func toggleButton(_ sender: UIButton) {

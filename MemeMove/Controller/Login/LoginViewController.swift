@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 
 class LoginViewController: UIViewController,UITextFieldDelegate {
@@ -144,5 +145,13 @@ extension UIViewController {
         let alert = UIAlertController (title: alertText, message: alertMessage, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension Login :Decodable {
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        message = try values.decode(String.self, forKey: .message)
+        userid = try values.decode(String.self, forKey: .userid)
     }
 }

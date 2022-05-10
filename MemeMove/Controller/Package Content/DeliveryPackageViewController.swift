@@ -28,7 +28,7 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     var locationManager = CLLocationManager()
     var currentLoc :CLLocation!
     
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         userCurrentLocation()
@@ -36,11 +36,16 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         dropShadow()
     }
     
+    func navigationBar() {
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     func userCurrentLocation() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
     }
     
     @IBAction func pickUpAddressPressed(_ sender: UITextField) {
@@ -189,6 +194,9 @@ extension DeliveryPackageViewController: GMSAutocompleteViewControllerDelegate,U
             if let place = place {
                 print("\(place.coordinate.latitude)")
                 print("\(place.coordinate.longitude)")
+                
+                UserDefaults.standard.set(place.coordinate.latitude, forKey: "pickUpLatitude")
+                UserDefaults.standard.set(place.coordinate.longitude, forKey: "pickUpLongitude")
             
              
             } else {
@@ -198,5 +206,6 @@ extension DeliveryPackageViewController: GMSAutocompleteViewControllerDelegate,U
     }
 
 }
+
 
 

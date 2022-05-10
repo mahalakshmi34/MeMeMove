@@ -9,7 +9,7 @@ import Foundation
 
 struct APPURL {
     private struct Domains {
-        static let Dev = "https://api.mememove.com:8443/MeMeMove/"
+        static let Dev = "http://api.mememove.com:8080/MeMeMove/"
     }
     
     private static let Domain = Domains.Dev
@@ -20,7 +20,7 @@ struct APPURL {
     }
     
     static var userLogin :String {
-        return BaseURL + "login/user?"
+        return BaseURL + "User/login/user?"
     }
     static var forgotPassword :String {
         return BaseURL + "forgot/password?"
