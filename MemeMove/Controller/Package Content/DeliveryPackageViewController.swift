@@ -49,7 +49,7 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     }
     
     @IBAction func pickUpAddressPressed(_ sender: UITextField) {
-        pickUpAddress .tag = 0
+        pickUpAddress .tag = 1
         autoComplete()
     }
     
@@ -64,7 +64,7 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     
     
     @IBAction func deliveryAddressTapped(_ sender: UITextField) {
-        deliveryAddress.tag = 1
+        deliveryAddress.tag = 2
         autoComplete()
     }
     
@@ -95,7 +95,7 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
             if let city = placeMark.addressDictionary!["City"] as? NSString {
                 print(city)
                 address = city as String
-               // pickUpAddress.text = city as String
+                pickUpAddress.text = city as String
             }
         })
         return address;
@@ -147,15 +147,17 @@ extension DeliveryPackageViewController: GMSAutocompleteViewControllerDelegate,U
         print("Place name: \(place.name)")
         print("Place ID: \(place.placeID)")
         print("Place attributions: \(place.attributions)")
-//        if pickUpAddress.tag == 0 {
-//            pickUpAddress.text = place.name
-//        }
-//        if deliveryAddress.tag == 1 {
-//            deliveryAddress.text = place.name
-//        }
+        print("Place Address : \(place.addressComponents)")
+        if pickUpAddress.tag == 1 {
+            pickUpAddress.text = place.name
+            UserDefaults.standard.set(place.name, forKey: "confirmLocation")
+        }
+        if deliveryAddress.tag == 1 {
+            deliveryAddress.text = place.name
+            UserDefaults.standard.set(place.name, forKey: "confirmLocation")
+        }
         var address = place.placeID
         GetPlacdDataByPlaceID(pPlaceID:address!)
-        navigateToMap()
         dismiss(animated: true, completion: nil)
     }
 
@@ -195,8 +197,17 @@ extension DeliveryPackageViewController: GMSAutocompleteViewControllerDelegate,U
                 print("\(place.coordinate.latitude)")
                 print("\(place.coordinate.longitude)")
                 
-                UserDefaults.standard.set(place.coordinate.latitude, forKey: "pickUpLatitude")
-                UserDefaults.standard.set(place.coordinate.longitude, forKey: "pickUpLongitude")
+                if pickUpAddress.tag == 1 {
+                    UserDefaults.standard.set(place.coordinate.latitude, forKey: "pickUpLatitude")
+                    UserDefaults.standard.set(place.coordinate.longitude, forKey: "pickUpLongitude")
+                }
+                
+                if deliveryAddress.tag == 2 {
+                    UserDefaults.standard.set(place.coordinate.latitude, forKey: "dropLatitude")
+                    UserDefaults.standard.set(place.coordinate.longitude, forKey: "dropLongitude")
+                }
+                
+                navigateToMap()
             
              
             } else {

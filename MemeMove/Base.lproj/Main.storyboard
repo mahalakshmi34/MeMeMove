@@ -726,6 +726,8 @@
                         <outlet property="addressView" destination="era-pc-q3L" id="MOB-6T-RN2"/>
                         <outlet property="changeButton" destination="gJ8-Bq-B0j" id="SeE-Pl-M42"/>
                         <outlet property="confirmLocation" destination="h0k-51-U2p" id="Ldf-ia-Jj7"/>
+                        <outlet property="currentAddress" destination="A0U-qx-kN1" id="m6P-Eu-Jkg"/>
+                        <outlet property="currentLocation" destination="C3Z-ft-JR9" id="alh-KZ-KKW"/>
                         <outlet property="navigationView" destination="Afp-t4-gLD" id="aEw-Ub-f5c"/>
                     </connections>
                 </viewController>
