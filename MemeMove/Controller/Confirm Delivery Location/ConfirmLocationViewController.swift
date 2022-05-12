@@ -78,6 +78,27 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
         marker.position = camera.target
         marker.map = mapView
     }
-
+    
+    
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        
+        let deliveryAddress = self.storyboard?.instantiateViewController(withIdentifier: "DeliveryPackageViewController") as! DeliveryPackageViewController
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    @IBAction func confirmLocationPressed(_ sender: UIButton) {
+        
+        let addAddress =  self.storyboard?.instantiateViewController(withIdentifier: "AddAddressDetailViewController") as! AddAddressDetailViewController
+        self.navigationController?.pushViewController(addAddress, animated: true)
+    }
+    
+    
+    @IBAction func changeButtonPressed(_ sender: UIButton) {
+        let addAddress =  self.storyboard?.instantiateViewController(withIdentifier: "DeliveryPackageViewController") as! DeliveryPackageViewController
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
 
 }

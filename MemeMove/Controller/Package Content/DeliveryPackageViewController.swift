@@ -34,6 +34,7 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         userCurrentLocation()
         cornerRadius()
         dropShadow()
+        autoComplete()
     }
     
     func navigationBar() {
@@ -64,6 +65,7 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     
     
     @IBAction func deliveryAddressTapped(_ sender: UITextField) {
+        pickUpAddress.tag = 0
         deliveryAddress.tag = 2
         autoComplete()
     }
@@ -152,7 +154,7 @@ extension DeliveryPackageViewController: GMSAutocompleteViewControllerDelegate,U
             pickUpAddress.text = place.name
             UserDefaults.standard.set(place.name, forKey: "confirmLocation")
         }
-        if deliveryAddress.tag == 1 {
+        if deliveryAddress.tag == 2 {
             deliveryAddress.text = place.name
             UserDefaults.standard.set(place.name, forKey: "confirmLocation")
         }
@@ -196,6 +198,7 @@ extension DeliveryPackageViewController: GMSAutocompleteViewControllerDelegate,U
             if let place = place {
                 print("\(place.coordinate.latitude)")
                 print("\(place.coordinate.longitude)")
+                print("\(place.formattedAddress)")
                 
                 if pickUpAddress.tag == 1 {
                     UserDefaults.standard.set(place.coordinate.latitude, forKey: "pickUpLatitude")
@@ -206,9 +209,7 @@ extension DeliveryPackageViewController: GMSAutocompleteViewControllerDelegate,U
                     UserDefaults.standard.set(place.coordinate.latitude, forKey: "dropLatitude")
                     UserDefaults.standard.set(place.coordinate.longitude, forKey: "dropLongitude")
                 }
-                
                 navigateToMap()
-            
              
             } else {
                 print("No place details for \(pPlaceID)")

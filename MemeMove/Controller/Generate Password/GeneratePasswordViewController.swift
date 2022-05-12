@@ -48,12 +48,12 @@ class GeneratePasswordViewController: UIViewController {
         AF.request(url, method: .post,encoding: JSONEncoding.default,headers: header)
             .responseJSON { [self] response in
                 print("isiLagi: \(response)")
-                navigateToSignIn()
+                navigateToHome()
             }
     }
     
-    func navigateToSignIn() {
-        let signIn = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+    func navigateToHome() {
+        let signIn = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         self.navigationController?.pushViewController(signIn, animated: true)
     }
     

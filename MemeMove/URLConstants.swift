@@ -16,7 +16,7 @@ struct APPURL {
     private static let BaseURL = Domain.self
     
     static var registerUser : String {
-        return BaseURL + "Registration/user?"
+        return BaseURL + "User/Registration/user?"
     }
     
     static var userLogin :String {

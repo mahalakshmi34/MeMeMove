@@ -16,6 +16,7 @@
 		933D479C27E1C0F500954445 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933D479B27E1C0F500954445 /* ForgotPasswordViewController.swift */; };
 		933D479E27E1C88500954445 /* GeneratePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933D479D27E1C88500954445 /* GeneratePasswordViewController.swift */; };
 		933D47A027E1E53C00954445 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933D479F27E1E53C00954445 /* OTPViewController.swift */; };
+		93401E7F282CDC6E00A3DF86 /* PackageContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93401E7E282CDC6E00A3DF86 /* PackageContentTableViewCell.swift */; };
 		93506A0727F584CE007D2032 /* SelectPackageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93506A0627F584CE007D2032 /* SelectPackageContentViewController.swift */; };
 		9373A54427EDC00100BC1651 /* AddAddressDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373A54327EDC00100BC1651 /* AddAddressDetailViewController.swift */; };
 		9382AD0227F45E26009E0287 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9382AD0127F45E26009E0287 /* PaymentViewController.swift */; };
@@ -47,7 +48,8 @@
 		933D479B27E1C0F500954445 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		933D479D27E1C88500954445 /* GeneratePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratePasswordViewController.swift; sourceTree = "<group>"; };
 		933D479F27E1E53C00954445 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
-		93506A0627F584CE007D2032 /* SelectPackageContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPackageContentViewController.swift; sourceTree = "<group>"; };
+		93401E7E282CDC6E00A3DF86 /* PackageContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageContentTableViewCell.swift; sourceTree = "<group>"; };
+		93506A0627F584CE007D2032 /* SelectPackageContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPackageContentViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		9373A54327EDC00100BC1651 /* AddAddressDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressDetailViewController.swift; sourceTree = "<group>"; };
 		9382AD0127F45E26009E0287 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		9384204C27F19D2500E02609 /* SelectVehicleTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVehicleTypeViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		93506A0A27F59E4B007D2032 /* SelectPackageContent */ = {
 			isa = PBXGroup;
 			children = (
+				93401E7E282CDC6E00A3DF86 /* PackageContentTableViewCell.swift */,
 				93506A0627F584CE007D2032 /* SelectPackageContentViewController.swift */,
 			);
 			path = SelectPackageContent;
@@ -430,6 +433,7 @@
 				9384204D27F19D2500E02609 /* SelectVehicleTypeViewController.swift in Sources */,
 				93E1925027EC3F8600587666 /* DeliveryPackageViewController.swift in Sources */,
 				93172D4B27E9ACCA00A56476 /* SideMenuViewController.swift in Sources */,
+				93401E7F282CDC6E00A3DF86 /* PackageContentTableViewCell.swift in Sources */,
 				93E8D40527E0736C00D6B8E8 /* SceneDelegate.swift in Sources */,
 				9329BC3927F1A3B400D3461C /* VehicleTypeCollectionViewCell.swift in Sources */,
 				93D13ACD27FD805000BE3ECE /* GlobalMethod.swift in Sources */,

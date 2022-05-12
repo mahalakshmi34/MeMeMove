@@ -22,7 +22,7 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         delegateMethod()
         cornerRadius()
-        registerUser()
+       
     }
     
     func delegateMethod() {
@@ -60,12 +60,14 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
         else if mobileNumberTextField.text?.count == 0 {
             showAlert(alertText: "Alert", alertMessage: "Please enter your password")
         }
-        else if referralCodeText.text?.count == 0 {
-            showAlert(alertText: "Alert", alertMessage: "Please enter your referral code")
-        }
+//        else if referralCodeText.text?.count == 0 {
+//            showAlert(alertText: "Alert", alertMessage: "Please enter your referral code")
+//        }
         else if emailIDText.text?.count != 0 {
             getEmailValidationMessage(email: emailIDText.text!)
         }
+        
+        registerUser()
 
     }
     
@@ -98,20 +100,22 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
     }
     
     func navigateToLogin() {
-        let login = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        self.navigationController?.pushViewController(login, animated: true)
+        let generatePassword = self.storyboard?.instantiateViewController(withIdentifier: "GeneratePasswordViewController") as! GeneratePasswordViewController
+        self.navigationController?.pushViewController(generatePassword, animated: true)
     }
     
     
     //API CALLS
     
     func registerUser() {
-        let url = APPURL.registerUser + "username=\(userNameText.text)&emailId=\(emailIDText.text)&mobilenumber=\(mobileNumberTextField.text)"
+        let url = APPURL.registerUser + "username=\(userNameText.text!)&emailId=\(emailIDText.text!)&mobilenumber=\(mobileNumberTextField.text!)"
+        print(url)
         let header : HTTPHeaders = ["Content-Type": "application/json"]
         AF.request(url, method: .post,encoding: JSONEncoding.default,headers: header)
             .responseDecodable(of: userRegistration.self) { [self] (response) in
                 guard let message =  response.value else { return }
                 print(message)
+                navigateToLogin()
                 
                 UserDefaults.standard.set(emailIDText.text, forKey: "userEmail")
             }

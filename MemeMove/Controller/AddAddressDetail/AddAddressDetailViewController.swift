@@ -89,6 +89,13 @@ class AddAddressDetailViewController: UIViewController,GMSMapViewDelegate {
         addAddressView.layer.cornerRadius = 20
         addAddressView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
+    
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        
+        let confirmLocation  =  self.storyboard?.instantiateViewController(withIdentifier: "ConfirmLocationViewController") as! ConfirmLocationViewController
+        self.navigationController?.popToViewController(confirmLocation, animated: true)
+    }
+    
 }
 
 
