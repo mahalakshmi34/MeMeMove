@@ -7,6 +7,8 @@
 
 import UIKit
 import GoogleMaps
+import SwiftyJSON
+import CoreLocation
 
 class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
     
@@ -19,6 +21,7 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
     
     var pinPointLatitude : Double = 0.0
     var pinPointLongitude :Double = 0.0
+    var mapView :GMSMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,16 +71,52 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
     func showCurrentLocationOnMap() {
         fetchData()
            
-        let camera = GMSCameraPosition.camera(withLatitude: pinPointLatitude, longitude: pinPointLongitude, zoom: 18.0)
-        let mapView = GMSMapView.map(withFrame: self.view.frame , camera: camera)
+        let camera = GMSCameraPosition.camera(withLatitude: pinPointLatitude, longitude: pinPointLongitude, zoom: 6.0)
+        mapView = GMSMapView.map(withFrame: self.view.frame , camera: camera)
         mapView.settings.compassButton = true
         mapView.settings.myLocationButton = true
         mapView.isMyLocationEnabled = true
+        mapView.delegate = self
         self.view.addSubview(mapView)
         let marker = GMSMarker()
+        marker.isDraggable = true
         marker.position = camera.target
         marker.map = mapView
     }
+    
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition)  {
+        print("change")
+        returnPositionOfMapView(mapView: mapView)
+    }
+    
+    func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
+       // returnPositionOfMapView(mapView: mapView)
+    }
+    
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        //returnPositionOfMapView(mapView: mapView)
+    }
+    
+    func returnPositionOfMapView(mapView : GMSMapView) {
+        let geoCoder = GMSGeocoder()
+        let latitude = mapView.camera.target.latitude
+        let longitude = mapView.camera.target.longitude
+        let position =  CLLocationCoordinate2DMake(latitude, longitude)
+        geoCoder.reverseGeocodeCoordinate(position) { [self] response , error
+            in
+            if error != nil {
+                print("GMSReverseGeocode : \(String(describing: error?.localizedDescription))")
+            }
+            else {
+                let result =  response?.results()?.first
+                print(result)
+                let address = result?.lines?.reduce("") { $0 == "" ? $1 : $0 + ", " + $1 }
+                print(address)
+                currentAddress.text = address
+                }
+            }
+        }
+    
     
     
     @IBAction func backButtonPressed(_ sender: UIButton) {

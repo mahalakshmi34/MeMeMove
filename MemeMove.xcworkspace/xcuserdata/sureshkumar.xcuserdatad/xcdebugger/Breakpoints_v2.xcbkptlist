@@ -7,112 +7,96 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AC5E998B-5E26-438D-9713-72392DA7383A"
+            uuid = "078B4809-042F-44B1-A9CC-0D5D4FCDA82D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MemeMove/Controller/SelectPackageContent/SelectPackageContentViewController.swift"
+            filePath = "MemeMove/Controller/Confirm Delivery Location/ConfirmLocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "returnPositionOfMapView(mapView:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "920D199A-AD8A-41B7-AE92-3B4316E47ED4"
+            uuid = "E940CA89-0599-4439-8970-5D859AB6AC49"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MemeMove/Controller/SelectPackageContent/SelectPackageContentViewController.swift"
+            filePath = "MemeMove/Controller/Confirm Delivery Location/ConfirmLocationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "returnPositionOfMapView(mapView:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EC41914E-21C1-46F1-A89F-C3348AE1F977"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemeMove/Controller/Confirm Delivery Location/ConfirmLocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
             endingLineNumber = "87"
-            landmarkName = "checkBoxSelection(_:)"
+            landmarkName = "mapView(_:didChange:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "19082117-1E7A-4752-8C24-998DB99860AF"
+            uuid = "C4A3F1FC-0DE0-4777-ABA1-D07B9C14BE44"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MemeMove/Controller/SelectPackageContent/SelectPackageContentViewController.swift"
+            filePath = "MemeMove/Controller/Confirm Delivery Location/ConfirmLocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "mapView(_:didChange:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F57A4628-8445-4047-A421-99A746B11C86"
+            uuid = "87B77A0D-990C-4F8E-8319-5EA772934EFA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MemeMove/Controller/SelectPackageContent/SelectPackageContentViewController.swift"
+            filePath = "MemeMove/Controller/Confirm Delivery Location/ConfirmLocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "returnPositionOfMapView(mapView:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D43668EC-D326-497B-B2EB-3486166AD204"
+            uuid = "3D65EFD6-39EE-45B3-BD3B-1482F3C222F5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MemeMove/Controller/SelectPackageContent/SelectPackageContentViewController.swift"
+            filePath = "MemeMove/Controller/Confirm Delivery Location/ConfirmLocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4995E777-6471-4315-89AE-9CD56B3BC603"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MemeMove/Controller/SelectPackageContent/SelectPackageContentViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C4A8B8F0-7D62-4F27-943F-E1923CA5DBF8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MemeMove/Controller/SelectPackageContent/SelectPackageContentViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "checkBoxSelection(_:)"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "mapView(_:idleAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
