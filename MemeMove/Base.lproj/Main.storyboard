@@ -2318,10 +2318,10 @@
             </objects>
             <point key="canvasLocation" x="5289.8550724637689" y="83.967391304347828"/>
         </scene>
-        <!--View Controller-->
+        <!--Time Of Delivery View Controller-->
         <scene sceneID="CTO-ID-rTK">
             <objects>
-                <viewController id="hN5-q2-CeO" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimeOfDeliveryViewController" id="hN5-q2-CeO" customClass="TimeOfDeliveryViewController" customModule="MemeMove" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="InL-MJ-nww">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2352,6 +2352,9 @@
                                 <buttonConfiguration key="configuration" style="plain">
                                     <backgroundConfiguration key="background" image="Group 375"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="quickDeliveryPressed:" destination="hN5-q2-CeO" eventType="touchUpInside" id="nkg-6W-ttj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BrI-Ze-Mql">
                                 <rect key="frame" x="103.66666666666669" y="367" width="207" height="184"/>
@@ -2359,6 +2362,9 @@
                                 <buttonConfiguration key="configuration" style="plain">
                                     <backgroundConfiguration key="background" image="Group 379"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="scheduledDelivery:" destination="hN5-q2-CeO" eventType="touchUpInside" id="ys0-LX-OQr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Q9O-2h-mDp"/>

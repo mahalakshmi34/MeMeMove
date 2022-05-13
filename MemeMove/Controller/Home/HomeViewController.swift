@@ -54,20 +54,20 @@ class HomeViewController: UIViewController {
         sideMenuNavigationController.settings = makeSettings()
     }
     
-    func navigateToPickUpLocation() {
-        let deliveryAddress = self.storyboard?.instantiateViewController(withIdentifier: "DeliveryPackageViewController") as! DeliveryPackageViewController
+    func navigateToTimeOfDelivery() {
+        let deliveryAddress = self.storyboard?.instantiateViewController(withIdentifier: "TimeOfDeliveryViewController") as! TimeOfDeliveryViewController
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.pushViewController(deliveryAddress, animated: true)
     }
     
     
     @IBAction func personCargoPressed(_ sender: UIButton) {
-        navigateToPickUpLocation()
+        navigateToTimeOfDelivery()
     }
     
     @IBAction func personButtonPressed(_ sender: UIButton) {
         
-        navigateToPickUpLocation()
+        navigateToTimeOfDelivery()
     }
     
     @IBAction func toggleButton(_ sender: UIButton) {

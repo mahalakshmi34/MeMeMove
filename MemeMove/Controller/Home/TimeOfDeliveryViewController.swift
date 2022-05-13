@@ -11,19 +11,22 @@ class TimeOfDeliveryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    func navigateToDelivery() {
+        let deliveryPage =  self.storyboard?.instantiateViewController(withIdentifier: "DeliveryPackageViewController") as! DeliveryPackageViewController
+        self.navigationController?.pushViewController(deliveryPage, animated: true)
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func quickDeliveryPressed(_ sender: UIButton) {
+        navigateToDelivery()
     }
-    */
+    
+    
+    @IBAction func scheduledDelivery(_ sender: UIButton) {
+        navigateToDelivery()
+    }
+    
 
 }
