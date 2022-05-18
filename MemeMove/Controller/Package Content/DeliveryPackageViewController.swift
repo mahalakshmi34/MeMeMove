@@ -21,6 +21,9 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     @IBOutlet weak var deliveryAddress: UITextField!
     @IBOutlet weak var closeButton: UIButton!
     
+    @IBOutlet weak var packageItem: UITextField!
+    
+    
     var currentLocationLat :Double = 0.0
     var currentLocationLong : Double = 0.0
     var destinationLatitude : Double = 0.0
@@ -28,17 +31,59 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     var locationManager = CLLocationManager()
     var currentLoc :CLLocation!
     
+    var confirmLocationAddress = ""
+    var packageFood :Array = [String]()
+    
   
     override func viewDidLoad() {
         super.viewDidLoad()
         userCurrentLocation()
         cornerRadius()
         dropShadow()
-        autoComplete()
+        navigationBar()
+        textTapped()
+        //validation()
+        //autoComplete()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        validation()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        validation()
+        textTapped()
+        packageList()
+    }
+    
+
+    
+    func validation() {
+        if UserDefaults.standard.integer(forKey: "pickUpTag") == 1 {
+            var pickTag = UserDefaults.standard.integer(forKey: "pickUpTag")
+            pickUpAddress.text = confirmLocationAddress
+        }
+        
+        else if UserDefaults.standard.integer(forKey: "deliveryTag") == 2 {
+            var deliveryTag = UserDefaults.standard.integer(forKey: "deliveryTag")
+            deliveryAddress.text = confirmLocationAddress
+        }
+        
+       print(packageFood)
+       
+    }
+    
+    func packageList() {
+        for  packageFoods in packageFood {
+            print(packageFoods)
+            packageItem.text = packageFood.joined(separator: "")
+
+        }
     }
     
     func navigationBar() {
         self.navigationController?.navigationBar.isHidden = false
+        pickUpAddress.text = confirmLocationAddress
     }
     
     func userCurrentLocation() {
@@ -46,13 +91,24 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        
     }
     
     @IBAction func pickUpAddressPressed(_ sender: UITextField) {
         pickUpAddress .tag = 1
+        UserDefaults.standard.set(1, forKey: "pickUpTag")
         autoComplete()
     }
+    
+    func textTapped() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTapped(_:)))
+        packageItem.addGestureRecognizer(tap)
+    }
+    
+    @objc func handleTapped(_ sender: UITapGestureRecognizer? = nil) {
+        let deliveryLocation = self.storyboard?.instantiateViewController(withIdentifier: "SelectPackageContentViewController") as! SelectPackageContentViewController
+        self.navigationController?.pushViewController(deliveryLocation, animated: true)
+    }
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations.last
@@ -63,13 +119,15 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         locationManager.stopUpdatingLocation()
     }
     
-    
     @IBAction func deliveryAddressTapped(_ sender: UITextField) {
         pickUpAddress.tag = 0
         deliveryAddress.tag = 2
+        UserDefaults.standard.removeObject(forKey: "pickUpTag")
+        UserDefaults.standard.set(2, forKey: "deliveryTag")
         autoComplete()
     }
     
+   
     func autoComplete() {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
@@ -150,6 +208,7 @@ extension DeliveryPackageViewController: GMSAutocompleteViewControllerDelegate,U
         print("Place ID: \(place.placeID)")
         print("Place attributions: \(place.attributions)")
         print("Place Address : \(place.addressComponents)")
+        
         if pickUpAddress.tag == 1 {
             pickUpAddress.text = place.name
             UserDefaults.standard.set(place.name, forKey: "confirmLocation")

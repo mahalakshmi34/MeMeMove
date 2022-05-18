@@ -115,6 +115,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             .responseDecodable(of:Login.self) { [self] (response) in
                 guard var message = response.value else { return }
                 print(message)
+                UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
                 navigateToHome()
                 
             }

@@ -19,6 +19,8 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
     
+    @IBOutlet weak var enterPackageDetails: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         delegateMethod()
@@ -39,6 +41,15 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     func delegateMethod() {
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    @IBAction func measureProduct(_ sender: UIButton) {
+        enterPackageDetails.isHidden = true
+    }
+    
+    @IBAction func enterPackageDetail(_ sender: UIButton) {
+        
+        enterPackageDetails.isHidden = false
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

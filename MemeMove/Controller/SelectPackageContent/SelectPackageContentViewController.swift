@@ -11,13 +11,17 @@ import SwiftyJSON
 class SelectPackageContentViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
+    @IBOutlet weak var proceedButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     var checkBox : Bool = false
     var arrSelectedRows :[Int] = []
     var packageContent = ["Documents | Books", "Clothes" , "Accessories", "Grocery","Food","Flowers","Household Items","Sports & Other Equipment", "Electronic Items","Others"]
     
+    var packageText :[String] = []
+    var packageItem :[Int] = []
     var packageArray :[JSON] = []
+    var itemValue :[String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +32,12 @@ class SelectPackageContentViewController: UIViewController,UITableViewDelegate,U
     func delegateMethod() {
         tableView.delegate = self
         tableView.dataSource = self
+        proceedButton.layer.cornerRadius = 20
+      
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         return packageContent.count
     }
     
@@ -68,7 +75,8 @@ class SelectPackageContentViewController: UIViewController,UITableViewDelegate,U
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("sender.tag = ", indexPath.row)
         var testData = packageContent[indexPath.row]
-        print(testData)
+        print("testData",testData)
+        packageText.append(testData)
         
         if self.arrSelectedRows.contains(indexPath.row) {
             self.arrSelectedRows.remove(at: self.arrSelectedRows.firstIndex(of: indexPath.row)!)
@@ -83,15 +91,34 @@ class SelectPackageContentViewController: UIViewController,UITableViewDelegate,U
     }
    
 
+    @IBAction func proceedButton(_ sender: UIButton) {
+        
+        for controller in self.navigationController!.viewControllers  {
+                if let deliveryPackage = controller as? DeliveryPackageViewController {
+                       deliveryPackage.packageFood = packageText
+                    deliveryPackage.packageFood = itemValue
+                       self.navigationController?.popToViewController(deliveryPackage, animated: true)
+                   }
+          }
+    }
+    
+    
     @objc func checkBoxSelection(_ sender: UIButton) {
         print("sender.tag = ", sender.tag)
+        packageItem.append(sender.tag)
         
-
         if self.arrSelectedRows.contains(sender.tag) {
             self.arrSelectedRows.remove(at: self.arrSelectedRows.firstIndex(of: sender.tag)!)
+        
         } else {
             self.arrSelectedRows.append(sender.tag)
+            
         }
+        print(arrSelectedRows)
+        
+        print(packageContent[sender.tag])
+        itemValue.append(packageContent[sender.tag])
+        
         self.tableView.reloadData()
     }
 }

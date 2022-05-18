@@ -22,6 +22,8 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
     var pinPointLatitude : Double = 0.0
     var pinPointLongitude :Double = 0.0
     var mapView :GMSMapView!
+    var geoCoder :CLGeocoder!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,45 +81,91 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
         mapView.delegate = self
         self.view.addSubview(mapView)
         let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: pinPointLatitude, longitude: pinPointLongitude)
         marker.isDraggable = true
-        marker.position = camera.target
         marker.map = mapView
+        self.mapView.delegate = self
+        marker.isDraggable = true
+        marker.tracksInfoWindowChanges = true
+        reverseGeocoding(marker: marker)
+        marker.map = mapView
+        self.mapView.delegate = self
     }
     
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition)  {
         print("change")
-        returnPositionOfMapView(mapView: mapView)
-    }
-    
-    func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
-       // returnPositionOfMapView(mapView: mapView)
-    }
-    
-    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        mapView.isMyLocationEnabled = true
         //returnPositionOfMapView(mapView: mapView)
     }
     
-    func returnPositionOfMapView(mapView : GMSMapView) {
-        let geoCoder = GMSGeocoder()
-        let latitude = mapView.camera.target.latitude
-        let longitude = mapView.camera.target.longitude
-        let position =  CLLocationCoordinate2DMake(latitude, longitude)
-        geoCoder.reverseGeocodeCoordinate(position) { [self] response , error
-            in
-            if error != nil {
-                print("GMSReverseGeocode : \(String(describing: error?.localizedDescription))")
-            }
-            else {
-                let result =  response?.results()?.first
-                print(result)
-                let address = result?.lines?.reduce("") { $0 == "" ? $1 : $0 + ", " + $1 }
-                print(address)
-                currentAddress.text = address
+ 
+    
+    func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
+        mapView.isMyLocationEnabled = true
+        
+        print("Position of marker is = \(marker.position.latitude),\(marker.position.longitude)")
+               reverseGeocoding(marker: marker)
+           print("Position of marker is = \(marker.position.latitude),\(marker.position.longitude)")
+        
+        //reverseGeocode(coordinate: position.target)
+    }
+    
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+
+        mapView.isMyLocationEnabled = true
+        
+        //reverseGeocode(coordinate: position.target)
+    }
+    
+    func reverseGeocoding(marker: GMSMarker) {
+            let geocoder = GMSGeocoder()
+            let coordinate = CLLocationCoordinate2DMake(Double(marker.position.latitude),Double(marker.position.longitude))
+            
+            var currentAddress = String()
+            
+            geocoder.reverseGeocodeCoordinate(coordinate) { response , error in
+                if let address = response?.firstResult() {
+                    let lines = address.lines! as [String]
+                    
+                    print("Response is = \(address)")
+                    print("Response is = \(lines)")
+                    
+                    self.currentLocation.text = address.administrativeArea
+                    self.currentAddress.text = lines.joined(separator: "\n")
+
                 }
+                marker.title = currentAddress
+                marker.map = self.mapView
             }
         }
+
     
-    
+    func reverseGeocode(coordinate: CLLocationCoordinate2D) {
+      // 1
+      let geocoder = GMSGeocoder()
+
+      // 2
+        geocoder.reverseGeocodeCoordinate(coordinate) { [self] response, error in
+        guard
+          let address = response?.firstResult(),
+         // print(address)
+          let lines = address.lines
+         // print(lines)
+          else {
+            return
+        }
+
+        // 3
+          currentAddress.text = lines.joined(separator: "\n")
+            print(currentAddress.text)
+
+        // 4
+        UIView.animate(withDuration: 0.25) {
+          self.view.layoutIfNeeded()
+        }
+      }
+    }
+
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
         
@@ -127,17 +175,17 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
     
     
     @IBAction func confirmLocationPressed(_ sender: UIButton) {
-        
-        let addAddress =  self.storyboard?.instantiateViewController(withIdentifier: "AddAddressDetailViewController") as! AddAddressDetailViewController
-        self.navigationController?.pushViewController(addAddress, animated: true)
+        for controller in self.navigationController!.viewControllers  {
+                if let deliveryPackage = controller as? DeliveryPackageViewController {
+                       deliveryPackage.confirmLocationAddress = currentAddress.text!
+                       self.navigationController?.popToViewController(deliveryPackage, animated: true)
+                   }
+          }
     }
     
     
     @IBAction func changeButtonPressed(_ sender: UIButton) {
         let addAddress =  self.storyboard?.instantiateViewController(withIdentifier: "DeliveryPackageViewController") as! DeliveryPackageViewController
         self.navigationController?.popViewController(animated: true)
-        
     }
-    
-
 }

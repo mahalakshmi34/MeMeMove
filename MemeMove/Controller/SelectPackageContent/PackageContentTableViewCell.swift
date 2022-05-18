@@ -10,7 +10,6 @@ import UIKit
 class PackageContentTableViewCell: UITableViewCell {
     
     @IBOutlet weak var packageLabel: UILabel!
-    
     @IBOutlet weak var checkBoxBtn: UIButton!
     
     override func awakeFromNib() {
