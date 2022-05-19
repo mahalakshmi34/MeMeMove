@@ -56,7 +56,7 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
         if UserDefaults.standard.double(forKey: "pickUpLatitude") != nil {
             pinPointLatitude = UserDefaults.standard.double(forKey: "pickUpLatitude")
         }
-        if UserDefaults.standard.double(forKey: "pickUpLatitude") !=  nil {
+        if UserDefaults.standard.double(forKey: "pickUpLongitude") !=  nil {
             pinPointLongitude = UserDefaults.standard.double(forKey: "pickUpLongitude")
         }
         if UserDefaults.standard.double(forKey: "dropLatitude") != nil {
@@ -71,9 +71,9 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
     }
     
     func showCurrentLocationOnMap() {
-        fetchData()
+       // fetchData()
            
-        let camera = GMSCameraPosition.camera(withLatitude: pinPointLatitude, longitude: pinPointLongitude, zoom: 6.0)
+        let camera = GMSCameraPosition.camera(withLatitude: pinPointLatitude, longitude: pinPointLongitude, zoom: 12.0)
         mapView = GMSMapView.map(withFrame: self.view.frame , camera: camera)
         mapView.settings.compassButton = true
         mapView.settings.myLocationButton = true
@@ -158,6 +158,8 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
         // 3
           currentAddress.text = lines.joined(separator: "\n")
             print(currentAddress.text)
+            
+            UserDefaults.standard.set(currentAddress.text, forKey: "currentAddress")
 
         // 4
         UIView.animate(withDuration: 0.25) {

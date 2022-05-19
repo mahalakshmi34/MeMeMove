@@ -20,7 +20,6 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     @IBOutlet weak var pickUpAddress: UITextField!
     @IBOutlet weak var deliveryAddress: UITextField!
     @IBOutlet weak var closeButton: UIButton!
-    
     @IBOutlet weak var packageItem: UITextField!
     
     
@@ -30,7 +29,6 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     var destinationLongitude :Double = 0.0
     var locationManager = CLLocationManager()
     var currentLoc :CLLocation!
-    
     var confirmLocationAddress = ""
     var packageFood :Array = [String]()
     
@@ -56,19 +54,22 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         packageList()
     }
     
-
-    
     func validation() {
         if UserDefaults.standard.integer(forKey: "pickUpTag") == 1 {
             var pickTag = UserDefaults.standard.integer(forKey: "pickUpTag")
             pickUpAddress.text = confirmLocationAddress
+    
+            if UserDefaults.standard.string(forKey: "currentAddress") != nil {
+                pickUpAddress.text = UserDefaults.standard.string(forKey: "currentAddress")
+            }
         }
-        
         else if UserDefaults.standard.integer(forKey: "deliveryTag") == 2 {
             var deliveryTag = UserDefaults.standard.integer(forKey: "deliveryTag")
             deliveryAddress.text = confirmLocationAddress
+            if UserDefaults.standard.string(forKey: "currentAddress") != nil {
+                deliveryAddress.text = UserDefaults.standard.string(forKey: "currentAddress")
+            }
         }
-        
        print(packageFood)
        
     }
@@ -77,7 +78,6 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         for  packageFoods in packageFood {
             print(packageFoods)
             packageItem.text = packageFood.joined(separator: "")
-
         }
     }
     
@@ -155,7 +155,7 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
             if let city = placeMark.addressDictionary!["City"] as? NSString {
                 print(city)
                 address = city as String
-                pickUpAddress.text = city as String
+                //pickUpAddress.text = city as String
             }
         })
         return address;
@@ -217,16 +217,16 @@ extension DeliveryPackageViewController: GMSAutocompleteViewControllerDelegate,U
         print("Place Address : \(place.addressComponents)")
         
         if pickUpAddress.tag == 1 {
-            pickUpAddress.text = place.name
+            //pickUpAddress.text = place.name
             UserDefaults.standard.set(place.name, forKey: "confirmLocation")
         }
         if deliveryAddress.tag == 2 {
-            deliveryAddress.text = place.name
+            //deliveryAddress.text = place.name
             UserDefaults.standard.set(place.name, forKey: "confirmLocation")
         }
         var address = place.placeID
         GetPlacdDataByPlaceID(pPlaceID:address!)
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
 
   func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
@@ -250,6 +250,8 @@ extension DeliveryPackageViewController: GMSAutocompleteViewControllerDelegate,U
     
     func navigateToMap() {
         let deliveryLocation = self.storyboard?.instantiateViewController(withIdentifier: "ConfirmLocationViewController") as! ConfirmLocationViewController
+        deliveryLocation.pinPointLatitude = currentLocationLat
+        deliveryLocation.pinPointLongitude = currentLocationLong
         self.navigationController?.pushViewController(deliveryLocation, animated: true)
     }
     
@@ -266,14 +268,17 @@ extension DeliveryPackageViewController: GMSAutocompleteViewControllerDelegate,U
                 print("\(place.coordinate.longitude)")
                 print("\(place.formattedAddress)")
                 
+                currentLocationLat = place.coordinate.latitude
+                currentLocationLong = place.coordinate.longitude
+                
                 if pickUpAddress.tag == 1 {
-                    UserDefaults.standard.set(place.coordinate.latitude, forKey: "pickUpLatitude")
-                    UserDefaults.standard.set(place.coordinate.longitude, forKey: "pickUpLongitude")
+//                    UserDefaults.standard.set(place.coordinate.latitude, forKey: "pickUpLatitude")
+//                    UserDefaults.standard.set(place.coordinate.longitude, forKey: "pickUpLongitude")
                 }
                 
                 if deliveryAddress.tag == 2 {
-                    UserDefaults.standard.set(place.coordinate.latitude, forKey: "dropLatitude")
-                    UserDefaults.standard.set(place.coordinate.longitude, forKey: "dropLongitude")
+//                    UserDefaults.standard.set(place.coordinate.latitude, forKey: "dropLatitude")
+//                    UserDefaults.standard.set(place.coordinate.longitude, forKey: "dropLongitude")
                 }
                 navigateToMap()
              

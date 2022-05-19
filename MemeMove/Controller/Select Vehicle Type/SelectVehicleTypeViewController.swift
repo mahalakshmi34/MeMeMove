@@ -55,6 +55,27 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     }
     
     
+    @IBAction func cameraTopView(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: { (handler) in
+            self.openCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { (handler) in
+            self.openGallery()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (handler) in
+        }))
+        alert.popoverPresentationController?.sourceView =  self.view // works for both iPhone & iPad
+        //alert.popoverPresentationController?.sourceView = self.view
+        alert.popoverPresentationController?.sourceRect = sender.frame
+        
+        present(alert, animated: true) {
+            print("option menu presented")
+        }
+    }
+    
     @IBAction func cameraFrontViewTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: { (handler) in

@@ -96,7 +96,7 @@ class SelectPackageContentViewController: UIViewController,UITableViewDelegate,U
         for controller in self.navigationController!.viewControllers  {
                 if let deliveryPackage = controller as? DeliveryPackageViewController {
                        deliveryPackage.packageFood = packageText
-                    deliveryPackage.packageFood = itemValue
+                      deliveryPackage.packageFood = itemValue
                        self.navigationController?.popToViewController(deliveryPackage, animated: true)
                    }
           }
