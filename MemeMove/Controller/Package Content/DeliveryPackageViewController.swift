@@ -166,6 +166,13 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         pickUpAddress.text = ""
     }
     
+    @IBAction func proceedButton(_ sender: UIButton){
+        
+        let selectVehicle = self.storyboard?.instantiateViewController(withIdentifier: "SelectVehicleTypeViewController") as! SelectVehicleTypeViewController
+        self.navigationController?.pushViewController(selectVehicle, animated: true)
+    }
+    
+    
     func cornerRadius() {
         deliveryLocation.layer.cornerRadius = 20
         pickUpLocation.layer.cornerRadius = 20

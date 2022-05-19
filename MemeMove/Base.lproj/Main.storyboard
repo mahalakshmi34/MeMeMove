@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q1P-VE-r4A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R6W-LH-t5i">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -1370,6 +1370,9 @@
                                 <buttonConfiguration key="configuration" style="plain">
                                     <backgroundConfiguration key="background" image="Front"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="cameraFrontViewTapped:" destination="R6W-LH-t5i" eventType="touchUpInside" id="ZOK-Gk-w3f"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4aO-gH-k89"/>
@@ -1423,6 +1426,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cameraFrontView" destination="kss-qy-X7T" id="GDe-Hr-SiA"/>
+                        <outlet property="cameraTopView" destination="edc-M5-obv" id="DZP-vq-LMR"/>
                         <outlet property="collectionView" destination="a43-Ys-RSg" id="SFC-nx-oic"/>
                         <outlet property="editText" destination="6hN-as-bvC" id="nBc-uu-nKr"/>
                         <outlet property="enterPackageDetails" destination="XnY-yd-fXF" id="nk7-6S-cft"/>
@@ -2635,6 +2640,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="proceedButton:" destination="oRm-3K-GVt" eventType="touchUpInside" id="5f7-XJ-MeE"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg-1" translatesAutoresizingMaskIntoConstraints="NO" id="ayK-KY-MAq">
                                 <rect key="frame" x="20" y="-13" width="414.66666666666669" height="736"/>

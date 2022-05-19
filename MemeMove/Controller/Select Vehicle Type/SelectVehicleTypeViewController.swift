@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
    
     @IBOutlet weak var editText: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -18,8 +18,10 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     @IBOutlet weak var widthTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
-    
     @IBOutlet weak var enterPackageDetails: UIView!
+    @IBOutlet weak var cameraFrontView: UIButton!
+    @IBOutlet weak var cameraTopView: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +52,48 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     @IBAction func enterPackageDetail(_ sender: UIButton) {
         
         enterPackageDetails.isHidden = false
+    }
+    
+    
+    @IBAction func cameraFrontViewTapped(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: { (handler) in
+            self.openCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { (handler) in
+            self.openGallery()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (handler) in
+        }))
+        alert.popoverPresentationController?.sourceView =  self.view // works for both iPhone & iPad
+        //alert.popoverPresentationController?.sourceView = self.view
+        alert.popoverPresentationController?.sourceRect = sender.frame
+        
+        present(alert, animated: true) {
+            print("option menu presented")
+        }
+    }
+    
+    func openCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.sourceType = .camera;
+            imagePicker.delegate = self
+            // imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func openGallery(){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary;
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
