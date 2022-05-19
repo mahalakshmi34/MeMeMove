@@ -22,6 +22,9 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     @IBOutlet weak var cameraFrontView: UIButton!
     @IBOutlet weak var cameraTopView: UIButton!
     
+    var temporaryImagePath = ""
+    var temporaryImage = UIImage()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,7 +93,8 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
         }))
         alert.popoverPresentationController?.sourceView =  self.view // works for both iPhone & iPad
         //alert.popoverPresentationController?.sourceView = self.view
-        alert.popoverPresentationController?.sourceRect = sender.frame
+        
+       // alert.popoverPresentationController?.sourceRect = sender.frame
         
         present(alert, animated: true) {
             print("option menu presented")
@@ -115,6 +119,30 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
         }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var selectedImage :  UIImage?
+        
+        if let editedImage  = info[.editedImage] as? UIImage {
+            selectedImage = editedImage
+            temporaryImage = editedImage
+            picker.dismiss(animated: true)
+        }
+        else if let orginalImage = info[.originalImage] as? UIImage {
+            selectedImage = orginalImage
+            temporaryImage = orginalImage
+            picker.dismiss(animated: true)
+        }
+        else {
+            print("error")
+        }
+        
+        let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? NSURL
+        print(imageURL?.absoluteString)
+        temporaryImagePath = imageURL?.absoluteString ?? ""
+        print(temporaryImagePath)
+        
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

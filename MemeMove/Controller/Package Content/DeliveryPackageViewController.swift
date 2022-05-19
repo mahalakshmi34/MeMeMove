@@ -77,7 +77,9 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     func packageList() {
         for  packageFoods in packageFood {
             print(packageFoods)
+            //print(UserDefaults.standard.stringArray(forKey: "packageContentArray"))
             packageItem.text = packageFood.joined(separator: "")
+            
         }
     }
     
@@ -166,10 +168,29 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         pickUpAddress.text = ""
     }
     
-    @IBAction func proceedButton(_ sender: UIButton){
-        
+    func textValidation() {
+        if pickUpAddress.text?.count == 0 {
+            showAlert(alertText: "Alert", alertMessage: "Enter pick up address")
+        }
+        else if deliveryAddress.text?.count == 0
+        {
+            showAlert(alertText: "Alert", alertMessage: "Enter delivery address")
+        }
+        else if packageItem.text?.count == 0 {
+            showAlert(alertText: "Alert", alertMessage: "Enter package content")
+        }
+    }
+    
+    func navigateToSelectVehicle() {
         let selectVehicle = self.storyboard?.instantiateViewController(withIdentifier: "SelectVehicleTypeViewController") as! SelectVehicleTypeViewController
         self.navigationController?.pushViewController(selectVehicle, animated: true)
+    }
+    
+    @IBAction func proceedButton(_ sender: UIButton){
+        
+        textValidation()
+        navigateToSelectVehicle()
+        
     }
     
     

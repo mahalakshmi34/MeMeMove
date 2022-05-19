@@ -77,6 +77,7 @@ class SelectPackageContentViewController: UIViewController,UITableViewDelegate,U
         var testData = packageContent[indexPath.row]
         print("testData",testData)
         packageText.append(testData)
+        UserDefaults.standard.set(packageText, forKey: "packageContentArray")
         
         if self.arrSelectedRows.contains(indexPath.row) {
             self.arrSelectedRows.remove(at: self.arrSelectedRows.firstIndex(of: indexPath.row)!)
@@ -118,6 +119,7 @@ class SelectPackageContentViewController: UIViewController,UITableViewDelegate,U
         
         print(packageContent[sender.tag])
         itemValue.append(packageContent[sender.tag])
+       // UserDefaults.standard.set(itemValue, forKey: "packageContentArray")
         
         self.tableView.reloadData()
     }
