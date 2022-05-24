@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import SVGKit
+
 
 class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
    
@@ -24,13 +28,20 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     
     var temporaryImagePath = ""
     var temporaryImage = UIImage()
+    var imageData = ""
+    var imageView = UIImageView()
+    var vehicleName :[String] = []
+    var vehicleImage :[String] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         delegateMethod()
         cornerRadius()
+        fetchData()
+        
     }
+    
     
     func cornerRadius() {
         editText.useUnderline()
@@ -50,11 +61,15 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     
     @IBAction func measureProduct(_ sender: UIButton) {
         enterPackageDetails.isHidden = true
+        cameraFrontView.isHidden = false
+        cameraTopView.isHidden = false
     }
     
     @IBAction func enterPackageDetail(_ sender: UIButton) {
         
         enterPackageDetails.isHidden = false
+        cameraFrontView.isHidden = true
+        cameraTopView.isHidden = true
     }
     
     
@@ -122,27 +137,109 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        var selectedImage :  UIImage?
         
+        if  let image = (info[UIImagePickerController.InfoKey.originalImage] as? UIImage) {
+            
+        var selectedImage :  UIImage?
+
         if let editedImage  = info[.editedImage] as? UIImage {
             selectedImage = editedImage
             temporaryImage = editedImage
+            //self.imageView.image = editedImage
             picker.dismiss(animated: true)
         }
         else if let orginalImage = info[.originalImage] as? UIImage {
             selectedImage = orginalImage
             temporaryImage = orginalImage
+            self.imageView.image = orginalImage
             picker.dismiss(animated: true)
         }
         else {
             print("error")
         }
-        
+//
         let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? NSURL
         print(imageURL?.absoluteString)
         temporaryImagePath = imageURL?.absoluteString ?? ""
         print(temporaryImagePath)
         
+        updateProfile()
+        
+            picker.dismiss(animated: true, completion: nil)
+    }
+}
+    
+    func updateProfile() {
+        let url = "https://api.mememove.com:8443/MeMeMove/Order/add/order/image"
+        imageData = temporaryImagePath
+        let image = UIImage(contentsOfFile: imageData)
+        
+        let parameter : [String : Any] = [
+            "frontimage"  : temporaryImagePath,
+            "topimage" : temporaryImagePath
+        ]
+        let headers: HTTPHeaders = [
+            "Content-type": "multipart/form-data",
+            "Accept" : "application/json"
+        ]
+        AF.upload(multipartFormData: { [self] multipartFormData in
+        for (key,value) in parameter {
+        multipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)! , withName: key)
+        }
+            multipartFormData.append(temporaryImage.jpegData(compressionQuality: 0.5)!, withName: "frontimage", fileName: "uploadimage.jpeg", mimeType: "image/jpeg")
+            multipartFormData.append(temporaryImage.jpegData(compressionQuality: 0.5)!, withName: "topimage", fileName: "uploadimage.jpeg", mimeType: "image/jpeg")
+            
+        },
+        to: url,method: .post,headers: headers).responseJSON(completionHandler: { [self]response in
+            print(response)
+            switch response.result {
+            case .success(let data):
+                print("isi: \(data)")
+                
+            let json = JSON(data)
+            print(json)
+                
+                if let frontImage = json["front"].string {
+                    print(frontImage)
+                }
+               
+            case .failure(let error):
+                print(error)
+            }
+        })
+    }
+    
+    func fetchData() {
+    
+        let url = "http://api.mememove.com:8080/MeMeMove/Driver/get/all/VehicleType/ByCity?city=chennai"
+        
+            AF.request(url, method: .get).responseJSON { [self] response in
+                print("isiLagi: \(response)")
+                switch response.result {
+                case .success(let data):
+                    print("isi: \(data)")
+                    let json = JSON(data)
+                    print(json)
+                    
+                    let cityDetails = json.arrayValue
+                    
+                    for cityDetail in cityDetails {
+                        if let city = cityDetail["city"].string {
+                            vehicleName.append(city)
+                        }
+                        if let vehicleImg = cityDetail["vimg"].string {
+                            print(vehicleImg)
+                            vehicleImage.append(vehicleImg)
+                      
+                        }
+                    }
+                    
+                    collectionView.reloadData()
+                   
+                case .failure(let error):
+                    print("Request failed with error: \(error)")
+                }
+            }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -150,15 +247,24 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return vehicleName.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "selectvehicle", for: indexPath)as! VehicleTypeCollectionViewCell
-        let image = UIImage(named: "Group 191")
-        cell.vehicleType.image = UIImage(named: "Group 191")
-        cell.vehicleImage.addShadowToButton(color: UIColor.lightGray, cornerRadius: 20)
-        cell.vehicleName.text = "Car"
+        
+        cell.vehicleName.text = vehicleName[indexPath.row]
+    
+        let url = URL(string: vehicleImage[indexPath.row])!
+            print(url)
+            if let data = try? Data(contentsOf: url) {
+                let receivedimage :SVGKImage = SVGKImage(data: data)
+                cell.vehicleType.image = receivedimage.uiImage
+                cell.vehicleImage.addShadowToButton(color: UIColor.lightGray, cornerRadius: 20)
+        }
+    
+            
+        
         return cell
     }
     
@@ -184,3 +290,4 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
         return UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
     }
 }
+
