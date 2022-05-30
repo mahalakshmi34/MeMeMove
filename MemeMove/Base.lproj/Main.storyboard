@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R6W-LH-t5i">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mQY-Ua-blO">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -56,8 +56,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9X-rn-7ss">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="110.33333333333333"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrt-Ot-cna">
-                                        <rect key="frame" x="162" y="20" width="90" height="90"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrt-Ot-cna">
+                                        <rect key="frame" x="162" y="21" width="90" height="90"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="90" id="fyi-cU-sdx"/>
                                             <constraint firstAttribute="width" constant="90" id="xs4-4b-3yY"/>
@@ -1696,6 +1696,9 @@
                     </view>
                     <connections>
                         <outlet property="checkBoxButton" destination="J8h-dg-oDa" id="weH-Hr-Pee"/>
+                        <outlet property="deliveryAddress" destination="N4g-6D-Gza" id="8GI-oi-Y5a"/>
+                        <outlet property="packageContent" destination="9X7-az-KbN" id="LaG-3R-Qdc"/>
+                        <outlet property="pickUpAddress" destination="V9T-SV-NXX" id="XfW-Xd-pin"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wac-vJ-wNK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2003,6 +2006,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-1" translatesAutoresizingMaskIntoConstraints="NO" id="xco-yq-r8X">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUz-0u-CQw">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                 <subviews>
@@ -2041,9 +2047,6 @@
                                     <constraint firstItem="uuW-nF-2QH" firstAttribute="centerX" secondItem="XUz-0u-CQw" secondAttribute="centerX" id="xNb-e8-Bol"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-1" translatesAutoresizingMaskIntoConstraints="NO" id="xco-yq-r8X">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking For .. ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLC-m9-K7J">
                                 <rect key="frame" x="41.333333333333343" y="151" width="331.33333333333326" height="30"/>
                                 <constraints>
@@ -2466,6 +2469,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg-1" translatesAutoresizingMaskIntoConstraints="NO" id="ayK-KY-MAq">
+                                <rect key="frame" x="20" y="-13" width="414.66666666666669" height="736"/>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Address-amico" translatesAutoresizingMaskIntoConstraints="NO" id="D8X-5n-mfV">
                                 <rect key="frame" x="85.333333333333329" y="10" width="243.33333333333337" height="156"/>
                             </imageView>
@@ -2644,9 +2650,6 @@
                                     <action selector="proceedButton:" destination="oRm-3K-GVt" eventType="touchUpInside" id="5f7-XJ-MeE"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg-1" translatesAutoresizingMaskIntoConstraints="NO" id="ayK-KY-MAq">
-                                <rect key="frame" x="20" y="-13" width="414.66666666666669" height="736"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dqw-hu-pNo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

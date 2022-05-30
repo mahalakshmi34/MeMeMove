@@ -15,7 +15,7 @@ target 'MemeMove' do
 
   pod 'GooglePlaces', '5.0.0'
 
-  pod 'SVGKit'
+  
 
  
 

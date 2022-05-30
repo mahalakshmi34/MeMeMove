@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-import SVGKit
+
 
 
 class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -31,7 +31,7 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     var imageData = ""
     var imageView = UIImageView()
     var vehicleName :[String] = []
-    var vehicleImage :[String] = []
+    var vehicleImages :[String] = []
     
     
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
         
     }
     
-    
+
     func cornerRadius() {
         editText.useUnderline()
         proceedButton.layer.cornerRadius = 20
@@ -229,7 +229,7 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
                         }
                         if let vehicleImg = cityDetail["vimg"].string {
                             print(vehicleImg)
-                            vehicleImage.append(vehicleImg)
+                            vehicleImages.append(vehicleImg)
                       
                         }
                     }
@@ -247,25 +247,34 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return vehicleName.count
+        return vehicleImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "selectvehicle", for: indexPath)as! VehicleTypeCollectionViewCell
         
         cell.vehicleName.text = vehicleName[indexPath.row]
-    
-        let url = URL(string: vehicleImage[indexPath.row])!
-            print(url)
-            if let data = try? Data(contentsOf: url) {
-                let receivedimage :SVGKImage = SVGKImage(data: data)
-                cell.vehicleType.image = receivedimage.uiImage
-                cell.vehicleImage.addShadowToButton(color: UIColor.lightGray, cornerRadius: 20)
-        }
-    
-            
         
+         let imageURL = URL(string: vehicleImages[indexPath.row])
+
+                // just not to cause a deadlock in UI!
+            DispatchQueue.global().async {
+                guard let imageData = try? Data(contentsOf: imageURL!) else { return }
+
+                let image = UIImage(data: imageData)
+                DispatchQueue.main.async {
+                    cell.vehicleType.image = image
+                }
+            }
+
+       
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let vehicleName = vehicleName[indexPath.row]
+        print(vehicleName)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

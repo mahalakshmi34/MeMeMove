@@ -7,96 +7,80 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "84AA5DC7-4841-45C0-8180-9D00F4E4D3C1"
+            uuid = "EC981B58-E9B8-4501-9553-614FA3246486"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MemeMove/Controller/Select Vehicle Type/SelectVehicleTypeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "updateProfile()"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E1052B59-601A-4E8F-81D4-599B0245554B"
+            uuid = "253E652F-27F7-400B-BEE6-C3CBFDE9F231"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MemeMove/Controller/Select Vehicle Type/SelectVehicleTypeViewController.swift"
+            filePath = "MemeMove/Controller/Package Content/DeliveryPackageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "pickUpAddressPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5E57B080-2157-4249-B589-76B2955FC56E"
+            uuid = "57696455-17F4-40CD-A11B-89924AFB5FC1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MemeMove/Controller/Select Vehicle Type/SelectVehicleTypeViewController.swift"
+            filePath = "MemeMove/Controller/Package Content/DeliveryPackageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
-            landmarkName = "updateProfile()"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "viewController(_:didAutocompleteWith:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F90492F1-5D8A-449B-BC6D-719C3259F17F"
+            uuid = "97443E2C-EEBB-43DB-BBC9-C3B70505E04F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MemeMove/Controller/Select Vehicle Type/SelectVehicleTypeViewController.swift"
+            filePath = "MemeMove/Controller/Package Content/DeliveryPackageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
-            landmarkName = "updateProfile()"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
+            landmarkName = "viewController(_:didAutocompleteWith:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1C0694AE-71C0-443E-BF43-33AAE7EBD65D"
+            uuid = "51890AC1-3E0C-44E7-8B0D-2BB866BAF461"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MemeMove/Controller/Select Vehicle Type/SelectVehicleTypeViewController.swift"
+            filePath = "MemeMove/Controller/Package Content/DeliveryPackageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
-            landmarkName = "updateProfile()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9782F895-2E60-4563-BA6F-BD377449EF32"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MemeMove/Controller/Select Vehicle Type/SelectVehicleTypeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
-            landmarkName = "updateProfile()"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
+            landmarkName = "viewController(_:didAutocompleteWith:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

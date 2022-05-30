@@ -44,7 +44,7 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         //autoComplete()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool){
         validation()
     }
     
@@ -55,18 +55,18 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     }
     
     func validation() {
-        if UserDefaults.standard.integer(forKey: "pickUpTag") == 1 {
-            var pickTag = UserDefaults.standard.integer(forKey: "pickUpTag")
+     if UserDefaults.standard.integer(forKey: "pickUpTag") == 1 {
+    var pickTag = UserDefaults.standard.integer(forKey: "pickUpTag")
             pickUpAddress.text = confirmLocationAddress
     
-            if UserDefaults.standard.string(forKey: "currentAddress") != nil {
+    if UserDefaults.standard.string(forKey: "currentAddress") != nil {
                 pickUpAddress.text = UserDefaults.standard.string(forKey: "currentAddress")
             }
-        }
-        else if UserDefaults.standard.integer(forKey: "deliveryTag") == 2 {
+      }
+    else if UserDefaults.standard.integer(forKey: "deliveryTag") == 2 {
             var deliveryTag = UserDefaults.standard.integer(forKey: "deliveryTag")
             deliveryAddress.text = confirmLocationAddress
-            if UserDefaults.standard.string(forKey: "currentAddress") != nil {
+      if UserDefaults.standard.string(forKey: "currentAddress") != nil {
                 deliveryAddress.text = UserDefaults.standard.string(forKey: "currentAddress")
             }
         }

@@ -1,8 +1,5 @@
 PODS:
   - Alamofire (5.5.0)
-  - CocoaLumberjack (3.7.4):
-    - CocoaLumberjack/Core (= 3.7.4)
-  - CocoaLumberjack/Core (3.7.4)
   - GoogleMaps (6.0.1):
     - GoogleMaps/Maps (= 6.0.1)
   - GoogleMaps/Base (6.0.1)
@@ -10,8 +7,6 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (5.0.0)
   - SideMenu (6.5.0)
-  - SVGKit (3.0.0):
-    - CocoaLumberjack (~> 3.0)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
@@ -19,28 +14,23 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces (= 5.0.0)
   - SideMenu
-  - SVGKit
   - SwiftyJSON
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - CocoaLumberjack
     - GoogleMaps
     - GooglePlaces
     - SideMenu
-    - SVGKit
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
-  CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   GoogleMaps: c213fc2334b7374144cede914da779b99be0ab74
   GooglePlaces: 5d87ca13ed98b7a937e0d8bc7026f718c7263271
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
-  SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 7da6a1d559bd167ae9f4ee2f731e789de4e63d25
+PODFILE CHECKSUM: f6ec21ff1fb312f4769e2684d7458182a8203f59
 
 COCOAPODS: 1.11.2
