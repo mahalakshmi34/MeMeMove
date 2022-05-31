@@ -33,6 +33,11 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     var vehicleName :[String] = []
     var vehicleImages :[String] = []
     
+    var flatNumber = ""
+    var howToReach = ""
+    var contactNumber = ""
+    var apartmentName = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -211,7 +216,7 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     
     func fetchData() {
     
-        let url = "http://api.mememove.com:8080/MeMeMove/Driver/get/all/VehicleType/ByCity?city=chennai"
+        let url = "https://api.mememove.com:8443/MeMeMove/Driver/get/all/VehicleType/ByLocation?country=india&state=tamilnadu&city=chennai"
         
             AF.request(url, method: .get).responseJSON { [self] response in
                 print("isiLagi: \(response)")

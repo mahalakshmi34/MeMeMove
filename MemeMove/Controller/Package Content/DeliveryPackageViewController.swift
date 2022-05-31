@@ -182,7 +182,7 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     }
     
     func navigateToSelectVehicle() {
-        let selectVehicle = self.storyboard?.instantiateViewController(withIdentifier: "SelectVehicleTypeViewController") as! SelectVehicleTypeViewController
+        let selectVehicle = self.storyboard?.instantiateViewController(withIdentifier: "AddAddressDetailViewController") as! AddAddressDetailViewController
         self.navigationController?.pushViewController(selectVehicle, animated: true)
     }
     

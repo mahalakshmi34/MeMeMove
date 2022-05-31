@@ -26,10 +26,15 @@ class AddAddressDetailViewController: UIViewController,GMSMapViewDelegate {
     @IBOutlet weak var addAddressView: UIView!
     @IBOutlet weak var navigationView: UIView!
     
+    var homeNumber = ""
+    var apartmentName = ""
+    var contactNumber = ""
+    var howToReach = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        showCurrentLocationOnMap()
-        bringSubViews()
+        //showCurrentLocationOnMap()
+        //bringSubViews()
         cornerRadius()
         dropShadow()
         viewDropShadow()
@@ -72,20 +77,21 @@ class AddAddressDetailViewController: UIViewController,GMSMapViewDelegate {
     
     func cornerRadius() {
         addAdressButton.layer.cornerRadius = 20
-        changeButton.layer.borderWidth = 2.0
-        changeButton.layer.borderColor =  UIColor(rgb: 0x60C8FF).cgColor
-        changeButton.layer.cornerRadius = 10
-        homeButton.layer.borderWidth = 2.0
-        homeButton.layer.borderColor =  UIColor.lightGray.cgColor
-        homeButton.layer.cornerRadius = 10
-        officeButton.layer.borderWidth = 2.0
-        officeButton.layer.borderColor =  UIColor.lightGray.cgColor
-        officeButton.layer.cornerRadius = 10
-        othersButton.layer.borderWidth = 2.0
-        othersButton.layer.borderColor =  UIColor.lightGray.cgColor
-        othersButton.layer.cornerRadius = 10
+//        changeButton.layer.borderWidth = 2.0
+//        changeButton.layer.borderColor =  UIColor(rgb: 0x60C8FF).cgColor
+//        changeButton.layer.cornerRadius = 10
+//        homeButton.layer.borderWidth = 2.0
+//        homeButton.layer.borderColor =  UIColor.lightGray.cgColor
+//        homeButton.layer.cornerRadius = 10
+//        officeButton.layer.borderWidth = 2.0
+//        officeButton.layer.borderColor =  UIColor.lightGray.cgColor
+//        officeButton.layer.cornerRadius = 10
+//        othersButton.layer.borderWidth = 2.0
+//        othersButton.layer.borderColor =  UIColor.lightGray.cgColor
+//        othersButton.layer.cornerRadius = 10
         navigationView.layer.cornerRadius = 40
-        navigationView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+//        navigationView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        navigationView.dropShadow()
         addAddressView.layer.cornerRadius = 20
         addAddressView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
@@ -94,6 +100,15 @@ class AddAddressDetailViewController: UIViewController,GMSMapViewDelegate {
         
         let confirmLocation  =  self.storyboard?.instantiateViewController(withIdentifier: "ConfirmLocationViewController") as! ConfirmLocationViewController
         self.navigationController?.popToViewController(confirmLocation, animated: true)
+    }
+    
+    
+    @IBAction func proceedBtnPressed(_ sender: UIButton) {
+        let selectType  =  self.storyboard?.instantiateViewController(withIdentifier: "SelectVehicleTypeViewController") as! SelectVehicleTypeViewController
+        selectType.apartmentName = apartmentName
+        selectType.flatNumber = homeNumber
+        selectType.howToReach = howToReach
+        self.navigationController?.pushViewController(selectType, animated: true)
     }
     
 }
@@ -121,4 +136,14 @@ extension UITextField {
     }
 }
 
-
+extension UIView {
+    func dropShadow(scale: Bool = true) {
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.2
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 1
+        layer.shouldRasterize = true
+        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+    }
+}
