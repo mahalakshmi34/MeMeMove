@@ -31,6 +31,9 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     var currentLoc :CLLocation!
     var confirmLocationAddress = ""
     var packageFood :Array = [String]()
+    var State = ""
+    var Country = ""
+    var City = ""
     
   
     override func viewDidLoad() {
@@ -40,6 +43,7 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         dropShadow()
         navigationBar()
         textTapped()
+       // removeObject()
         //validation()
         //autoComplete()
     }
@@ -54,8 +58,14 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         packageList()
     }
     
+    func removeObject() {
+        UserDefaults.standard.removeObject(forKey: "currentLocationCity")
+        UserDefaults.standard.removeObject(forKey: "currentLocationCountry")
+        UserDefaults.standard.removeObject(forKey: "currentLocationState")
+    }
+    
     func validation() {
-     if UserDefaults.standard.integer(forKey: "pickUpTag") == 1 {
+        if pickUpAddress.tag == 1 {
     var pickTag = UserDefaults.standard.integer(forKey: "pickUpTag")
             pickUpAddress.text = confirmLocationAddress
     
@@ -63,7 +73,7 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
                 pickUpAddress.text = UserDefaults.standard.string(forKey: "currentAddress")
             }
       }
-    else if UserDefaults.standard.integer(forKey: "deliveryTag") == 2 {
+        if deliveryAddress.tag == 2 {
             var deliveryTag = UserDefaults.standard.integer(forKey: "deliveryTag")
             deliveryAddress.text = confirmLocationAddress
       if UserDefaults.standard.string(forKey: "currentAddress") != nil {
@@ -124,7 +134,7 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     @IBAction func deliveryAddressTapped(_ sender: UITextField) {
         pickUpAddress.tag = 0
         deliveryAddress.tag = 2
-        UserDefaults.standard.removeObject(forKey: "pickUpTag")
+        //UserDefaults.standard.removeObject(forKey: "pickUpTag")
         UserDefaults.standard.set(2, forKey: "deliveryTag")
         autoComplete()
     }
@@ -144,6 +154,8 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     
     
     func getCurrentLocation() ->String {
+        
+        
         var address: String = ""
         let geoCoder = CLGeocoder()
         let location = CLLocation(latitude: currentLocationLat, longitude: currentLocationLong)
@@ -157,8 +169,19 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
             if let city = placeMark.addressDictionary!["City"] as? NSString {
                 print(city)
                 address = city as String
+                UserDefaults.standard.set(city, forKey: "currentLocationCity")
                 //pickUpAddress.text = city as String
             }
+            if let country = placeMark.addressDictionary?["Country"] as? NSString {
+                print(country)
+                UserDefaults.standard.set(country, forKey: "currentLocationCountry")
+            }
+            
+            if let State = placeMark.addressDictionary?["State"] as? NSString {
+                print(State)
+                UserDefaults.standard.set(State, forKey: "currentLocationState")
+            }
+            
         })
         return address;
     }
@@ -183,14 +206,13 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     
     func navigateToSelectVehicle() {
         let selectVehicle = self.storyboard?.instantiateViewController(withIdentifier: "AddAddressDetailViewController") as! AddAddressDetailViewController
+        
         self.navigationController?.pushViewController(selectVehicle, animated: true)
     }
     
     @IBAction func proceedButton(_ sender: UIButton){
-        
         textValidation()
         navigateToSelectVehicle()
-        
     }
     
     
@@ -237,6 +259,7 @@ extension DeliveryPackageViewController: GMSAutocompleteViewControllerDelegate,U
         print("Place attributions: \(place.attributions)")
         print("Place Address : \(place.addressComponents)")
         
+        
         if pickUpAddress.tag == 1 {
             //pickUpAddress.text = place.name
             UserDefaults.standard.set(place.name, forKey: "confirmLocation")
@@ -273,6 +296,8 @@ extension DeliveryPackageViewController: GMSAutocompleteViewControllerDelegate,U
         let deliveryLocation = self.storyboard?.instantiateViewController(withIdentifier: "ConfirmLocationViewController") as! ConfirmLocationViewController
         deliveryLocation.pinPointLatitude = currentLocationLat
         deliveryLocation.pinPointLongitude = currentLocationLong
+        deliveryLocation.pickUpTag = pickUpAddress.tag
+        deliveryLocation.deliveryTag = deliveryAddress.tag
         self.navigationController?.pushViewController(deliveryLocation, animated: true)
     }
     
@@ -293,13 +318,13 @@ extension DeliveryPackageViewController: GMSAutocompleteViewControllerDelegate,U
                 currentLocationLong = place.coordinate.longitude
                 
                 if pickUpAddress.tag == 1 {
-//                    UserDefaults.standard.set(place.coordinate.latitude, forKey: "pickUpLatitude")
-//                    UserDefaults.standard.set(place.coordinate.longitude, forKey: "pickUpLongitude")
+                    UserDefaults.standard.set(place.coordinate.latitude, forKey: "pickUpLatitude")
+                    UserDefaults.standard.set(place.coordinate.longitude, forKey: "pickUpLongitude")
                 }
                 
                 if deliveryAddress.tag == 2 {
-//                    UserDefaults.standard.set(place.coordinate.latitude, forKey: "dropLatitude")
-//                    UserDefaults.standard.set(place.coordinate.longitude, forKey: "dropLongitude")
+                    UserDefaults.standard.set(place.coordinate.latitude, forKey: "dropLatitude")
+                    UserDefaults.standard.set(place.coordinate.longitude, forKey: "dropLongitude")
                 }
                 navigateToMap()
              

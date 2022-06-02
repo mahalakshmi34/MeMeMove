@@ -23,6 +23,8 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
     var pinPointLongitude :Double = 0.0
     var mapView :GMSMapView!
     var geoCoder :CLGeocoder!
+    var pickUpTag = 1
+    var deliveryTag = 2
    
     
     override func viewDidLoad() {
@@ -35,6 +37,7 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
     
     func navigationBar() {
         self.navigationController?.navigationBar.isHidden = true
+        
     }
     
     func bringSubViews() {
@@ -99,7 +102,6 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
     }
     
  
-    
     func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
         mapView.isMyLocationEnabled = true
         
@@ -138,6 +140,57 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
                 marker.map = self.mapView
             }
         }
+    
+    func getCurrentLocation() ->String {
+        var address: String = ""
+        let geoCoder = CLGeocoder()
+        let location = CLLocation(latitude: pinPointLatitude, longitude: pinPointLongitude)
+        geoCoder.reverseGeocodeLocation(location, completionHandler: { [self] (placemarks, error) -> Void in
+            var placeMark: CLPlacemark!
+            placeMark = placemarks?[0]
+            if let place = placemarks?[0] {
+                if place.subThoroughfare != nil {
+                }
+            }
+            if let city = placeMark.addressDictionary!["City"] as? NSString {
+                print(city)
+                address = city as String
+                UserDefaults.standard.set(city, forKey: "currentLocationCity")
+                UserDefaults.standard.set(city, forKey: "fromCity")
+                UserDefaults.standard.set(city, forKey: "toCity")
+                //pickUpAddress.text = city as String
+            }
+            if let country = placeMark.addressDictionary?["Country"] as? NSString {
+                print(country)
+                UserDefaults.standard.set(country, forKey: "currentLocationCountry")
+                UserDefaults.standard.set(country, forKey: "fromCountry")
+                UserDefaults.standard.set(country, forKey: "toCountry")
+            }
+            
+            if let State = placeMark.addressDictionary?["State"] as? NSString {
+                print(State)
+                UserDefaults.standard.set(State, forKey: "currentLocationState")
+                UserDefaults.standard.set(State, forKey: "fromState")
+                UserDefaults.standard.set(State, forKey: "toState")
+            }
+            
+            if UserDefaults.standard.integer(forKey: "pickUpTag") == 1 {
+                UserDefaults.standard.string(forKey: "fromCity")
+                UserDefaults.standard.string(forKey: "fromCountry")
+                UserDefaults.standard.string(forKey: "fromState")
+                
+            }
+            
+            if UserDefaults.standard.integer(forKey: "deliveryTag") == 2 {
+                UserDefaults.standard.string(forKey: "toCity")
+                UserDefaults.standard.string(forKey: "toCountry")
+                UserDefaults.standard.string(forKey: "toState")
+                
+            }
+            
+        })
+        return address;
+    }
 
     
     func reverseGeocode(coordinate: CLLocationCoordinate2D) {
@@ -172,14 +225,18 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
     @IBAction func backButtonPressed(_ sender: UIButton) {
         
         let deliveryAddress = self.storyboard?.instantiateViewController(withIdentifier: "DeliveryPackageViewController") as! DeliveryPackageViewController
+        deliveryAddress.pickUpAddress.tag = pickUpTag
+        deliveryAddress.deliveryAddress.tag = deliveryTag
         self.navigationController?.popViewController(animated: true)
     }
     
     
     @IBAction func confirmLocationPressed(_ sender: UIButton) {
+        getCurrentLocation()
         for controller in self.navigationController!.viewControllers  {
                 if let deliveryPackage = controller as? DeliveryPackageViewController {
                        deliveryPackage.confirmLocationAddress = currentAddress.text!
+                       
                        self.navigationController?.popToViewController(deliveryPackage, animated: true)
                    }
           }

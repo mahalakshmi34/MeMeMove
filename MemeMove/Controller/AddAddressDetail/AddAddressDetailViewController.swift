@@ -105,9 +105,9 @@ class AddAddressDetailViewController: UIViewController,GMSMapViewDelegate {
     
     @IBAction func proceedBtnPressed(_ sender: UIButton) {
         let selectType  =  self.storyboard?.instantiateViewController(withIdentifier: "SelectVehicleTypeViewController") as! SelectVehicleTypeViewController
-        selectType.apartmentName = apartmentName
-        selectType.flatNumber = homeNumber
-        selectType.howToReach = howToReach
+        selectType.apartmentName = buildingName.text!
+        selectType.flatNumber = houseFlatNumber.text!
+        selectType.howToReach = reachTextField.text!
         self.navigationController?.pushViewController(selectType, animated: true)
     }
     

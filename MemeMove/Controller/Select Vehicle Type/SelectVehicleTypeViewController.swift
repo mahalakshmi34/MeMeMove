@@ -37,6 +37,17 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     var howToReach = ""
     var contactNumber = ""
     var apartmentName = ""
+    var dateString = ""
+    var currentCity = ""
+    var currentState = ""
+    var currentCountry = ""
+    var toCountry = ""
+    var toState = ""
+    var toCity = ""
+    var pickUpLat = 0.0
+    var pickUpLong = 0.0
+    var dropLat = 0.0
+    var dropLong = 0.0
     
     
     override func viewDidLoad() {
@@ -44,6 +55,8 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
         delegateMethod()
         cornerRadius()
         fetchData()
+        todaysDate()
+        addOrder()
         
     }
     
@@ -215,8 +228,18 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     }
     
     func fetchData() {
+        if UserDefaults.standard.string(forKey: "currentLocationCity") != nil {
+            currentCity = UserDefaults.standard.string(forKey: "currentLocationCity")!
+        }
+        if UserDefaults.standard.string(forKey: "currentLocationState") != nil {
+            currentState = UserDefaults.standard.string(forKey: "currentLocationState")!
+        }
+        if UserDefaults.standard.string(forKey: "currentLocationCountry") != nil {
+            currentCountry = UserDefaults.standard.string(forKey: "currentLocationCountry")!
+        }
     
-        let url = "https://api.mememove.com:8443/MeMeMove/Driver/get/all/VehicleType/ByLocation?country=india&state=tamilnadu&city=chennai"
+        let url = "https://api.mememove.com:8443/MeMeMove/Driver/get/all/VehicleType/ByLocation?country=India&state=\(currentState)&city=\(currentCity)"
+        print(url)
         
             AF.request(url, method: .get).responseJSON { [self] response in
                 print("isiLagi: \(response)")
@@ -235,17 +258,78 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
                         if let vehicleImg = cityDetail["vimg"].string {
                             print(vehicleImg)
                             vehicleImages.append(vehicleImg)
-                      
                         }
                     }
-                    
                     collectionView.reloadData()
-                   
                 case .failure(let error):
                     print("Request failed with error: \(error)")
                 }
             }
     }
+    
+    func todaysDate() {
+        
+            var startDate = ""
+            var endDate  = ""
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let now = Date()
+            dateString = formatter.string(from:now)
+            print(dateString)
+    }
+    
+   func addOrder() {
+       
+       if UserDefaults.standard.string(forKey: "currentLocationState") != nil {
+           currentState = UserDefaults.standard.string(forKey: "currentLocationState")!
+       }
+       if UserDefaults.standard.string(forKey: "currentLocationCity") != nil {
+           currentCity = UserDefaults.standard.string(forKey: "currentLocationCity")!
+       }
+       if UserDefaults.standard.string(forKey: "currentLocationCountry") != nil {
+           currentCountry = UserDefaults.standard.string(forKey: "currentLocationState")!
+       }
+       if UserDefaults.standard.integer(forKey: "pickUpTag") == 1 {
+           UserDefaults.standard.string(forKey: "fromCountry")
+           UserDefaults.standard.string(forKey: "fromState")
+           UserDefaults.standard.string(forKey: "fromCity")
+          pickUpLat =  UserDefaults.standard.double(forKey: "pickUpLatitude")
+           pickUpLong = UserDefaults.standard.double(forKey: "pickUpLongitude")
+           
+       }
+     if UserDefaults.standard.integer(forKey: "deliveryTag") == 2 {
+         
+         toCountry = UserDefaults.standard.string(forKey: "toCountry")!
+         toState = UserDefaults.standard.string(forKey: "toState")!
+         toCity = UserDefaults.standard.string(forKey: "toCity")!
+         dropLat = UserDefaults.standard.double(forKey: "dropLatitude")
+         dropLong = UserDefaults.standard.double(forKey: "dropLongitude")
+           
+    }
+       
+       
+       var username = ""
+       var userphoneno = ""
+       
+       let url = "https://api.mememove.com:8443/MeMeMove/Order/add/Order?landmark=\(currentCity)&city=\(currentCity)&state=Tamil nadu &country=India&fromlat=\(pickUpLat)&fromlong=\(pickUpLong)&deliverytype=FAST&orderdate=\(dateString)&length=23.0&breath=40.0&height=30.0&vehicletype=BIKE&toflatno=\(flatNumber)&tolandmark=\(toCity)&tocity=\(toCity)&tostate=Tamil nadu&tocountry=\(toCountry)&toname=\(howToReach)&tophoneno=\(contactNumber)&tolat=\(dropLat)&tolong=\(dropLong)&userid=2"
+          print(url)
+
+            let header : HTTPHeaders = ["Content-Type": "application/json"]
+            AF.request(url, method: .post,headers: header)
+                        .responseJSON { [self] response in
+                        print("isiLagi: \(response)")
+                        switch response.result {
+                        case .success(let data):
+                        print("isi: \(data)")
+                        let json = JSON(data)
+                        print(json)
+                            
+                        case .failure(let error):
+                            print("Request failed with error: \(error)")
+                            }
+                 }
+        }
+
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
