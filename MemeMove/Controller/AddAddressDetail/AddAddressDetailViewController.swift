@@ -108,6 +108,7 @@ class AddAddressDetailViewController: UIViewController,GMSMapViewDelegate {
         selectType.apartmentName = buildingName.text!
         selectType.flatNumber = houseFlatNumber.text!
         selectType.howToReach = reachTextField.text!
+        selectType.contactNumber = contactNumberTextField.text!
         self.navigationController?.pushViewController(selectType, animated: true)
     }
     

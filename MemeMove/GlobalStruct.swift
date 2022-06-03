@@ -42,3 +42,43 @@ struct confirmOtp {
     }
 }
 
+struct addOrderItems {
+    var orderid : Int
+    var ordername :String
+    var flatno : Int
+    var apartment : String
+    var area :String
+    var landmark :String
+    var city :String
+    var state :String
+    var country :String
+    var fromlat :Double
+    var fromlong :Double
+    var deliverytype: String
+    var orderimg :String
+    var orderdate :String
+    var length : Double
+    var breath :Double
+    var height :Double
+    var weight :Double
+    var userid : Int
+    var username : String
+    var userphoneno :String
+    var userpay : Double
+    var vehicletype : String
+    var driverid : Int
+    var drivername : String
+   
+    
+    enum CodingKeys :String,CodingKey {
+        case orderid
+        case ordername
+        case flatno
+        case apartment
+        case landmark
+        case city
+        case state
+        case country
+    }
+}
+
