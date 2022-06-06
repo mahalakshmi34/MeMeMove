@@ -66,19 +66,23 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     
     func validation() {
         if pickUpAddress.tag == 1 {
-    var pickTag = UserDefaults.standard.integer(forKey: "pickUpTag")
+       var pickTag = UserDefaults.standard.integer(forKey: "pickUpTag")
             pickUpAddress.text = confirmLocationAddress
     
-    if UserDefaults.standard.string(forKey: "currentAddress") != nil {
+          if UserDefaults.standard.string(forKey: "currentAddress") != nil {
                 pickUpAddress.text = UserDefaults.standard.string(forKey: "currentAddress")
             }
+            
+            UserDefaults.standard.set(pickUpAddress.text, forKey: "pickUpPlaces")
       }
         if deliveryAddress.tag == 2 {
             var deliveryTag = UserDefaults.standard.integer(forKey: "deliveryTag")
             deliveryAddress.text = confirmLocationAddress
-      if UserDefaults.standard.string(forKey: "currentAddress") != nil {
+          if UserDefaults.standard.string(forKey: "currentAddress") != nil {
                 deliveryAddress.text = UserDefaults.standard.string(forKey: "currentAddress")
             }
+            
+            UserDefaults.standard.set(deliveryAddress.text, forKey: "deliveryPlaces")
         }
        print(packageFood)
        
@@ -89,6 +93,8 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
             print(packageFoods)
             //print(UserDefaults.standard.stringArray(forKey: "packageContentArray"))
             packageItem.text = packageFood.joined(separator: "")
+            
+            UserDefaults.standard.set(packageItem.text, forKey: "packageContent")
             
         }
     }

@@ -73,6 +73,10 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
         widthTextField.addShadowToTextField(cornerRadius: 20)
         heightTextField.addShadowToTextField(cornerRadius: 20)
         weightTextField.addShadowToTextField(cornerRadius: 20)
+        
+        enterPackageDetails.layer.cornerRadius = 20
+        
+        enterPackageDetails.dropShadowOfView()
     }
     
     func delegateMethod() {
@@ -405,3 +409,14 @@ let url =
     
 }
 
+extension UIView {
+    func dropShadowOfView(scale: Bool = true) {
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.2
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 1
+        layer.shouldRasterize = true
+        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+    }
+}

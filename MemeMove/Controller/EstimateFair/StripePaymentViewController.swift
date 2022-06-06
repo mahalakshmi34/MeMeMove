@@ -18,6 +18,7 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
     
     var clientSecretValue = ""
     var transcationStatus = ""
+    var transcationID = ""
     
     func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreatePaymentMethod paymentMethod: STPPaymentMethod, completion: @escaping STPErrorBlock) {
     }
@@ -90,7 +91,7 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
         let url = "https://api.mememove.com:8443/MeMeMove/Order/stripe/pay?amnt=1000&currency=INR&method=card"
         let parameter : Parameters = [
             "amnt" : 1000,
-            "currency" : "INR",
+            "currency" : "USD",
             "method" : "card"
         ]
         
@@ -163,6 +164,7 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
             let paymentHandler = STPPaymentHandler.shared()
             paymentHandler.confirmPayment(withParams: paymentIntentParams, authenticationContext: self) { [self] (status, paymentIntent, error) in
                 
+                
                 var resultString = ""
                            switch (status) {
                            case .failed:
@@ -197,7 +199,7 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
                               // updateDeposit(Status : transcationStatus)
                             self.present(alert, animated: true, completion: nil)
                             
-                             
+                               print(paymentIntent?.stripeId)
                                
                            break
                            
