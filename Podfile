@@ -15,8 +15,9 @@ target 'MemeMove' do
 
   pod 'GooglePlaces', '5.0.0'
 
-  
+  pod 'Stripe'
 
+  pod 'ProgressHUD'
  
 
   # Pods for MemeMove

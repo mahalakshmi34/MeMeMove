@@ -6,14 +6,31 @@ PODS:
   - GoogleMaps/Maps (6.0.1):
     - GoogleMaps/Base
   - GooglePlaces (5.0.0)
+  - ProgressHUD (13.6)
   - SideMenu (6.5.0)
+  - Stripe (22.3.0):
+    - Stripe/Stripe3DS2 (= 22.3.0)
+    - StripeApplePay (= 22.3.0)
+    - StripeCore (= 22.3.0)
+    - StripeUICore (= 22.3.0)
+  - Stripe/Stripe3DS2 (22.3.0):
+    - StripeApplePay (= 22.3.0)
+    - StripeCore (= 22.3.0)
+    - StripeUICore (= 22.3.0)
+  - StripeApplePay (22.3.0):
+    - StripeCore (= 22.3.0)
+  - StripeCore (22.3.0)
+  - StripeUICore (22.3.0):
+    - StripeCore (= 22.3.0)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
   - Alamofire
   - GoogleMaps
   - GooglePlaces (= 5.0.0)
+  - ProgressHUD
   - SideMenu
+  - Stripe
   - SwiftyJSON
 
 SPEC REPOS:
@@ -21,16 +38,26 @@ SPEC REPOS:
     - Alamofire
     - GoogleMaps
     - GooglePlaces
+    - ProgressHUD
     - SideMenu
+    - Stripe
+    - StripeApplePay
+    - StripeCore
+    - StripeUICore
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   GoogleMaps: c213fc2334b7374144cede914da779b99be0ab74
   GooglePlaces: 5d87ca13ed98b7a937e0d8bc7026f718c7263271
+  ProgressHUD: 4bdaa0d2ddf676b23324b199f9facffb5c3a1620
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
+  Stripe: b2426ce648aa240a812b6749c09d3839111a9cbb
+  StripeApplePay: 0b0b744805d36940fd58d0a928c54beb04f1136c
+  StripeCore: 88a3b50b3237b8e1661e48905f2813dedf200540
+  StripeUICore: 5e5abb79e87b86b54919ed7c9d14446254d012a0
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: f6ec21ff1fb312f4769e2684d7458182a8203f59
+PODFILE CHECKSUM: bc174a0e35aee1a51e0a892092752231924b9ce4
 
 COCOAPODS: 1.11.2

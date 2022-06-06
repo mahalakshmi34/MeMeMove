@@ -50,6 +50,9 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     var dropLong = 0.0
     
     
+    var pickUpTagNumber = 1
+    var deliveryTagNumber = 2
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         delegateMethod()

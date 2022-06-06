@@ -1358,7 +1358,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jhK-k4-An4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252" y="747"/>
+            <point key="canvasLocation" x="1074" y="761"/>
         </scene>
         <!--Payment View Controller-->
         <scene sceneID="D1O-NV-fb7">
@@ -1521,10 +1521,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXk-MI-m7Q">
-                                <rect key="frame" x="103.66666666666669" y="627" width="207" height="31"/>
+                                <rect key="frame" x="103.66666666666669" y="627" width="207" height="40"/>
                                 <color key="backgroundColor" red="0.48235297199999999" green="0.77254903320000001" blue="0.98039215800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="vpJ-mf-Iix"/>
+                                    <constraint firstAttribute="height" constant="40" id="vpJ-mf-Iix"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -1537,9 +1537,12 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="proceedBtnTapped:" destination="mQY-Ua-blO" eventType="touchUpInside" id="QHh-g4-fZl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2C-E6-7Fw">
-                                <rect key="frame" x="107" y="676" width="200" height="31"/>
+                                <rect key="frame" x="107" y="685" width="200" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Buz-GM-mGc"/>
                                     <constraint firstAttribute="height" constant="31" id="Z4i-eZ-hBc"/>
@@ -1618,11 +1621,44 @@
                         <outlet property="deliveryAddress" destination="N4g-6D-Gza" id="8GI-oi-Y5a"/>
                         <outlet property="packageContent" destination="9X7-az-KbN" id="LaG-3R-Qdc"/>
                         <outlet property="pickUpAddress" destination="V9T-SV-NXX" id="XfW-Xd-pin"/>
+                        <outlet property="proceedPay" destination="jXk-MI-m7Q" id="k9s-a9-R1J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wac-vJ-wNK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3234.7826086956525" y="760.59782608695662"/>
+            <point key="canvasLocation" x="1930" y="747"/>
+        </scene>
+        <!--Stripe Payment View Controller-->
+        <scene sceneID="hmI-H9-USx">
+            <objects>
+                <viewController storyboardIdentifier="StripePaymentViewController" id="jvQ-1s-bE8" customClass="StripePaymentViewController" customModule="MemeMove" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AcO-g7-bZy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTC-E4-BMA">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
+                                <color key="backgroundColor" red="0.1411764771" green="0.14509806040000001" blue="0.14509806040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="uwl-12-U51"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ej1-NR-Sfg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oTC-E4-BMA" firstAttribute="top" secondItem="AcO-g7-bZy" secondAttribute="top" id="XmM-aq-Taa"/>
+                            <constraint firstItem="oTC-E4-BMA" firstAttribute="leading" secondItem="AcO-g7-bZy" secondAttribute="leading" id="cdC-e8-oWd"/>
+                            <constraint firstAttribute="trailing" secondItem="oTC-E4-BMA" secondAttribute="trailing" id="gvP-W9-73f"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainView" destination="oTC-E4-BMA" id="Wd4-GT-Oei"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wc7-ge-uMu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3323.1884057971015" y="1465.7608695652175"/>
         </scene>
         <!--Generate Password View Controller-->
         <scene sceneID="4kJ-bd-4m0">

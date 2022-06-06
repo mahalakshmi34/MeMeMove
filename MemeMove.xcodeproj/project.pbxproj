@@ -19,6 +19,7 @@
 		93401E7F282CDC6E00A3DF86 /* PackageContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93401E7E282CDC6E00A3DF86 /* PackageContentTableViewCell.swift */; };
 		934CC76B282D203000EB86FC /* TimeOfDeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934CC76A282D203000EB86FC /* TimeOfDeliveryViewController.swift */; };
 		93506A0727F584CE007D2032 /* SelectPackageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93506A0627F584CE007D2032 /* SelectPackageContentViewController.swift */; };
+		93521D47284B89A80012120F /* StripePaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93521D46284B89A80012120F /* StripePaymentViewController.swift */; };
 		9373A54427EDC00100BC1651 /* AddAddressDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373A54327EDC00100BC1651 /* AddAddressDetailViewController.swift */; };
 		9382AD0227F45E26009E0287 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9382AD0127F45E26009E0287 /* PaymentViewController.swift */; };
 		9384204D27F19D2500E02609 /* SelectVehicleTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9384204C27F19D2500E02609 /* SelectVehicleTypeViewController.swift */; };
@@ -52,6 +53,7 @@
 		93401E7E282CDC6E00A3DF86 /* PackageContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageContentTableViewCell.swift; sourceTree = "<group>"; };
 		934CC76A282D203000EB86FC /* TimeOfDeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOfDeliveryViewController.swift; sourceTree = "<group>"; };
 		93506A0627F584CE007D2032 /* SelectPackageContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPackageContentViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		93521D46284B89A80012120F /* StripePaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripePaymentViewController.swift; sourceTree = "<group>"; };
 		9373A54327EDC00100BC1651 /* AddAddressDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressDetailViewController.swift; sourceTree = "<group>"; };
 		9382AD0127F45E26009E0287 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		9384204C27F19D2500E02609 /* SelectVehicleTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVehicleTypeViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				9382AD0127F45E26009E0287 /* PaymentViewController.swift */,
+				93521D46284B89A80012120F /* StripePaymentViewController.swift */,
 			);
 			path = EstimateFair;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				93D13ACF27FD830100BE3ECE /* GlobalStruct.swift in Sources */,
 				93172D4D27E9FD0000A56476 /* HomeViewController.swift in Sources */,
 				933D479827E1A56800954445 /* LoginViewController.swift in Sources */,
+				93521D47284B89A80012120F /* StripePaymentViewController.swift in Sources */,
 				9384204D27F19D2500E02609 /* SelectVehicleTypeViewController.swift in Sources */,
 				93E1925027EC3F8600587666 /* DeliveryPackageViewController.swift in Sources */,
 				93172D4B27E9ACCA00A56476 /* SideMenuViewController.swift in Sources */,
