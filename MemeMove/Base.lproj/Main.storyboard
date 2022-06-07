@@ -1658,7 +1658,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wc7-ge-uMu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3323.1884057971015" y="1465.7608695652175"/>
+            <point key="canvasLocation" x="2843" y="747"/>
         </scene>
         <!--Generate Password View Controller-->
         <scene sceneID="4kJ-bd-4m0">

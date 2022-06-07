@@ -168,6 +168,9 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         geoCoder.reverseGeocodeLocation(location, completionHandler: { [self] (placemarks, error) -> Void in
             var placeMark: CLPlacemark!
             placeMark = placemarks?[0]
+           
+            print(placeMark.postalAddress?.state)
+        
             if let place = placemarks?[0] {
                 if place.subThoroughfare != nil {
                 }
@@ -185,7 +188,11 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
             
             if let State = placeMark.addressDictionary?["State"] as? NSString {
                 print(State)
-                UserDefaults.standard.set(State, forKey: "currentLocationState")
+                
+            }
+            
+            if let formattedAddressLine = placeMark.addressDictionary!["FormattedAddressLines"] as? NSString {
+                print(formattedAddressLine)
             }
             
         })

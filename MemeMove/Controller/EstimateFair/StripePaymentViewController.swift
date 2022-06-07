@@ -19,6 +19,7 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
     var clientSecretValue = ""
     var transcationStatus = ""
     var transcationID = ""
+    var userPay = 0.0
     
     func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreatePaymentMethod paymentMethod: STPPaymentMethod, completion: @escaping STPErrorBlock) {
     }
@@ -41,7 +42,7 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        StripeAPI.defaultPublishableKey = "pk_test_51KlAqNSDva7aeTENBxGVZDSbgzaCAw4N0gpOwOFnAasrcVbUzClHXHR45QztdSMKkYPQ3gRhAwMJgklkNf45zbad00k3JZJX1o"
+        StripeAPI.defaultPublishableKey = "pk_test_51KkUVZJAvb7prcutR1BIs51QQMPXNY7AIFrcoR12f4Fo5XrhYiJIUJzmjc4yBjuSo7SwjJMMZTY4IwweUlEST8Cs00L4c7pY6Q"
         
         view.addSubview(payButton)
         
@@ -53,7 +54,7 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
     
     func  payment() {
      
-        StripeAPI.defaultPublishableKey = "pk_test_51KlAqNSDva7aeTENBxGVZDSbgzaCAw4N0gpOwOFnAasrcVbUzClHXHR45QztdSMKkYPQ3gRhAwMJgklkNf45zbad00k3JZJX1o"
+        StripeAPI.defaultPublishableKey = "pk_test_51KkUVZJAvb7prcutR1BIs51QQMPXNY7AIFrcoR12f4Fo5XrhYiJIUJzmjc4yBjuSo7SwjJMMZTY4IwweUlEST8Cs00L4c7pY6Q"
 
         view.backgroundColor = .white
             var stackView = UIStackView(arrangedSubviews: [cardTextField])
@@ -87,11 +88,17 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
     }
     
     func stripePayment() {
+        
+        if UserDefaults.standard.double(forKey: "userPay") != nil {
+            userPay = UserDefaults.standard.double(forKey: "userPay")
+        }
      
-        let url = "https://api.mememove.com:8443/MeMeMove/Order/stripe/pay?amnt=1000&currency=INR&method=card"
+        let url = "https://api.mememove.com:8443/MeMeMove/Order/stripe/pay?amnt=100&currency=usd&method=card"
+        
+        
         let parameter : Parameters = [
-            "amnt" : 1000,
-            "currency" : "USD",
+            "amnt" : 100,
+            "currency" : "usd",
             "method" : "card"
         ]
         
@@ -199,6 +206,8 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
                               // updateDeposit(Status : transcationStatus)
                             self.present(alert, animated: true, completion: nil)
                             
+                            transcationID = paymentIntent!.stripeId
+                               print(paymentIntent?.status)
                                print(paymentIntent?.stripeId)
                                
                            break

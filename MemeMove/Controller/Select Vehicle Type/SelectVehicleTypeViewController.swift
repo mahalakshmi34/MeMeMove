@@ -48,6 +48,7 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     var pickUpLong = 0.0
     var dropLat = 0.0
     var dropLong = 0.0
+    var userID = ""
     
     
     var pickUpTagNumber = 1
@@ -293,7 +294,7 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
            currentCity = UserDefaults.standard.string(forKey: "currentLocationCity")!
        }
        if UserDefaults.standard.string(forKey: "currentLocationCountry") != nil {
-           currentCountry = UserDefaults.standard.string(forKey: "currentLocationState")!
+           currentCountry = UserDefaults.standard.string(forKey: "currentLocationCountry")!
        }
        if UserDefaults.standard.integer(forKey: "pickUpTag") == 1 {
            UserDefaults.standard.string(forKey: "fromCountry")
@@ -311,13 +312,17 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
          dropLong = UserDefaults.standard.double(forKey: "dropLongitude")
     }
        
+       if UserDefaults.standard.string(forKey: "userID") != nil {
+           userID = UserDefaults.standard.string(forKey: "userID")!
+       }
+       
        
        var username = ""
        var userphoneno = ""
        
 let url =
        
-"https://api.mememove.com:8443/MeMeMove/Order/add/Order?landmark=\(currentCity)&city=\(currentCity)&state=TamilNadu&country=India&fromlat=\(pickUpLat)&fromlong=\(pickUpLong)&deliverytype=FAST&orderdate=\(dateString)&length=23.0&breath=40.0&height=30.0&toflatno=\(flatNumber)&tolandmark=\(toCity)&tocity=\(toCity)&tostate=TamilNadu&tocountry=\(toCountry)&toname=\(howToReach)&tophoneno=\(contactNumber)&tolat=\(dropLat)&tolong=\(dropLong)&userid=2"
+"https://api.mememove.com:8443/MeMeMove/Order/add/Order?landmark=\(currentCity)&city=\(currentCity)&state=\(currentState)&country=\(currentCountry)&fromlat=\(pickUpLat)&fromlong=\(pickUpLong)&deliverytype=FAST&orderdate=\(dateString)&length=23.0&breath=40.0&height=30.0&toflatno=\(flatNumber)&tolandmark=\(toCity)&tocity=\(toCity)&tostate=\(toState)&tocountry=\(toCountry)&toname=\(howToReach)&tophoneno=\(contactNumber)&tolat=\(dropLat)&tolong=\(dropLong)&userid=\(userID)"
     print(url)
 
             let header : HTTPHeaders = ["Content-Type": "application/json"]
@@ -330,6 +335,11 @@ let url =
            print("isi: \(data)")
            let json = JSON(data)
            print(json)
+               
+               if let userPay = json["userpay"].double {
+                   print(userPay)
+                   UserDefaults.standard.set(userPay, forKey: "userPay")
+               }
                
             navigateToPayment()
         

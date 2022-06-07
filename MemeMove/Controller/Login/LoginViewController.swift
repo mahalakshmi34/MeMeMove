@@ -115,6 +115,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             .responseDecodable(of:Login.self) { [self] (response) in
                 guard var message = response.value else { return }
                 print(message)
+                print(message.userid)
+                UserDefaults.standard.set(message.userid, forKey: "userID")
                 UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
                 navigateToHome()
                 
@@ -152,7 +154,7 @@ extension UIViewController {
 extension Login :Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        message = try values.decode(String.self, forKey: .message)
-        userid = try values.decode(String.self, forKey: .userid)
+        message = try values.decodeIfPresent(String.self, forKey: .message)!
+        userid = try values.decodeIfPresent(String.self, forKey: .userid)!
     }
 }

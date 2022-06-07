@@ -132,6 +132,19 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
                     print("Response is = \(address)")
                     print("Response is = \(lines)")
                     
+                    print(address.administrativeArea)
+                    
+                    if UserDefaults.standard.integer(forKey: "pickUpTag") == 1 {
+                        UserDefaults.standard.set(address.administrativeArea, forKey: "currentLocationState")
+                    }
+                    if UserDefaults.standard.integer(forKey: "deliveryTag") == 2 {
+                        UserDefaults.standard.set(address.administrativeArea, forKey: "toState")
+                    }
+                   
+                    print(address.country)
+                    print(address.subLocality)
+                    
+                    
                     self.currentLocation.text = address.administrativeArea
                     self.currentAddress.text = lines.joined(separator: "\n")
 
