@@ -23,6 +23,7 @@
 		9373A54427EDC00100BC1651 /* AddAddressDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373A54327EDC00100BC1651 /* AddAddressDetailViewController.swift */; };
 		9382AD0227F45E26009E0287 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9382AD0127F45E26009E0287 /* PaymentViewController.swift */; };
 		9384204D27F19D2500E02609 /* SelectVehicleTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9384204C27F19D2500E02609 /* SelectVehicleTypeViewController.swift */; };
+		93AB0DC0284F86B300C20A38 /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB0DBF284F86B300C20A38 /* WaitingViewController.swift */; };
 		93D13ACD27FD805000BE3ECE /* GlobalMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D13ACC27FD805000BE3ECE /* GlobalMethod.swift */; };
 		93D13ACF27FD830100BE3ECE /* GlobalStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D13ACE27FD830100BE3ECE /* GlobalStruct.swift */; };
 		93D13AD127FD838600BE3ECE /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D13AD027FD838600BE3ECE /* URLConstants.swift */; };
@@ -57,6 +58,7 @@
 		9373A54327EDC00100BC1651 /* AddAddressDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressDetailViewController.swift; sourceTree = "<group>"; };
 		9382AD0127F45E26009E0287 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		9384204C27F19D2500E02609 /* SelectVehicleTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVehicleTypeViewController.swift; sourceTree = "<group>"; };
+		93AB0DBF284F86B300C20A38 /* WaitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
 		93D13ACC27FD805000BE3ECE /* GlobalMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalMethod.swift; sourceTree = "<group>"; };
 		93D13ACE27FD830100BE3ECE /* GlobalStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStruct.swift; sourceTree = "<group>"; };
 		93D13AD027FD838600BE3ECE /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				93E8D40227E0736C00D6B8E8 /* AppDelegate.swift */,
 				93E8D40427E0736C00D6B8E8 /* SceneDelegate.swift */,
 				93E8D40827E0736C00D6B8E8 /* Main.storyboard */,
+				93AB0DBF284F86B300C20A38 /* WaitingViewController.swift */,
 				93D13ACC27FD805000BE3ECE /* GlobalMethod.swift */,
 				93D13AD027FD838600BE3ECE /* URLConstants.swift */,
 				93D13ACE27FD830100BE3ECE /* GlobalStruct.swift */,
@@ -421,6 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93AB0DC0284F86B300C20A38 /* WaitingViewController.swift in Sources */,
 				933D479A27E1B48C00954445 /* RegistrationViewController.swift in Sources */,
 				933D479C27E1C0F500954445 /* ForgotPasswordViewController.swift in Sources */,
 				93E8D40727E0736C00D6B8E8 /* ViewController.swift in Sources */,

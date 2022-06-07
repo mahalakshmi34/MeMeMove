@@ -200,15 +200,20 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
 
 //                              let homeVC = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
 //                               self.navigationController?.pushViewController(homeVC, animated: true)
-
                             }))
-
-                              // updateDeposit(Status : transcationStatus)
+                            // updateDeposit(Status : transcationStatus)
                             self.present(alert, animated: true, completion: nil)
+                               
+                               print(paymentIntent?.status)
                             
                             transcationID = paymentIntent!.stripeId
-                               print(paymentIntent?.status)
-                               print(paymentIntent?.stripeId)
+                            UserDefaults.standard.set(transcationID, forKey: "transcationID")
+                               
+                            var transcationStatus = paymentIntent?.status
+                            UserDefaults.standard.set(transcationStatus, forKey: "transcationStatus")
+
+                            print(paymentIntent?.status)
+                            print(paymentIntent?.stripeId)
                                
                            break
                            

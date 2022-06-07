@@ -336,9 +336,29 @@ let url =
            let json = JSON(data)
            print(json)
                
+               if let orderID = json["orderid"].int {
+                   print(orderID)
+                   UserDefaults.standard.set(orderID, forKey: "orderID")
+               }
+               
+               if let orderName = json["ordername"].string {
+                   print(orderName)
+                   UserDefaults.standard.set(orderName, forKey: "orderName")
+               }
+               
                if let userPay = json["userpay"].double {
                    print(userPay)
                    UserDefaults.standard.set(userPay, forKey: "userPay")
+               }
+               
+               if let flatNumber = json["flatno"].int {
+                   print(flatNumber)
+                   UserDefaults.standard.set(flatNumber, forKey: "flatNumber")
+               }
+               
+               if let apartment = json["apartment"].string {
+                   print(apartment)
+                   UserDefaults.standard.set(apartment, forKey: "apartmentName")
                }
                
             navigateToPayment()
