@@ -1494,7 +1494,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wc7-ge-uMu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2843" y="747"/>
+            <point key="canvasLocation" x="2597" y="747"/>
         </scene>
         <!--Generate Password View Controller-->
         <scene sceneID="4kJ-bd-4m0">
@@ -2056,7 +2056,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fgB-7L-E4h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3886.9565217391309" y="760.59782608695662"/>
+            <point key="canvasLocation" x="3532" y="747"/>
         </scene>
         <!--Side Menu View Controller-->
         <scene sceneID="5Cm-np-BUj">
@@ -2684,7 +2684,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dlc-DY-2Sz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042" y="1464"/>
+            <point key="canvasLocation" x="-1796" y="747"/>
         </scene>
         <!--Waiting View Controller-->
         <scene sceneID="KPx-a4-saU">
@@ -2722,7 +2722,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="los-zS-gd3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1760.8695652173915" y="1461.6847826086957"/>
+            <point key="canvasLocation" x="4265" y="761"/>
         </scene>
     </scenes>
     <resources>

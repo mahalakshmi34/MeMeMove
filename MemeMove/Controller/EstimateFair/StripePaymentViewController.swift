@@ -215,6 +215,8 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
                             print(paymentIntent?.status)
                             print(paymentIntent?.stripeId)
                                
+                            confirmOrder()
+                               
                            break
                            
                            @unknown default:
@@ -226,6 +228,29 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
        // var cardSave = cardTextField.text
             
       }
+    
+    func confirmOrder() {
+        let url = "https://api.mememove.com:8443/MeMeMove/Order/add/Confirm/Order?paymentstatus=succeeded&transactionid=pi_3L7bc4SDva7aeTEN1E9Xcey4"
+        
+        let header : HTTPHeaders = ["Content-Type": "application/json"]
+        
+        AF.request(url, method: .post, encoding: JSONEncoding.default,headers: header)
+            .responseJSON { [self] response in
+            print("isiLagi: \(response)")
+            switch response.result {
+            case .success(let data):
+            print("isi: \(data)")
+            let json = JSON(data)
+                print(json)
+                
+               
+               
+            case .failure(let error):
+                print("Request failed with error: \(error)")
+                }
+            }
+        
+    }
 }
 
 extension StripePaymentViewController : STPAuthenticationContext {

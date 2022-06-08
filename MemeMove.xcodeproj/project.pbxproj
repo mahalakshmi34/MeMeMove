@@ -141,6 +141,14 @@
 			path = EstimateFair;
 			sourceTree = "<group>";
 		};
+		93AB0DC1284F88A300C20A38 /* Waiting Confirmation */ = {
+			isa = PBXGroup;
+			children = (
+				93AB0DBF284F86B300C20A38 /* WaitingViewController.swift */,
+			);
+			path = "Waiting Confirmation";
+			sourceTree = "<group>";
+		};
 		93E1925527EC84BF00587666 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,11 +283,11 @@
 				93E8D40227E0736C00D6B8E8 /* AppDelegate.swift */,
 				93E8D40427E0736C00D6B8E8 /* SceneDelegate.swift */,
 				93E8D40827E0736C00D6B8E8 /* Main.storyboard */,
-				93AB0DBF284F86B300C20A38 /* WaitingViewController.swift */,
 				93D13ACC27FD805000BE3ECE /* GlobalMethod.swift */,
 				93D13AD027FD838600BE3ECE /* URLConstants.swift */,
 				93D13ACE27FD830100BE3ECE /* GlobalStruct.swift */,
 				93E1925527EC84BF00587666 /* Controller */,
+				93AB0DC1284F88A300C20A38 /* Waiting Confirmation */,
 				93E8D40B27E0736D00D6B8E8 /* Assets.xcassets */,
 				93E8D40D27E0736D00D6B8E8 /* LaunchScreen.storyboard */,
 				93E1925327EC7A6B00587666 /* GoogleService-Info.plist */,
