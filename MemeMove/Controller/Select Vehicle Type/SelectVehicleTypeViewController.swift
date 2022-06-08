@@ -227,6 +227,12 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
                 
                 if let frontImage = json["front"].string {
                     print(frontImage)
+                    UserDefaults.standard.set(frontImage, forKey: "frontImage")
+                }
+                
+                if let backImage = json["back"].string {
+                    print(backImage)
+                    UserDefaults.standard.set(backImage, forKey: "backImage")
                 }
                
             case .failure(let error):
@@ -360,6 +366,53 @@ let url =
                    print(apartment)
                    UserDefaults.standard.set(apartment, forKey: "apartmentName")
                }
+               
+               if let username = json["username"].string {
+                   print(username)
+                   UserDefaults.standard.set(username, forKey: "username")
+               }
+               
+               if let userphoneno = json["userphoneno"].string {
+                   print(userphoneno)
+                   UserDefaults.standard.set(userphoneno, forKey: "userphoneno")
+               }
+               
+               if let driverid = json["driverid"].int {
+                   print(driverid)
+                   UserDefaults.standard.set(driverid, forKey: "driverid")
+               }
+               
+               if let driverName = json["drivername"].string {
+                   print(driverName)
+                   UserDefaults.standard.set(driverName, forKey: "driverName")
+               }
+               
+               if let driverPhoneno = json["driverphoneno"].string {
+                   print(driverPhoneno)
+                   UserDefaults.standard.set(driverPhoneno, forKey: "driverphoneno")
+               }
+               
+               if let driverPay = json["driverpay"].double {
+                   print(driverPay)
+                   UserDefaults.standard.set(driverPay, forKey: "driverPay")
+               }
+               
+               if let toName = json["toname"].string {
+                   print(toName)
+                   UserDefaults.standard.set(toName, forKey: "toName")
+               }
+               
+               if let toPhoneNumber = json["tophoneno"].string {
+                   print(toPhoneNumber)
+                   UserDefaults.standard.set(toPhoneNumber, forKey: "toPhoneNumber")
+               }
+               
+               if let deliveryStatus = json["deliverystatus"].string {
+                   print(deliveryStatus)
+                   UserDefaults.standard.set(deliveryStatus, forKey: "deliveryStatus")
+               }
+               
+               
                
             navigateToPayment()
         

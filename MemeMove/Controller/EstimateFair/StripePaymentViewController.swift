@@ -18,8 +18,38 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
     
     var clientSecretValue = ""
     var transcationStatus = ""
+    var transcationType = 0
     var transcationID = ""
     var userPay = 0.0
+    var orderID = 0
+    var orderName = ""
+    var flatNumber = ""
+    var fromCity = ""
+    var fromState = ""
+    var fromCountry = ""
+    var pickUpLatitude = 0.0
+    var pickUpLongitude = 0.0
+    var frontImage = ""
+    var backImage = ""
+    var dateString = ""
+    var userID = ""
+    var username = ""
+    var userphoneno = ""
+    var vehicleType = ""
+    var driverId = 0
+    var driverName = ""
+    var driverPhoneNumber = ""
+    var driverPay = 0.0
+    var toCity = ""
+    var toCountry = ""
+    var toState = ""
+    var toName = ""
+    var toPhoneNumber = ""
+    var dropLatiutde = 0.0
+    var dropLongitude = 0.0
+    var deliveryStatus = ""
+
+  
     
     func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreatePaymentMethod paymentMethod: STPPaymentMethod, completion: @escaping STPErrorBlock) {
     }
@@ -49,6 +79,8 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
         payment()
         
         stripePayment()
+        
+       
     }
     
     
@@ -176,13 +208,13 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
                            switch (status) {
                            case .failed:
                             resultString = "Payment canceled"
-                               self.transcationStatus = "false"
+                               self.transcationStatus = "failed"
                                self.displayAlert(title: "Payment failed", message: "Failed")
                            // UserDefaults.standard.set(transcationStatus, forKey: "transcationStatus")
                                break
                            case .canceled:
                                resultString = "Payment failed"
-                               self.transcationStatus = "false"
+                               self.transcationStatus = "failed"
                                self.displayAlert(title: "Payment canceled", message: "failed")
 //                               transcationStatus = "false"
 //                            UserDefaults.standard.set(transcationStatus, forKey: "transcationStatus")
@@ -190,7 +222,7 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
                            case .succeeded:
                                
                             resultString = "Payment Sucess"
-                               self.transcationStatus = "true"
+                               self.transcationStatus = "succeeded"
                              
                                UserDefaults.standard.removeObject(forKey: "payAmount")
            
@@ -209,8 +241,6 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
                             transcationID = paymentIntent!.stripeId
                             UserDefaults.standard.set(transcationID, forKey: "transcationID")
                                
-                            var transcationStatus = paymentIntent?.status
-                            UserDefaults.standard.set(transcationStatus, forKey: "transcationStatus")
 
                             print(paymentIntent?.status)
                             print(paymentIntent?.stripeId)
@@ -229,8 +259,137 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
             
       }
     
+    func todaysDate() {
+        
+            var startDate = ""
+            var endDate  = ""
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let now = Date()
+            dateString = formatter.string(from:now)
+            print(dateString)
+    }
+    
     func confirmOrder() {
-        let url = "https://api.mememove.com:8443/MeMeMove/Order/add/Confirm/Order?paymentstatus=succeeded&transactionid=pi_3L7bc4SDva7aeTEN1E9Xcey4"
+        
+        
+        if UserDefaults.standard.string(forKey: "transcationID") != nil {
+            transcationID = UserDefaults.standard.string(forKey: "transcationID")!
+        }
+        
+        if UserDefaults.standard.string(forKey: "transcationStatus") != nil {
+            transcationStatus = UserDefaults.standard.string(forKey: "transcationStatus")!
+        }
+        
+        if UserDefaults.standard.integer(forKey: "orderID") != nil {
+            orderID = UserDefaults.standard.integer(forKey: "orderID")
+        }
+        
+        if UserDefaults.standard.string(forKey: "orderName") != nil {
+            orderName = UserDefaults.standard.string(forKey: "orderName")!
+        }
+        
+        if UserDefaults.standard.string(forKey: "flatNumber") != nil {
+            flatNumber = UserDefaults.standard.string(forKey: "flatNumber")!
+        }
+        
+        if  UserDefaults.standard.string(forKey: "fromCity") != nil {
+            fromCity = UserDefaults.standard.string(forKey: "fromCity")!
+        }
+        
+        if UserDefaults.standard.string(forKey: "fromCountry") != nil {
+            fromCountry = UserDefaults.standard.string(forKey: "fromCountry")!
+        }
+        
+        if UserDefaults.standard.string(forKey: "fromState") != nil {
+            fromState = UserDefaults.standard.string(forKey: "fromState")!
+        }
+        
+        if UserDefaults.standard.double(forKey: "pickUpLatitude") != nil {
+            pickUpLatitude = UserDefaults.standard.double(forKey: "pickUpLatitude")
+        }
+        
+        if  UserDefaults.standard.double(forKey: "pickUpLongitude") != nil {
+            pickUpLongitude = UserDefaults.standard.double(forKey: "pickUpLongitude")
+        }
+        
+        if UserDefaults.standard.string(forKey: "frontImage") != nil {
+            frontImage = UserDefaults.standard.string(forKey: "frontImage")!
+        }
+        
+        if UserDefaults.standard.string(forKey: "backImage") != nil {
+            backImage = UserDefaults.standard.string(forKey: "backImage")!
+        }
+        
+        if UserDefaults.standard.string(forKey: "userID") != nil {
+            userID = UserDefaults.standard.string(forKey: "userID")!
+        }
+        
+        if UserDefaults.standard.string(forKey: "username") != nil {
+            username = UserDefaults.standard.string(forKey: "username")!
+        }
+        
+        if UserDefaults.standard.string(forKey: "userphoneno") != nil {
+            userphoneno = UserDefaults.standard.string(forKey: "userphoneno")!
+        }
+        
+        if UserDefaults.standard.string(forKey: "vehicleType") != nil {
+            vehicleType = UserDefaults.standard.string(forKey: "vehicleType")!
+        }
+        
+        if UserDefaults.standard.integer(forKey: "driverid") != nil {
+            driverId = UserDefaults.standard.integer(forKey: "driverid")
+        }
+        
+        if UserDefaults.standard.string(forKey: "drivername") != nil {
+            driverName = UserDefaults.standard.string(forKey: "drivername")!
+        }
+        
+        if UserDefaults.standard.string(forKey: "driverphoneno") != nil {
+            driverPhoneNumber = UserDefaults.standard.string(forKey: "driverphoneno")!
+        }
+        
+        
+        if UserDefaults.standard.double(forKey: "driverPay") != nil {
+            driverPay = UserDefaults.standard.double(forKey: "driverPay")
+        }
+        
+        if UserDefaults.standard.string(forKey: "toCity") != nil {
+            toCity = UserDefaults.standard.string(forKey: "toCity")!
+        }
+        
+        if UserDefaults.standard.string(forKey: "toCountry") != nil {
+            toCountry = UserDefaults.standard.string(forKey: "toCountry")!
+        }
+        
+        if UserDefaults.standard.string(forKey: "toState") != nil {
+            toState = UserDefaults.standard.string(forKey: "toState")!
+        }
+        
+        if UserDefaults.standard.string(forKey: "toName") != nil {
+            toName = UserDefaults.standard.string(forKey: "toName")!
+        }
+        
+        if UserDefaults.standard.string(forKey: "tophoneno") != nil {
+            toPhoneNumber = UserDefaults.standard.string(forKey: "tophoneno")!
+        }
+        
+        if UserDefaults.standard.double(forKey: "dropLatitude") != nil {
+           dropLatiutde = UserDefaults.standard.double(forKey: "dropLatitude")
+        }
+        
+        if UserDefaults.standard.double(forKey: "dropLongitude") != nil {
+           dropLatiutde = UserDefaults.standard.double(forKey: "dropLongitude")
+        }
+        
+        if UserDefaults.standard.string(forKey: "deliveryStatus") != nil {
+            deliveryStatus = UserDefaults.standard.string(forKey: "deliveryStatus")!
+        }
+        
+        
+let url = "https://api.mememove.com:8443/MeMeMove/Order/add/Confirm/Order?orderid=\(orderID)&ordername=\(orderName)&flatno=\(flatNumber)&city=\(fromCity)&state=\(fromState)&country=\(fromCountry)&fromlat=\(pickUpLatitude)&fromlong=\(pickUpLongitude)&deliverytype=FAST&orderimg=\(frontImage)&orderimgtopview=\(backImage)&orderdate=\(dateString)&userid=\(userID)&username=\(username)&userphoneno=\(userphoneno)&userpay=\(userPay)&driverid=\(driverId)&drivername=\(driverName)&driverphoneno=\(driverPhoneNumber)&driverpay=\(driverPay)&toflatno=\(flatNumber)&tocity=\(toCity)&tostate=\(toState)&tocountry=\(toCountry)&tophoneno=\(toPhoneNumber)&tolat=\(dropLatiutde)&tolong=\(dropLongitude)&deliverystatus=\(deliveryStatus)&paymentstatus=\(transcationStatus)&transactionid=\(transcationID)"
+        
+        print(url)
         
         let header : HTTPHeaders = ["Content-Type": "application/json"]
         
@@ -243,7 +402,6 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
             let json = JSON(data)
                 print(json)
                 
-               
                
             case .failure(let error):
                 print("Request failed with error: \(error)")
