@@ -6,24 +6,59 @@
 //
 
 import UIKit
+import GoogleMaps
 
-class FinalBookingViewController: UIViewController {
+class FinalBookingViewController: UIViewController,GMSMapViewDelegate,UITextFieldDelegate {
+    
+    var mapView :GMSMapView!
+    var geoCoder :CLGeocoder!
 
+
+    @IBOutlet weak var mainView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        showCurrentLocationOnMap()
+        addSubViews()
+       // viewAnimation()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func addSubViews() {
+        self.view.bringSubviewToFront(mainView)
     }
-    */
-
+    
+    
+         
+    func showCurrentLocationOnMap() {
+           
+        let camera = GMSCameraPosition.camera(withLatitude: -33.26, longitude: 151.20, zoom: 12.0)
+        mapView = GMSMapView.map(withFrame: self.view.frame , camera: camera)
+        mapView.settings.compassButton = true
+        mapView.settings.myLocationButton = true
+        mapView.isMyLocationEnabled = true
+        mapView.delegate = self
+        self.view.addSubview(mapView)
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: -33.26, longitude: 151.20)
+        marker.isDraggable = true
+        marker.map = mapView
+        self.mapView.delegate = self
+        marker.isDraggable = true
+        marker.tracksInfoWindowChanges = true
+        marker.map = mapView
+        self.mapView.delegate = self
+        addSubViews()
+    }
+    
+    @IBAction func textfield(_ sender: UITextField) {
+        UIView.transition(with: mainView, duration: 0.33,
+          options: [.curveEaseOut, .transitionFlipFromTop],
+                          animations: { [self] in
+            mainView.removeFromSuperview()
+          },
+          completion: nil
+        )
+       
+  }
 }

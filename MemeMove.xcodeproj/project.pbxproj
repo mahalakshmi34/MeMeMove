@@ -23,6 +23,7 @@
 		9373A54427EDC00100BC1651 /* AddAddressDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373A54327EDC00100BC1651 /* AddAddressDetailViewController.swift */; };
 		9382AD0227F45E26009E0287 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9382AD0127F45E26009E0287 /* PaymentViewController.swift */; };
 		9384204D27F19D2500E02609 /* SelectVehicleTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9384204C27F19D2500E02609 /* SelectVehicleTypeViewController.swift */; };
+		939230452850BCD2003D225E /* FinalBookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939230442850BCD2003D225E /* FinalBookingViewController.swift */; };
 		93AB0DC0284F86B300C20A38 /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB0DBF284F86B300C20A38 /* WaitingViewController.swift */; };
 		93D13ACD27FD805000BE3ECE /* GlobalMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D13ACC27FD805000BE3ECE /* GlobalMethod.swift */; };
 		93D13ACF27FD830100BE3ECE /* GlobalStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D13ACE27FD830100BE3ECE /* GlobalStruct.swift */; };
@@ -58,6 +59,7 @@
 		9373A54327EDC00100BC1651 /* AddAddressDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressDetailViewController.swift; sourceTree = "<group>"; };
 		9382AD0127F45E26009E0287 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		9384204C27F19D2500E02609 /* SelectVehicleTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVehicleTypeViewController.swift; sourceTree = "<group>"; };
+		939230442850BCD2003D225E /* FinalBookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalBookingViewController.swift; sourceTree = "<group>"; };
 		93AB0DBF284F86B300C20A38 /* WaitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
 		93D13ACC27FD805000BE3ECE /* GlobalMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalMethod.swift; sourceTree = "<group>"; };
 		93D13ACE27FD830100BE3ECE /* GlobalStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStruct.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				93AB0DBF284F86B300C20A38 /* WaitingViewController.swift */,
+				939230442850BCD2003D225E /* FinalBookingViewController.swift */,
 			);
 			path = "Waiting Confirmation";
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				93172D4D27E9FD0000A56476 /* HomeViewController.swift in Sources */,
 				933D479827E1A56800954445 /* LoginViewController.swift in Sources */,
 				93521D47284B89A80012120F /* StripePaymentViewController.swift in Sources */,
+				939230452850BCD2003D225E /* FinalBookingViewController.swift in Sources */,
 				9384204D27F19D2500E02609 /* SelectVehicleTypeViewController.swift in Sources */,
 				93E1925027EC3F8600587666 /* DeliveryPackageViewController.swift in Sources */,
 				93172D4B27E9ACCA00A56476 /* SideMenuViewController.swift in Sources */,
