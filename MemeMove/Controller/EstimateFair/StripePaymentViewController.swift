@@ -48,6 +48,7 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
     var dropLatiutde = 0.0
     var dropLongitude = 0.0
     var deliveryStatus = ""
+    var orderIDS = 0
 
   
     
@@ -230,8 +231,8 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
                             alert.addAction(UIAlertAction(title: "OK", style: .cancel,handler: {_ in
                                 ProgressHUD.dismiss()
 
-//                              let homeVC = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
-//                               self.navigationController?.pushViewController(homeVC, animated: true)
+                              let homeVC = self.storyboard?.instantiateViewController(identifier: "WaitingViewController") as! WaitingViewController
+                               self.navigationController?.pushViewController(homeVC, animated: true)
                             }))
                             // updateDeposit(Status : transcationStatus)
                             self.present(alert, animated: true, completion: nil)
@@ -244,6 +245,8 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
 
                             print(paymentIntent?.status)
                             print(paymentIntent?.stripeId)
+                               
+                               
                                
                             confirmOrder()
                                
@@ -395,18 +398,23 @@ let url = "https://api.mememove.com:8443/MeMeMove/Order/add/Confirm/Order?orderi
         
         AF.request(url, method: .post, encoding: JSONEncoding.default,headers: header)
             .responseJSON { [self] response in
-            print("isiLagi: \(response)")
-            switch response.result {
-            case .success(let data):
-            print("isi: \(data)")
-            let json = JSON(data)
-                print(json)
-                
-               
-            case .failure(let error):
-                print("Request failed with error: \(error)")
+                print("isiLagi: \(response)")
+                switch response.result {
+                case .success(let data):
+                print("isi: \(data)")
+                let json = JSON(data)
+                    print(json)
+                    
+                    if let orderId = json["orderid"].int {
+                        orderIDS = orderId
+                        UserDefaults.standard.set(orderIDS, forKey: "orderID")
+                    }
+                    
+                   
+                case .failure(let error):
+                    print("Request failed with error: \(error)")
+                    }
                 }
-            }
         
     }
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 
 class ForgotPasswordViewController: UIViewController {
@@ -38,14 +39,32 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     func receiveOTP() {
-        let url = APPURL.forgotPassword + "emailId=\(mobileNumberText.text)"
+        let url = APPURL.forgotPassword + "emailId=\(mobileNumberText.text!)"
+        print(url)
         let header : HTTPHeaders = ["Content-Type": "application/json"]
-        AF.request(url, method: .post,encoding: JSONEncoding.default,headers: header)
-            .responseDecodable(of: forgotPassword.self) { [self] (response) in
-                guard let message =  response.value else { return }
-                print(message)
-                navigateToOTP()
-            }
+        
+        AF.request(url, method: .post, encoding: JSONEncoding.default,headers: header)
+            .responseJSON { [self] response in
+                print("isiLagi: \(response)")
+                switch response.result {
+                case .success(let data):
+                print("isi: \(data)")
+                let json = JSON(data)
+                    print(json)
+                    
+                    UserDefaults.standard.set(mobileNumberText.text, forKey: "userEmail")
+                    
+                    if let message = json["message"].string {
+                        navigateToOTP()
+                    }
+                    
+                    
+                   
+                case .failure(let error):
+                    print("Request failed with error: \(error)")
+                    }
+                }
+       
        }
         
     func cornerRadius() {
@@ -68,7 +87,7 @@ class ForgotPasswordViewController: UIViewController {
 extension forgotPassword :Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        message = try values.decodeIfPresent(String.self, forKey: .message)!
-        //message = try values.decode(String.self, forKey: .message)
+       // message = try values.decodeIfPresent(String.self, forKey: .message)!
+        message = try values.decode(String.self, forKey: .message)
     }
 }

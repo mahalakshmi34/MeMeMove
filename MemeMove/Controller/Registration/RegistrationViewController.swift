@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class RegistrationViewController: UIViewController,UITextFieldDelegate {
 
@@ -16,6 +17,11 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var emailIDText: UITextField!
     @IBOutlet weak var mobileNumberTextField: UITextField!
     @IBOutlet weak var referralCodeText: UITextField!
+    
+    var userName = ""
+    var emailID = ""
+    var mobileNumber = ""
+    var messageData = ""
 
     
     override func viewDidLoad() {
@@ -67,7 +73,7 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
             getEmailValidationMessage(email: emailIDText.text!)
         }
         
-        registerUser()
+       // registerUser()
 
     }
     
@@ -95,12 +101,15 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
            textFieldValidation()
-         //  navigateToLogin()
+          navigateToLogin()
        
     }
     
     func navigateToLogin() {
         let generatePassword = self.storyboard?.instantiateViewController(withIdentifier: "GeneratePasswordViewController") as! GeneratePasswordViewController
+        generatePassword.userNameValue = userNameText.text!
+        generatePassword.emailIDValue = emailIDText.text!
+        generatePassword.mobileNumberValue = mobileNumberTextField.text!
         self.navigationController?.pushViewController(generatePassword, animated: true)
     }
     
@@ -115,7 +124,9 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
             .responseDecodable(of: userRegistration.self) { [self] (response) in
                 guard let message =  response.value else { return }
                 print(message)
-                navigateToLogin()
+                
+               
+              //  navigateToLogin()
                 
                 UserDefaults.standard.set(emailIDText.text, forKey: "userEmail")
             }
@@ -125,7 +136,7 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
 extension userRegistration :Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        message = try values.decodeIfPresent(String.self, forKey: .message)!
-        //message = try values.decode(String.self, forKey: .message)
+       // message = try values.decodeIfPresent(String.self, forKey: .message)!
+        message = try values.decode(String.self, forKey: .message)
     }
 }

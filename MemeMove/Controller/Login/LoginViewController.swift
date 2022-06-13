@@ -77,6 +77,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     
     @IBAction func forgotPassword(_ sender: UIButton) {
+        UserDefaults.standard.set(1, forKey: "forgotPasswordTag")
        navigateToForgotPassword()
     }
     
