@@ -8,14 +8,20 @@
 import UIKit
 
 class WaitingViewController: UIViewController {
+    
+    var mSocket = SocketHandler.sharedInstance.getSocket()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        socketData()
     }
-    
 
-  
+    func socketData() {
+        SocketHandler.sharedInstance.establishConnection()
+        mSocket.on("counter") { ( dataArray, ack) -> Void in
+            let dataReceived = dataArray[0] as! Int
+           // self.labelCounter.text = "\(dataReceived)"
+        }
+    }
 
 }

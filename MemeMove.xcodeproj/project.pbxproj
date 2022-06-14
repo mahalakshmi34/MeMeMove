@@ -21,6 +21,8 @@
 		93506A0727F584CE007D2032 /* SelectPackageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93506A0627F584CE007D2032 /* SelectPackageContentViewController.swift */; };
 		93521D47284B89A80012120F /* StripePaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93521D46284B89A80012120F /* StripePaymentViewController.swift */; };
 		9373A54427EDC00100BC1651 /* AddAddressDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373A54327EDC00100BC1651 /* AddAddressDetailViewController.swift */; };
+		9377F70A28586CDB00E42E0D /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 9377F70928586CDB00E42E0D /* SocketIO */; };
+		9377F70C2858779C00E42E0D /* SocketHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9377F70B2858779C00E42E0D /* SocketHandler.swift */; };
 		9382AD0227F45E26009E0287 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9382AD0127F45E26009E0287 /* PaymentViewController.swift */; };
 		9384204D27F19D2500E02609 /* SelectVehicleTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9384204C27F19D2500E02609 /* SelectVehicleTypeViewController.swift */; };
 		939230452850BCD2003D225E /* FinalBookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939230442850BCD2003D225E /* FinalBookingViewController.swift */; };
@@ -57,6 +59,7 @@
 		93506A0627F584CE007D2032 /* SelectPackageContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPackageContentViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		93521D46284B89A80012120F /* StripePaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripePaymentViewController.swift; sourceTree = "<group>"; };
 		9373A54327EDC00100BC1651 /* AddAddressDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressDetailViewController.swift; sourceTree = "<group>"; };
+		9377F70B2858779C00E42E0D /* SocketHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketHandler.swift; sourceTree = "<group>"; };
 		9382AD0127F45E26009E0287 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		9384204C27F19D2500E02609 /* SelectVehicleTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVehicleTypeViewController.swift; sourceTree = "<group>"; };
 		939230442850BCD2003D225E /* FinalBookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalBookingViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87E8ECE61BE2402E55171E3B /* Pods_MemeMove.framework in Frameworks */,
+				9377F70A28586CDB00E42E0D /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				93AB0DBF284F86B300C20A38 /* WaitingViewController.swift */,
+				9377F70B2858779C00E42E0D /* SocketHandler.swift */,
 				939230442850BCD2003D225E /* FinalBookingViewController.swift */,
 			);
 			path = "Waiting Confirmation";
@@ -319,6 +324,9 @@
 			dependencies = (
 			);
 			name = MemeMove;
+			packageProductDependencies = (
+				9377F70928586CDB00E42E0D /* SocketIO */,
+			);
 			productName = MemeMove;
 			productReference = 93E8D3FF27E0736C00D6B8E8 /* MemeMove.app */;
 			productType = "com.apple.product-type.application";
@@ -347,6 +355,9 @@
 				Base,
 			);
 			mainGroup = 93E8D3F627E0736C00D6B8E8;
+			packageReferences = (
+				9377F70828586CDB00E42E0D /* XCRemoteSwiftPackageReference "socket" */,
+			);
 			productRefGroup = 93E8D40027E0736C00D6B8E8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -450,6 +461,7 @@
 				934CC76B282D203000EB86FC /* TimeOfDeliveryViewController.swift in Sources */,
 				9373A54427EDC00100BC1651 /* AddAddressDetailViewController.swift in Sources */,
 				93D13ACF27FD830100BE3ECE /* GlobalStruct.swift in Sources */,
+				9377F70C2858779C00E42E0D /* SocketHandler.swift in Sources */,
 				93172D4D27E9FD0000A56476 /* HomeViewController.swift in Sources */,
 				933D479827E1A56800954445 /* LoginViewController.swift in Sources */,
 				93521D47284B89A80012120F /* StripePaymentViewController.swift in Sources */,
@@ -688,6 +700,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9377F70828586CDB00E42E0D /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9377F70928586CDB00E42E0D /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9377F70828586CDB00E42E0D /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 93E8D3F727E0736C00D6B8E8 /* Project object */;
 }
