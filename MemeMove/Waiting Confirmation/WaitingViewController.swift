@@ -14,12 +14,24 @@ class WaitingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         socketData()
+        
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
+    func emitFunction() {
+        mSocket.emit("driver","connected")
+    }
+    
     func socketData() {
         SocketHandler.sharedInstance.establishConnection()
-        mSocket.on("counter") { ( dataArray, ack) -> Void in
-            let dataReceived = dataArray[0] as! Int
+        mSocket.on("check") { [self] ( dataArray, ack) -> Void in
+            let dataReceived = dataArray[0] as? String
+            
+            print("\(dataReceived)")
+            emitFunction()
            // self.labelCounter.text = "\(dataReceived)"
         }
     }

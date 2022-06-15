@@ -9,8 +9,11 @@ import UIKit
 import GoogleMaps
 import Alamofire
 import SwiftyJSON
+import SocketIO
 
 class FinalBookingViewController: UIViewController,GMSMapViewDelegate,UITextFieldDelegate {
+    
+    var mSocket = SocketHandler.sharedInstance.getSocket()
     
     var mapView :GMSMapView!
     var geoCoder :CLGeocoder!
@@ -41,6 +44,22 @@ class FinalBookingViewController: UIViewController,GMSMapViewDelegate,UITextFiel
         showCurrentLocationOnMap()
         addSubViews()
         getAllOrders()
+        socketData()
+    }
+    
+    func emitFunction() {
+        mSocket.emit("driver","connected")
+    }
+    
+    func socketData() {
+        SocketHandler.sharedInstance.establishConnection()
+        mSocket.on("check") { [self] ( dataArray, ack) -> Void in
+            let dataReceived = dataArray[0] as? String
+            
+            print("\(dataReceived)")
+           // emitFunction()
+           // self.labelCounter.text = "\(dataReceived)"
+        }
     }
     
     func addSubViews() {
@@ -54,8 +73,9 @@ class FinalBookingViewController: UIViewController,GMSMapViewDelegate,UITextFiel
     
     func getAllOrders() {
         
-        if UserDefaults.standard.integer(forKey: "orderID") != nil {
-            orderID =  UserDefaults.standard.integer(forKey: "orderID")
+        if UserDefaults.standard.integer(forKey: "confirmOrderId") != nil {
+            orderID =  UserDefaults.standard.integer(forKey: "confirmOrderId")
+            print(orderID)
         }
         
         
@@ -147,9 +167,6 @@ class FinalBookingViewController: UIViewController,GMSMapViewDelegate,UITextFiel
         if UserDefaults.standard.string(forKey: "pinNumber") != nil {
             
         }
-        
-        
-       
     }
     
     

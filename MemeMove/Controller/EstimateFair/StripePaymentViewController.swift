@@ -21,7 +21,7 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
     var transcationType = 0
     var transcationID = ""
     var userPay = 0.0
-    var orderID = 0
+    var orderID :Int = 0
     var orderName = ""
     var flatNumber = ""
     var fromCity = ""
@@ -48,7 +48,6 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
     var dropLatiutde = 0.0
     var dropLongitude = 0.0
     var deliveryStatus = ""
-    var orderIDS = 0
 
   
     
@@ -286,6 +285,7 @@ class StripePaymentViewController: UIViewController,STPAddCardViewControllerDele
         
         if UserDefaults.standard.integer(forKey: "orderID") != nil {
             orderID = UserDefaults.standard.integer(forKey: "orderID")
+            print(orderID)
         }
         
         if UserDefaults.standard.string(forKey: "orderName") != nil {
@@ -405,17 +405,62 @@ let url = "https://api.mememove.com:8443/MeMeMove/Order/add/Confirm/Order?orderi
                 let json = JSON(data)
                     print(json)
                     
-                    if let orderId = json["orderid"].int {
-                        orderIDS = orderId
-                        UserDefaults.standard.set(orderIDS, forKey: "orderID")
+                    if let orderId = json["orderid"].string {
+                        orderID = Int(orderId)!
+                        print(orderID)
+                        UserDefaults.standard.set(orderID, forKey: "confirmOrderId")
                     }
                     
+                    passOrder()
                    
                 case .failure(let error):
                     print("Request failed with error: \(error)")
                     }
                 }
         
+    }
+    
+    func passOrder() {
+        
+        var orderByID = 0
+        
+        if UserDefaults.standard.integer(forKey: "confirmOrderId") != nil {
+        
+          UserDefaults.standard.integer(forKey: "confirmOrderId")
+            
+            print(UserDefaults.standard.integer(forKey: "confirmOrderId"))
+        
+           
+        }
+        
+        if UserDefaults.standard.string(forKey: "deliveryStatus") != nil {
+            deliveryStatus = UserDefaults.standard.string(forKey: "deliveryStatus")!
+            print(deliveryStatus)
+        }
+        
+        let url = "http://e-bikefleet.com:5002/post/order"
+        print(url)
+        
+        let parameter : Parameters = [
+            "orderid" : UserDefaults.standard.integer(forKey: "confirmOrderId"),
+            "orderstatus" : deliveryStatus
+        ]
+        print(parameter)
+        let header : HTTPHeaders = ["Content-Type": "application/json"]
+        
+        AF.request(url, method: .post,parameters: parameter, encoding: JSONEncoding.default,headers: header)
+            .responseJSON { [self] response in
+                print("isiLagi: \(response)")
+                switch response.result {
+                case .success(let data):
+                print("isi: \(data)")
+                let json = JSON(data)
+                    print(json)
+                   
+                case .failure(let error):
+                    print("Request failed with error: \(error)")
+                    }
+                }
     }
 }
 
