@@ -252,33 +252,39 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
             currentCountry = UserDefaults.standard.string(forKey: "currentLocationCountry")!
         }
     
-        let url = "https://api.mememove.com:8443/MeMeMove/Driver/get/all/VehicleType/ByLocation?country=\(currentCountry)&state=TamilNadu&city=\(currentCity)"
+   let url = "https://api.mememove.com:8443/MeMeMove/Driver/get/all/VehicleType/ByLocation?country=\(currentCountry)"
+        
+//"https://api.mememove.com:8443/MeMeMove/Driver/get/all/VehicleType/ByLocation?country=\(currentCountry)&state=Tamil Nadu&city=\(currentCity)"
         print(url)
         
-            AF.request(url, method: .get).responseJSON { [self] response in
-                print("isiLagi: \(response)")
-                switch response.result {
-                case .success(let data):
-                    print("isi: \(data)")
-                    let json = JSON(data)
-                    print(json)
-                    
-                    let cityDetails = json.arrayValue
-                    
-                    for cityDetail in cityDetails {
-                        if let city = cityDetail["city"].string {
-                            vehicleName.append(city)
-                        }
-                        if let vehicleImg = cityDetail["vimg"].string {
-                            print(vehicleImg)
-                            vehicleImages.append(vehicleImg)
-                        }
+        AF.request(url, method: .get).responseJSON { [self] response in
+            print("isiLagi: \(response)")
+            switch response.result {
+            case .success(let data):
+                print("isi: \(data)")
+                let json = JSON(data)
+                print(json)
+                let cityDetails = json.arrayValue
+                
+                for cityDetail in cityDetails {
+                    if let city = cityDetail["city"].string {
+                        print(city)
+                        vehicleName.append(city)
                     }
-                    collectionView.reloadData()
-                case .failure(let error):
-                    print("Request failed with error: \(error)")
+                    if let vehicleImg = cityDetail["vimg"].string {
+                        print(vehicleImg)
+                        vehicleImages.append(vehicleImg)
+                        print(vehicleImages.count)
+                    }
                 }
+                collectionView.reloadData()
+                
+            case .failure(let error):
+                print("Request failed with error: \(error)")
             }
+        }
+        
+       
     }
     
     func todaysDate() {
@@ -436,19 +442,23 @@ let url =
         
         cell.vehicleName.text = vehicleName[indexPath.row]
         
-         let imageURL = URL(string: vehicleImages[indexPath.row])
-
-                // just not to cause a deadlock in UI!
-            DispatchQueue.global().async {
-                guard let imageData = try? Data(contentsOf: imageURL!) else { return }
+       
+            let imageURL   = URL(string: "https://mylogantown.s3.amazonaws.com/mememove/Pearl-Phoenix-Reda.png")
+            print(imageURL!)
+            DispatchQueue.main.async {
+                if let imageData = try? Data(contentsOf: imageURL!) {
 
                 let image = UIImage(data: imageData)
                 DispatchQueue.main.async {
                     cell.vehicleType.image = image
                 }
-            }
-
-       
+                    
+                }
+            
+        }
+        
+    // just not to cause a deadlock in UI!
+                  
         return cell
     }
     
