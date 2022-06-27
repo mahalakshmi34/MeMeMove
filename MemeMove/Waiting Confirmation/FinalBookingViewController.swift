@@ -17,6 +17,7 @@ class FinalBookingViewController: UIViewController,GMSMapViewDelegate,UITextFiel
     
     var mapView :GMSMapView!
     var geoCoder :CLGeocoder!
+    var driverCurrentLocation = ""
 
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var mainView: UIView!
@@ -29,6 +30,12 @@ class FinalBookingViewController: UIViewController,GMSMapViewDelegate,UITextFiel
     @IBOutlet weak var fareOfDriver: UILabel!
     @IBOutlet weak var toLandMarkLocation: UILabel!
     
+    @IBOutlet var otpFirst: UITextField!
+    @IBOutlet var otpSecond: UITextField!
+    @IBOutlet var otpThird: UITextField!
+    @IBOutlet var otpFourth: UITextField!
+    
+    
     var otpPinNumber = ""
     var nameOfDriver = ""
     var vehicleRegNo = ""
@@ -39,31 +46,114 @@ class FinalBookingViewController: UIViewController,GMSMapViewDelegate,UITextFiel
     var pinNumber = ""
     var orderID = ""
     var orderItem = ""
+    var driverLat  :Double = 0.0
+    var driverLong :Double? = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showCurrentLocationOnMap()
         addSubViews()
         socketData()
         getAllOrders()
+        showCurrentLocationOnMap()
+        delegateMethod()
+        otpSelector()
     }
+    
+    
+    func delegateMethod() {
+        otpFirst.delegate = self
+        otpSecond.delegate = self
+        otpThird.delegate = self
+        otpFourth.delegate = self
+
+        otpFirst.font =  UIFont(name: "System Semibold", size: 20)
+        otpSecond.font = UIFont(name: "System Semibold", size: 20)
+        otpThird.font = UIFont(name: "System Semibold", size: 20)
+        otpFourth.font = UIFont(name: "System Semibold", size: 20)
+       
+    }
+    
+    
+    func otpSelector() {
+        otpFirst.delegate = self
+        otpSecond.delegate = self
+        otpThird.delegate = self
+        otpFourth.delegate = self
+        
+        if UserDefaults.standard.string(forKey: "otpPinNumber") != nil {
+            var output =  UserDefaults.standard.string(forKey: "otpPinNumber")
+            print(output)
+            
+            let name :String = output!
+            
+            let charOne = name[0]
+            print(charOne)
+            otpFirst.text = "\(charOne)"
+            
+            let charTwo = name[1]
+            print(charTwo)
+            otpSecond.text = "\(charTwo)"
+            
+            let charThird = name[2]
+            print(charThird)
+            otpThird.text = "\(charThird)"
+            
+            let charFourth = name[3]
+            print(charFourth)
+            otpFourth.text = "\(charFourth)"
+            
+//            for i in 1 ... name.count {
+//
+//                print(name[name.index(name.startIndex, offsetBy: name.count)])
+//            }
+           
+          //  print(name.characters.first?.description ?? "");
+            
+            
+            
+            //dataReceived.split(separator: ",")
+        }
+    }
+    
   
     func socketData() {
-        
         if UserDefaults.standard.string(forKey: "confirmOrderId") != nil {
             orderItem = UserDefaults.standard.string(forKey: "confirmOrderId")!
             print(orderItem)
         }
-
         SocketHandler.sharedInstance.establishConnection()
         mSocket.on(orderItem) { [self]  (args, ack ) -> Void in
             print("test",args , ack)
             
 //            if(dataArray[0] != nil){
             let dataReceived :String = args[0] as! String
-            print("latlong,\(dataReceived)") 
+            print("latlong,\(dataReceived)")
+            
+            socketDisconnect()
+            
+          var driverLocation = dataReceived
+          var driverCurrentLocation = dataReceived.split(separator: ",")
+          print(driverCurrentLocation)
+          let driverLatitude = driverCurrentLocation[0]
+          print(driverLatitude)
+            let driverCurrentLat = (driverLatitude as NSString).doubleValue
+            driverLat = driverCurrentLat
+            print(driverLat as Any)
+
+          var driverLongitude = driverCurrentLocation[1]
+          print(driverLongitude)
+            var driverCurrentLong = (driverLongitude as NSString).doubleValue
+          driverLong = driverCurrentLong
+          print(driverLong)
+            
         }
+    }
     
+    func socketDisconnect() {
+        mSocket.disconnect()
+        SocketHandler.sharedInstance.mSocket.disconnect()
+        SocketHandler.sharedInstance.closeConnection()
+        mSocket.removeAllHandlers()
     }
     
     func addSubViews() {
@@ -94,6 +184,7 @@ class FinalBookingViewController: UIViewController,GMSMapViewDelegate,UITextFiel
                 print(json)
                 
                 if let pinNumber = json["pin"].string {
+                    print(pinNumber)
                     otpPinNumber = pinNumber
                     UserDefaults.standard.set(otpPinNumber, forKey: "otpPinNumber")
                 }
@@ -158,14 +249,11 @@ class FinalBookingViewController: UIViewController,GMSMapViewDelegate,UITextFiel
         }
         
         if UserDefaults.standard.double(forKey: "driverpay") != nil {
-            
             let fareCalculation = UserDefaults.standard.double(forKey: "driverpay")
-            
             fareOfDriver.text = String(fareCalculation)
         }
         
         if UserDefaults.standard.string(forKey: "vehicleRegno") != nil {
-            
             vehicleNumber.text =  UserDefaults.standard.string(forKey: "vehicleRegno")
         }
         
@@ -178,7 +266,7 @@ class FinalBookingViewController: UIViewController,GMSMapViewDelegate,UITextFiel
          
     func showCurrentLocationOnMap() {
            
-        let camera = GMSCameraPosition.camera(withLatitude: -33.26, longitude: 151.20, zoom: 12.0)
+        let camera = GMSCameraPosition.camera(withLatitude: driverLat ?? 0.0, longitude: driverLong ?? 0.0, zoom: 8.0)
         mapView = GMSMapView.map(withFrame: self.view.frame , camera: camera)
         mapView.settings.compassButton = true
         mapView.settings.myLocationButton = true
@@ -186,7 +274,7 @@ class FinalBookingViewController: UIViewController,GMSMapViewDelegate,UITextFiel
         mapView.delegate = self
         self.view.addSubview(mapView)
         let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.26, longitude: 151.20)
+        marker.position = CLLocationCoordinate2D(latitude: driverLat ?? 0.0, longitude: driverLong ?? 0.0)
         marker.isDraggable = true
         marker.map = mapView
         self.mapView.delegate = self
@@ -207,4 +295,10 @@ class FinalBookingViewController: UIViewController,GMSMapViewDelegate,UITextFiel
         )
        
   }
+}
+
+extension StringProtocol {
+    subscript(offset: Int) -> Character {
+        self[index(startIndex, offsetBy: offset)]
+    }
 }

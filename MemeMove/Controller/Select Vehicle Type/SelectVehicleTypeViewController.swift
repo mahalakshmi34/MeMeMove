@@ -49,6 +49,9 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
     var dropLat = 0.0
     var dropLong = 0.0
     var userID = ""
+    var userName = ""
+    var userMobileNumber = ""
+    var userEmail = ""
     
     
     var pickUpTagNumber = 1
@@ -60,6 +63,7 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
         cornerRadius()
         fetchData()
         todaysDate()
+        getUser()
         //addOrder()
         
     }
@@ -298,6 +302,44 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
             print(dateString)
     }
     
+    func getUser() {
+        
+        if UserDefaults.standard.string(forKey: "userEmail") != nil {
+            userEmail = UserDefaults.standard.string(forKey: "userEmail")!
+        }
+        
+    let url = "https://api.mememove.com:8443/MeMeMove/User/get/user/byEmailId?emailId=\(userEmail)"
+             
+     //"https://api.mememove.com:8443/MeMeMove/Driver/get/all/VehicleType/ByLocation?country=\(currentCountry)&state=Tamil Nadu&city=\(currentCity)"
+             print(url)
+             
+             AF.request(url, method: .get).responseJSON { [self] response in
+                 print("isiLagi: \(response)")
+                 switch response.result {
+                 case .success(let data):
+                     print("isi: \(data)")
+                     let json = JSON(data)
+                     print(json)
+                   
+                     if let userNameData = json["username"].string {
+                         userName = userNameData
+                         UserDefaults.standard.set(userName, forKey: "userName")
+                     }
+                     
+                     if let userMobileNumberData = json["mobilenumber"].string {
+                         userMobileNumber = userMobileNumberData
+                         UserDefaults.standard.set(userMobileNumber, forKey: "userMobileNumber")
+                     }
+                     
+                    
+                     
+                 case .failure(let error):
+                     print("Request failed with error: \(error)")
+                 }
+             }
+             
+    }
+    
    func addOrder() {
        if UserDefaults.standard.string(forKey: "currentLocationState") != nil {
            currentState = UserDefaults.standard.string(forKey: "currentLocationState")!
@@ -334,7 +376,7 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
        
 let url =
        
-"https://api.mememove.com:8443/MeMeMove/Order/add/Order?landmark=\(currentCity)&city=\(currentCity)&state=\(currentState)&country=\(currentCountry)&fromlat=\(pickUpLat)&fromlong=\(pickUpLong)&deliverytype=FAST&orderdate=\(dateString)&length=23.0&breath=40.0&height=30.0&toflatno=\(flatNumber)&tolandmark=\(toCity)&tocity=\(toCity)&tostate=\(toState)&tocountry=\(toCountry)&toname=\(howToReach)&tophoneno=\(contactNumber)&tolat=\(dropLat)&tolong=\(dropLong)&userid=\(userID)"
+"https://api.mememove.com:8443/MeMeMove/Order/add/Order?landmark=\(currentCity)&city=\(currentCity)&state=\(currentState)&country=\(currentCountry)&fromlat=\(pickUpLat)&fromlong=\(pickUpLong)&deliverytype=FAST&orderdate=\(dateString)&length=23.0&breath=40.0&height=30.0&username=\(userName)&userphoneno=\(userMobileNumber)&toflatno=\(flatNumber)&tolandmark=\(toCity)&tocity=\(toCity)&tostate=\(toState)&tocountry=\(toCountry)&toname=\(howToReach)&tophoneno=\(contactNumber)&tolat=\(dropLat)&tolong=\(dropLong)&userid=\(userID)"
     print(url)
 
             let header : HTTPHeaders = ["Content-Type": "application/json"]
