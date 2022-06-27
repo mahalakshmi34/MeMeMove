@@ -34,6 +34,8 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     var State = ""
     var Country = ""
     var City = ""
+    var pickUpAddressTag = 1
+    var deliveryAddressTag = 2
     
   
     override func viewDidLoad() {

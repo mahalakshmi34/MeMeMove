@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
-        
+
         if UserDefaults.standard.bool(forKey: "isUserLoggedIn") == true {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let menu = storyboard.instantiateViewController(identifier: "HomeViewController") as! HomeViewController

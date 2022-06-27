@@ -252,7 +252,7 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
             currentCountry = UserDefaults.standard.string(forKey: "currentLocationCountry")!
         }
     
-   let url = "https://api.mememove.com:8443/MeMeMove/Driver/get/all/VehicleType/ByLocation?country=\(currentCountry)"
+   let url = "https://api.mememove.com:8443/MeMeMove/Driver/get/all/VehicleType/ByLocation?country=\(currentCountry)&city=\(currentCity)"
         
 //"https://api.mememove.com:8443/MeMeMove/Driver/get/all/VehicleType/ByLocation?country=\(currentCountry)&state=Tamil Nadu&city=\(currentCity)"
         print(url)

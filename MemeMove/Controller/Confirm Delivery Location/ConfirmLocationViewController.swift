@@ -237,9 +237,9 @@ class ConfirmLocationViewController: UIViewController,GMSMapViewDelegate {
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
         
-        let deliveryAddress = self.storyboard?.instantiateViewController(withIdentifier: "DeliveryPackageViewController") as! DeliveryPackageViewController
-        deliveryAddress.pickUpAddress.tag = pickUpTag
-        deliveryAddress.deliveryAddress.tag = deliveryTag
+        let deliveryAddress = self.storyboard?.instantiateViewController(withIdentifier: "DeliveryPackageViewController") as? DeliveryPackageViewController
+        deliveryAddress?.pickUpAddressTag = pickUpTag
+        deliveryAddress?.deliveryAddressTag = deliveryTag
         self.navigationController?.popViewController(animated: true)
     }
     

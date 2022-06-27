@@ -7,124 +7,116 @@
 
 import UIKit
 import SwiftyJSON
+import SocketIO
 
-struct Candidate : Codable {
+struct orderStructure{
     var orderid : String
-    var orderstatus :String
+    var orderstatus : String
 }
+
 
 class WaitingViewController: UIViewController {
     
     var mSocket = SocketHandler.sharedInstance.getSocket()
     var orderID = ""
+    var orderStatus = ""
+    var orderItem = ""
+    var socketConnection : Bool = false
+    var logs : [JSON]  = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //SocketHandler.sharedInstance.establishConnection()
         socketData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
+      
     }
+
     
     func emitFunction() {
         mSocket.emit("driver","connected")
     }
-    
-//    func map() -> [[String: String]]{
-//        var jsonArray: [[String: String]] = [[String: String]]()
-//
-//        for value in data {
-//               let json = (["key1": value.someVariable, "key2": value.someOtherVariable ])
-//                jsonArray.append(json as! [String : String])
-//            }
-//            print(jsonArray)
-//            return jsonArray
-//        }
- 
-    
+
     func socketData() {
         SocketHandler.sharedInstance.establishConnection()
-        
         mSocket.on("check") { [self]  (args,ack ) -> Void in
-            
-//            if(dataArray[0] != nil){
             var dataReceived :JSON = JSON(rawValue: args[0]) ?? ""
             print("hekko,\(dataReceived.arrayValue)")
             
-            for datas in dataReceived.arrayValue {
+            socketDisconnect()
+            
+           var filteredArr = dataReceived.arrayValue.filter { dataReceived in
                 
-                if let orderid = datas["orderid"].string {
-                    orderID = orderid
-                    print(orderID)
-                    UserDefaults.standard.set(orderid, forKey: "orderid")
-                }
+                guard let orderid = dataReceived ["orderid"].string, let orderItem =  UserDefaults.standard.string(forKey: "confirmOrderId") else { return false }
                 
-                if let orderStatus = datas["orderstatus"].string {
-                    print(orderStatus)
-                }
-               
-                var orderItem = UserDefaults.standard.string(forKey: "confirmOrderId")
-               
-               print(orderItem!)
-            
+                return orderid == orderItem
                 
-                if orderID ==  orderItem {
-                    print("hello",orderItem)
-                    
-                    let storyBoard = self.storyboard?.instantiateViewController(withIdentifier: "FinalBookingViewController") as! FinalBookingViewController
-                    self.navigationController?.pushViewController(storyBoard, animated: true)
-                    
-                    mSocket.disconnect()
-                }
-
-        
-           // print("testing",dataArray)
-
-//            for e in dataArray {
+//                if let orderid = dataReceived ["orderid"].string {
+//                    orderID = orderid
+//                    print(orderID)
+//                    UserDefaults.standard.set(orderid, forKey: "orderid")
+//                }
+                
+//                if UserDefaults.standard.string(forKey: "confirmOrderId") != nil {
+//                 orderItem = UserDefaults.standard.string(forKey: "confirmOrderId")!
+//                 print(orderItem)
+//             }
+//             print("order",orderID)
 //
-//                //print("s",e)
-//            }
-        
-//            for r in 0 ... dataArray {
-//                print("ss",(r))
-//            }
-//            var jsonString = convertIntoJSONString(arrayObject: dataArray[0] as! [Any])
-//            print("jsonString - \(jsonString!)")
+//                if orderID == orderItem {
 //
-            
-//            for x in 0 ... dataReceived!.count {
+//                    let storyBoard = self.storyboard?.instantiateViewController(withIdentifier: "FinalBookingViewController") as! FinalBookingViewController
 //
-//                print(x)
+//                    self.navigationController
+//                }
 //
-//              //  var new :JSONObject = jsonString[x] as JSONObject
-//            }
-            
-          
-//
-//            let jsonData = jsonString?.data(using: .utf8)
-//            let decoder = JSONDecoder()
-//            decoder.keyDecodingStrategy = .convertFromSnakeCase
-           // decoder.dataDecodingStrategy = .secondsSince1970
-        
-            
-//            do {
-//                var picture = try JSONDecoder().decode([Candidate].self, from: jsonData!)
-//
-//                let jsonValue = JSON(jsonData)
-//                print(jsonValue)
-//
-//
-
-//            }
-          
-//            catch {
-//                print(error.localizedDescription)
-//            }
-
+//                return true
             }
+            
+            if filteredArr.count > 0 {
+                let storyBoard = self.storyboard?.instantiateViewController(withIdentifier: "FinalBookingViewController") as! FinalBookingViewController
+                self.navigationController?.pushViewController(storyBoard, animated: true)
+            }
+            
+            socketDisconnect()
+           
+    
+//            innerLoop : for datas in dataReceived.arrayValue {
+//                if let orderid = datas ["orderid"].string {
+//                    orderID = orderid
+//                    print(orderID)
+//                    UserDefaults.standard.set(orderid, forKey: "orderid")
+//                }
+//                if let orderStatusItem = datas["orderstatus"].string {
+//                    print(orderStatusItem)
+//                    orderStatus = orderStatusItem
+//                   UserDefaults.standard.set(orderStatusItem, forKey: "orderStatus")
+//                }
+//
+//            if UserDefaults.standard.string(forKey: "orderStatus") != nil {
+//                UserDefaults.standard.string(forKey: "orderStatus")!
+//            }
+//
+//
+//            }
+
         }
     }
+    
+    
+    
+    func socketDisconnect() {
+        mSocket.disconnect()
+        SocketHandler.sharedInstance.mSocket.disconnect()
+        SocketHandler.sharedInstance.closeConnection()
+        mSocket.removeAllHandlers()
+    }
+        
+       // SocketHandler.sharedInstance.closeConnection()
+
     
     func convertIntoJSONString(arrayObject: [Any]) -> String? {
 

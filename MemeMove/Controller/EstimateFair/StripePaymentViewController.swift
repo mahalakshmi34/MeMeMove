@@ -408,6 +408,8 @@ let url = "https://api.mememove.com:8443/MeMeMove/Order/add/Confirm/Order?orderi
                     if let orderId = json["orderid"].string {
                         orderID = Int(orderId)!
                         print(orderID)
+                       // UserDefaults.standard.set(orderID, forKey: "confirmOrderId")
+                        
                         UserDefaults.standard.set(orderID, forKey: "confirmOrderId")
                     }
                     
@@ -424,11 +426,11 @@ let url = "https://api.mememove.com:8443/MeMeMove/Order/add/Confirm/Order?orderi
         
         var orderByID = 0
         
-        if UserDefaults.standard.integer(forKey: "confirmOrderId") != nil {
+        if UserDefaults.standard.string(forKey: "confirmOrderId") != nil {
         
-          UserDefaults.standard.integer(forKey: "confirmOrderId")
+          UserDefaults.standard.string(forKey: "confirmOrderId")
             
-            print(UserDefaults.standard.integer(forKey: "confirmOrderId"))
+            print(UserDefaults.standard.string(forKey: "confirmOrderId"))
         
            
         }
@@ -442,7 +444,7 @@ let url = "https://api.mememove.com:8443/MeMeMove/Order/add/Confirm/Order?orderi
         print(url)
         
         let parameter : Parameters = [
-            "orderid" : UserDefaults.standard.integer(forKey: "confirmOrderId"),
+            "orderid" : UserDefaults.standard.string(forKey: "confirmOrderId"),
             "orderstatus" : deliveryStatus
         ]
         print(parameter)

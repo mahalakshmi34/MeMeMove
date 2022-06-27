@@ -37,29 +37,33 @@ class FinalBookingViewController: UIViewController,GMSMapViewDelegate,UITextFiel
     var toLandMark = ""
     var driverPay = 0.0
     var pinNumber = ""
-    var orderID = 0
+    var orderID = ""
+    var orderItem = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showCurrentLocationOnMap()
         addSubViews()
-        getAllOrders()
         socketData()
+        getAllOrders()
     }
-    
-    func emitFunction() {
-        mSocket.emit("driver","connected")
-    }
-    
+  
     func socketData() {
-        SocketHandler.sharedInstance.establishConnection()
-        mSocket.on("check") { [self] ( dataArray, ack) -> Void in
-            let dataReceived = dataArray[0] as? String
-            
-            print("\(dataReceived)")
-           // emitFunction()
-           // self.labelCounter.text = "\(dataReceived)"
+        
+        if UserDefaults.standard.string(forKey: "confirmOrderId") != nil {
+            orderItem = UserDefaults.standard.string(forKey: "confirmOrderId")!
+            print(orderItem)
         }
+
+        SocketHandler.sharedInstance.establishConnection()
+        mSocket.on(orderItem) { [self]  (args, ack ) -> Void in
+            print("test",args , ack)
+            
+//            if(dataArray[0] != nil){
+            let dataReceived :String = args[0] as! String
+            print("latlong,\(dataReceived)") 
+        }
+    
     }
     
     func addSubViews() {
@@ -73,8 +77,8 @@ class FinalBookingViewController: UIViewController,GMSMapViewDelegate,UITextFiel
     
     func getAllOrders() {
         
-        if UserDefaults.standard.integer(forKey: "confirmOrderId") != nil {
-            orderID =  UserDefaults.standard.integer(forKey: "confirmOrderId")
+        if UserDefaults.standard.string(forKey: "confirmOrderId") != nil {
+            orderID =  UserDefaults.standard.string(forKey: "confirmOrderId")!
             print(orderID)
         }
         
