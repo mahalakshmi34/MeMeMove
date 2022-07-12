@@ -18,6 +18,7 @@ class FinalBookingViewController: UIViewController,GMSMapViewDelegate,UITextFiel
     var mapView :GMSMapView!
     var geoCoder :CLGeocoder!
     var driverCurrentLocation = ""
+    var confirmOrderId = ""
 
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var mainView: UIView!
@@ -293,8 +294,77 @@ class FinalBookingViewController: UIViewController,GMSMapViewDelegate,UITextFiel
           },
           completion: nil
         )
-       
   }
+    
+    
+    func cancelButtonFunction() {
+        let url = "http://e-bikefleet.com:5002/post/driverCancel"
+        print(url)
+        
+      if  UserDefaults.standard.string(forKey: "confirmOrderId") != nil {
+        confirmOrderId = UserDefaults.standard.string(forKey: "confirmOrderId")!
+        print(confirmOrderId)
+    }
+        
+        let parameter : Parameters = [
+            "orderid":confirmOrderId,
+            "orderstatus":"Cancelled"
+        ]
+        
+        let header : HTTPHeaders = ["Content-Type": "application/json"]
+        
+        AF.request(url, method: .post, parameters: parameter,encoding: JSONEncoding.default,headers: header)
+            .responseJSON { [self] response in
+                print("isiLagi: \(response)")
+                switch response.result {
+                case .success(let data):
+                print("isi: \(data)")
+                let json = JSON(data)
+                    print(json)
+           
+                case .failure(let error):
+                    print("Request failed with error: \(error)")
+                    }
+                }
+            }
+    
+    func updateCancel() {
+        
+    if  UserDefaults.standard.string(forKey: "confirmOrderId") != nil {
+            confirmOrderId = UserDefaults.standard.string(forKey: "confirmOrderId")!
+            print(confirmOrderId)
+            }
+        
+        
+       let url = "https://api.mememove.com:8443/MeMeMove/Order/update/Order?orderid=\(confirmOrderId)&pin=cancelled"
+            print(url)
+            
+           
+            
+            let header : HTTPHeaders = ["Content-Type": "application/json"]
+            
+            AF.request(url, method: .put,headers: header)
+                .responseJSON { [self] response in
+                    print("isiLagi: \(response)")
+                    switch response.result {
+                    case .success(let data):
+                    print("isi: \(data)")
+                    let json = JSON(data)
+                        print(json)
+                       
+                    case .failure(let error):
+                        print("Request failed with error: \(error)")
+                        }
+                    }
+                
+    }
+    
+    
+    @IBAction func cancelButton(_ sender: UIButton) {
+        cancelButtonFunction()
+        updateCancel()
+        
+    }
 }
 
 extension StringProtocol {

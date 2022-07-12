@@ -2021,6 +2021,7 @@
 		93207914402FAF25244336586846C5C4 /* hr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = hr.lproj; path = StripeCore/StripeCore/Resources/Localizations/hr.lproj; sourceTree = "<group>"; };
 		933E13F75D87499D36D11C9EEDABB58B /* ms-MY.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "ms-MY.lproj"; path = "StripeUICore/StripeUICore/Resources/Localizations/ms-MY.lproj"; sourceTree = "<group>"; };
 		9369D38B5C018651B32DE04EC048332D /* UIColor+StripeUICore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+StripeUICore.swift"; path = "StripeUICore/StripeUICore/Source/Categories/UIColor+StripeUICore.swift"; sourceTree = "<group>"; };
+		93937581287D7E9100C19321 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../MemeMove/DetailViewController.swift; sourceTree = "<group>"; };
 		93958145E68B2F1F3D2E12CD2B108AB9 /* STPPaymentMethodCardWallet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = STPPaymentMethodCardWallet.swift; path = Stripe/STPPaymentMethodCardWallet.swift; sourceTree = "<group>"; };
 		93ADD2D4087FE4ABDF291CA8C1B9E79D /* SectionContainerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SectionContainerView.swift; path = StripeUICore/StripeUICore/Source/Elements/Section/SectionContainerView.swift; sourceTree = "<group>"; };
 		93D968C3B07D15009DB98AEDB7112CD3 /* STPIntentActionBoletoDisplayDetails.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = STPIntentActionBoletoDisplayDetails.swift; path = Stripe/STPIntentActionBoletoDisplayDetails.swift; sourceTree = "<group>"; };
@@ -3888,6 +3889,7 @@
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
+				93937581287D7E9100C19321 /* DetailViewController.swift */,
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				F119B4A0ABE017AECEE69836596133B2 /* Frameworks */,
 				AB3257AB6D156DC424FF456F9D621CF8 /* Pods */,

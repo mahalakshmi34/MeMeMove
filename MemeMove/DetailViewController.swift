@@ -6,24 +6,33 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Alamofire
 
 class DetailViewController: UIViewController {
+    
+    @IBOutlet var vehicleType: UILabel!
+    @IBOutlet var driverNumber: UILabel!
+    @IBOutlet var dateandTime: UILabel!
+    @IBOutlet var RideType: UILabel!
+    @IBOutlet var pickUpLocation: UILabel!
+    @IBOutlet var dropLocation: UILabel!
+    
+    var dataResult : JSON = []
+    var itemCell :Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        fetchData()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func fetchData() {
+        print(dataResult)
+        print(itemCell)
+        
+          
+        
+        
     }
-    */
-
 }

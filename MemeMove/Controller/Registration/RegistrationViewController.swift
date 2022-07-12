@@ -28,7 +28,6 @@ class RegistrationViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         delegateMethod()
         cornerRadius()
-       
     }
     
     func delegateMethod() {

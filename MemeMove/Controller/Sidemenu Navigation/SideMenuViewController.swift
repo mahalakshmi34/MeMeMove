@@ -31,4 +31,28 @@ class SideMenuViewController: UIViewController {
         emailIdText.addShadowToButton(color: UIColor.gray, cornerRadius: 10)
         changePasswordText.addShadowToButton(color: UIColor.gray, cornerRadius: 10)
     }
+    
+    
+    @IBAction func myAccount(_ sender: UIButton) {
+        
+        let navigation = self.storyboard?.instantiateViewController(withIdentifier: "MyAccountViewController") as! MyAccountViewController
+        
+        self.navigationController?.pushViewController(navigation, animated: true)
+    }
+    
+    
+    @IBAction func totalRides(_ sender: UIButton) {
+        
+        let navigation = self.storyboard?.instantiateViewController(withIdentifier: "TotalRidesViewController") as! TotalRidesViewController
+        
+        self.navigationController?.pushViewController(navigation, animated: true)
+    }
+    
+    
+    @IBAction func privacyButton(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func logutButton(_ sender: Any) {
+    }
 }

@@ -1,4 +1,4 @@
-//
+    //
 //  TotalRidesTableViewCell.swift
 //  MemeMove
 //
@@ -8,7 +8,18 @@
 import UIKit
 
 class TotalRidesTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet var fromRoad: UILabel!
+    @IBOutlet var toRoad: UILabel!
+    @IBOutlet var toLabel: UILabel!
+    @IBOutlet var fromLabel: UILabel!
+    @IBOutlet var labelLine: UILabel!
+    @IBOutlet var status: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var onGoingUpdate: UILabel!
+    
+    @IBOutlet var dateUpdate: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

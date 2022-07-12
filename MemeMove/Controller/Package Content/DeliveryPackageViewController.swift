@@ -22,6 +22,10 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var packageItem: UITextField!
     
+    @IBOutlet var packageContentIcon: UIImageView!
+    @IBOutlet var groupLine: UIImageView!
+   
+    @IBOutlet var packageContentLabel: UILabel!
     
     var currentLocationLat :Double = 0.0
     var currentLocationLong : Double = 0.0
@@ -45,6 +49,7 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         dropShadow()
         navigationBar()
         textTapped()
+        packegeContentValidation()
        // removeObject()
         //validation()
         //autoComplete()
@@ -60,10 +65,33 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         packageList()
     }
     
+    func packegeContentValidation() {
+        if UserDefaults.standard.integer(forKey: "personTag") == 1 {
+            packageContent.isHidden = true
+            packageItem.isHidden = true
+            packageContentIcon.isHidden = true
+            packageContentLabel.isHidden = true
+            groupLine.isHidden = true
+          }
+          if UserDefaults.standard.integer(forKey: "personCargoTag") == 2 {
+             packageContent.isHidden = false
+             packageItem.isHidden = false
+             packageContentIcon.isHidden = false
+                  
+           }
+    }
+    
     func removeObject() {
         UserDefaults.standard.removeObject(forKey: "currentLocationCity")
         UserDefaults.standard.removeObject(forKey: "currentLocationCountry")
         UserDefaults.standard.removeObject(forKey: "currentLocationState")
+    }
+    
+    
+    @IBAction func packageContentTapped(_ sender: UIButton) {
+        
+ 
+        
     }
     
     func validation() {
@@ -219,6 +247,19 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
         }
     }
     
+    func screenValidation() {
+        if UserDefaults.standard.integer(forKey: "personTag") == 1 {
+            let storyBoard = self.storyboard?.instantiateViewController(withIdentifier: "SelectVehicleTypeViewController") as! SelectVehicleTypeViewController
+            self.navigationController?.pushViewController(storyBoard, animated: true)
+        }
+        
+        if UserDefaults.standard.integer(forKey: "personCargoTag") == 2 {
+            
+            navigateToSelectVehicle()
+            
+        }
+    }
+    
     func navigateToSelectVehicle() {
         let selectVehicle = self.storyboard?.instantiateViewController(withIdentifier: "AddAddressDetailViewController") as! AddAddressDetailViewController
         
@@ -226,8 +267,9 @@ class DeliveryPackageViewController: UIViewController,CLLocationManagerDelegate 
     }
     
     @IBAction func proceedButton(_ sender: UIButton){
-        textValidation()
-        navigateToSelectVehicle()
+        //textValidation()
+        screenValidation()
+       
     }
     
     

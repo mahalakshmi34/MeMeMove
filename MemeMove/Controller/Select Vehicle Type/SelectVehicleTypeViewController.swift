@@ -187,7 +187,7 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
         else {
             print("error")
         }
-//
+            
         let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? NSURL
         print(imageURL?.absoluteString)
         temporaryImagePath = imageURL?.absoluteString ?? ""
@@ -278,7 +278,7 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
                     if let vehicleImg = cityDetail["vimg"].string {
                         print(vehicleImg)
                         vehicleImages.append(vehicleImg)
-                        print(vehicleImages.count)
+                        print(vehicleImages)
                     }
                 }
                 collectionView.reloadData()
@@ -287,12 +287,9 @@ class SelectVehicleTypeViewController: UIViewController,UICollectionViewDelegate
                 print("Request failed with error: \(error)")
             }
         }
-        
-       
     }
     
     func todaysDate() {
-        
             var startDate = ""
             var endDate  = ""
             let formatter = DateFormatter()
@@ -459,9 +456,6 @@ let url =
                    print(deliveryStatus)
                    UserDefaults.standard.set(deliveryStatus, forKey: "deliveryStatus")
                }
-               
-               
-               
             navigateToPayment()
         
            case .failure(let error):
@@ -483,21 +477,21 @@ let url =
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "selectvehicle", for: indexPath)as! VehicleTypeCollectionViewCell
         
         cell.vehicleName.text = vehicleName[indexPath.row]
-        
-       
-            let imageURL   = URL(string: "https://mylogantown.s3.amazonaws.com/mememove/Pearl-Phoenix-Reda.png")
-            print(imageURL!)
+        print(vehicleImages.count)
+    
+      //  let imageURL = URL(string: vehicleImages[indexPath.row])
+     
+        if let imageURL   = URL(string: vehicleImages[indexPath.row]) {
+            print(imageURL)
             DispatchQueue.main.async {
-                if let imageData = try? Data(contentsOf: imageURL!) {
-
+                if let imageData = try? Data(contentsOf: imageURL) {
                 let image = UIImage(data: imageData)
                 DispatchQueue.main.async {
                     cell.vehicleType.image = image
                 }
-                    
                 }
-            
-        }
+              }
+         }
         
     // just not to cause a deadlock in UI!
                   

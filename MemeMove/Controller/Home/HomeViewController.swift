@@ -60,15 +60,29 @@ class HomeViewController: UIViewController {
         self.navigationController?.pushViewController(deliveryAddress, animated: true)
     }
     
+    func deliveryPackage() {
+        
+        let deliveryAddress = self.storyboard?.instantiateViewController(withIdentifier: "DeliveryPackageViewController") as! DeliveryPackageViewController
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.pushViewController(deliveryAddress, animated: true)
+        
+    }
+    
     
     @IBAction func personCargoPressed(_ sender: UIButton) {
         navigateToTimeOfDelivery()
+        
+        UserDefaults.standard.set(2, forKey: "personCargoTag")
     }
     
-    @IBAction func personButtonPressed(_ sender: UIButton) {
+    @IBAction func personButtonPressed(_ sender: UIButton) {   
+        deliveryPackage()
         
-        navigateToTimeOfDelivery()
+        UserDefaults.standard.set(1, forKey: "personTag")
+        
     }
+    
+    
     
     @IBAction func toggleButton(_ sender: UIButton) {
         
